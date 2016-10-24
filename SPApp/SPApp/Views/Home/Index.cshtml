@@ -13,67 +13,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My ASP.NET Application</title>
 
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    @*<script src="~/Scripts/jquery-1.10.2.js"></script>*@
+    <script src="~/Scripts/site.js"></script>
 
 </head>
 <body>
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+    <div class="fixed-menu">
+        <a href="login">VPIS</a>
+    </div>
+    <div class="divWithBackgroundImage">
+        <header>
+            <div class="logo">
+                <img src="~/Content/Images/book-hi.png" />
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+            <div class="logo-text">
+                <div>
+                    <h1>LOGO/NAME</h1>
+                </div>
+                <div class="login">
+                    <a class="linkToButton" href="#">VPIS</a> 
+                </div>
             </div>
-        </div>
-    </div>*@
-    <div class="container body-content">
-        
-        @*<div class="jumbotron">
-            <h1>ASP.NET</h1>
-            <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-            <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-        </div>
+        </header>
 
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Getting started</h2>
-                <p>
-                    ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                    enables a clean separation of concerns and gives you full control over markup
-                    for enjoyable, agile development.
-                </p>
-                <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-            </div>
-            <div class="col-md-4">
-                <h2>Get more libraries</h2>
-                <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-                <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-            </div>
-            <div class="col-md-4">
-                <h2>Web Hosting</h2>
-                <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-                <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-            </div>
+        @*<div style="min-height: 800px">
+            test
         </div>*@
 
 
+        <section id="registration" class="registration animateblock centerleft">
+            <h2>Prvič pri nas?</h2>
+            <a href="~/Views/Home/?" class="linkToButton">
+                <span>REGISTRACIJA</span>
+            </a>
+        </section>
 
-        <h>Test - dela</h>
-
-        <hr />
-        <footer>
-            <p>&copy; My ASP.NET Application</p>
-        </footer>
+        <section id="search-section" class="animateblock centerright"> @*search*@
+            <h2>Poiščite knjige preko naše aplikacije in jih rezervirajte kar od doma</h2>
+        <a class="linkToButton" href="Details">IŠČI</a>
+        </section>
     </div>
+
+
+    @*<fieldset> za novo v naši knjižnici??
+        fiedlset
+    </fieldset>*@
+
+
+    <section>
+        <hr class="inline-with-text"/>
+        <h2 id="new-block-title">NOVO V NAŠI KNJIŽNICI</h2>
+        <hr class="inline-with-text" />
+
+        
+    </section>
+    @* uporabi span za formatiranje besed v stavkih *@
+
+
+    <section class="one-line-container animateblock centerright">
+        <div class="colored">
+            <figure>
+                <img class="new-item-image" style="width: 200px; height: 200px;" src="~/Content/Images/book-hi.png" />
+                <figcaption class="new-item-description">
+                    Description of the book
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+
+    <section class="one-line-container animateblock centerright">
+        <div class="colored">
+            <figure>
+                <img class="new-item-image" style="width: 200px; height: 200px;" src="~/Content/Images/book-hi.png" />
+                <figcaption class="new-item-description">
+                    Description of the book2
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section class="one-line-container animateblock centerright">
+        <div class="colored">
+            <figure>
+                <img class="new-item-image" style="width: 200px; height: 200px;" src="~/Content/Images/book-hi.png" />
+                <figcaption class="new-item-description">
+                    Description of the book3
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Matic Bizjak</p>
+    </footer>
+
 </body>
 </html>
 
