@@ -16,23 +16,23 @@
     <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
     @*<script src="~/Scripts/jquery-1.10.2.js"></script>*@
     <script src="~/Scripts/site.js"></script>
-
+     
 </head>
 <body>
-    <div class="fixed-menu">
-        <a href="login">VPIS</a>
+    <div class="fixed-index-header">
+        <a class="linkToButton" href='@Url.Action("Login")'>VPIS</a>
     </div>
     <div class="divWithBackgroundImage">
-        <header>
-            <div class="logo">
+        <header class="index-page-header">
+            @*<div class="logo">
                 <img src="~/Content/Images/book-hi.png" />
-            </div>
+            </div>*@
             <div class="logo-text">
                 <div>
                     <h1>LOGO/NAME</h1>
                 </div>
                 <div class="login">
-                    <a class="linkToButton" href="#">VPIS</a> 
+                    <a class="linkToButton" href='@Url.Action("Login")'>VPIS</a> 
                 </div>
             </div>
         </header>
@@ -44,7 +44,7 @@
 
         <section id="registration" class="registration animateblock centerleft">
             <h2>Prvič pri nas?</h2>
-            <a href="~/Views/Home/?" class="linkToButton">
+            <a href='@Url.Action("Registration")' class="linkToButton">
                 <span>REGISTRACIJA</span>
             </a>
         </section>

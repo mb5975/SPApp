@@ -1,0 +1,75 @@
+﻿
+@*@{
+    Layout = null;
+}*@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registration</title>
+
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Registration.css" />
+
+
+    @*<script src="~/Scripts/jquery-1.10.2.js"></script>*@
+    <script src="~/Scripts/site.js"></script>
+
+</head>
+<body>
+    <header class="default-header">
+        <div class="logo-text">
+            <div>
+                <h1>LOGO/NAME</h1>
+            </div>
+            <div class="login">
+                <a class="linkToButton" href='@Url.Action("Login")'>VPIS</a>
+            </div>
+        </div>
+    </header>
+
+    <div id="registration-container-div">
+        <div id="registration-form-div">
+            <form id="registration-form">
+                <div>Podatki za registracijo</div>
+                <input type="text" placeholder="Ime" required/>
+                <br />
+                <input type="text" placeholder="Priimek" required/>
+                <br />
+                <input type="email" placeholder="Elektronski naslov" required/>
+                <br />
+                <input id="password" type="password" placeholder="Geslo" required/>
+                <br />
+                <input id="confirm-password" type="password" placeholder="Ponovite geslo" required oninput="validatePassword()" />
+                <br />
+
+                <button type="submit">Registriraj me!</button>
+
+            </form>
+        </div>
+
+        <a href='@Url.Action("Index")'>Domov</a>
+    </div>
+    <script>
+        function validatePassword() {
+            var password = document.getElementById("password");
+            var confirm_password = document.getElementById("confirm-password");
+
+            
+                if (password.value != confirm_password.value) {
+                    confirm_password.setCustomValidity("Gesli se ne ujemata!");
+                    return false;
+                } else {
+                    confirm_password.setCustomValidity('');
+                    return true;
+                }
+            
+        }
+    </script>
+
+    <div> 
+    </div>
+</body>
+</html>

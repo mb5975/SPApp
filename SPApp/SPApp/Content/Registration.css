@@ -1,0 +1,58 @@
+﻿.default-header {
+    background-color: rgb(205, 137, 20);
+}
+
+#registration-form {
+    display: inline-block; /*da gre na sredino*/
+    border-radius: 20px;
+    background-color: rgb(255,228,181);
+    text-align: center;
+    font-weight: 600; 
+    font-size: 30px;
+    margin-top: 30px;
+    width: 400px;
+    padding-bottom: 10px;
+    
+}
+
+#registration-form-div {
+    text-align: center; /*da gre notranja forma na sredino*/
+}
+
+#registration-form > input {
+    border-radius: 5px;
+    border-style: groove;
+}
+
+#registration-container-div {
+    text-align: center;
+}
+
+/*--------------LOGIN PAGE uses same css file------------------*/
+
+
+#login-form {
+    display: inline-block; /*da gre na sredino*/
+    border-radius: 20px;
+    background-color: rgb(255,228,181);
+    text-align: center;
+    font-weight: 600; 
+    font-size: 30px;
+    margin-top: 30px;
+    width: 400px;
+    padding-bottom: 10px;
+    
+}
+
+#login-form-div {
+    text-align: center; /*da gre notranja forma na sredino*/
+}
+
+#login-form > input {
+    border-radius: 5px;
+    border-style: groove;
+}
+
+#login-container-div {
+    text-align: center;
+}

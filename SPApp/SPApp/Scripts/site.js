@@ -23,10 +23,10 @@ function fader() {
 function toggleFixedMenu() {
     var fromTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
     if (fromTop > 800) {
-        document.getElementsByClassName("fixed-menu")[0].style.visibility = 'visible';
+        document.getElementsByClassName("fixed-index-header")[0].style.visibility = 'visible';
     }
     else if (fromTop < 800) {
-        var m = document.getElementsByClassName("fixed-menu")[0].style.visibility = 'hidden';
+        var m = document.getElementsByClassName("fixed-index-header")[0].style.visibility = 'hidden';
     }
 
 }
