@@ -3,6 +3,10 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+h1 { /*tole uniči margin, ki je header naredu prevelik*/
+    margin: 0px;
+}
+
 
 body {
     margin: 0px;
@@ -56,11 +60,24 @@ header.index-page-header {
 }*/
 
 
+.default-header {
+    background-color: rgb(205, 137, 20);
+}
+
+
 .login { /*ne vpliva na flow strani*/
     float: right;
     position: center;
     margin-right: 30px;
-    margin-top: -140px;
+    margin-top: -80px;
+}
+
+
+#logged-in { /*ne vpliva na flow strani*/
+    float: right;
+    position: center;
+    margin-right: 30px;
+    margin-top: -80px;
 }
 
 
@@ -87,7 +104,7 @@ span.emphasize {
 
 
 .linkToButton-big { /*spremeni link v button, uporabi za ostale*/
-    border-radius: 40px;
+    border-radius: 50px;
     /*border: 2px;*/
     border-color: white;
     border-style: solid;
@@ -154,5 +171,38 @@ footer {
 }
 .animateblock.centerright.animated {
   margin-left: 0;
+}
+
+
+
+#navigation-menu {
+    float: left; /*menu pade čez content*/
+    width: 250px;
+    background-color: rgb(255,228,181); /*testing*/
+    color: black;
+    font-weight: bold;
+}
+
+#navigation-menu ul {
+    list-style-type: none; 
+}
+
+#navigation-menu a:visited, #navigation-menu a:link {
+    text-decoration: none;
+    color: black;
+}
+
+#navigation-menu > ul > li > ul {
+    display: none;
+}
+
+#navigation-menu li.active-menu-element > ul {
+    /*pokaži njegove podrejene*/
+    display: inherit;
+}
+
+#content-section {
+    float: right;
+    width: calc(100% - 250px);
 }
 

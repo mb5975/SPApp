@@ -9,9 +9,57 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>ItemDetails</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+
+    <script src="~/Scripts/site.js"></script>
 </head>
 <body>
-    <div> 
-    </div>
+    <header class="default-header">
+        <div class="logo-text">
+            <div>
+                <h1>LOGO/NAME</h1>
+            </div>
+            <div id="logged-in">
+                <span>Janez Novak FONT</span>
+            </div>
+        </div>
+    </header>
+
+    @*MENU*@
+    <nav id="navigation-menu">
+        <ul>
+            <li> 
+                <a href='#'>Domov</a>
+                <ul>
+                    <li>
+                        <a href="#rent-history">Zgodovina izposoj</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="active-menu-element">
+                <a href="#">Iskanje izdelkov</a>
+                <ul>
+                    <li>
+                        <a>Glavni podatki</a>
+                    </li>
+                    <li>
+                        <a>Opis</a>
+                    </li>
+                    <li>
+                        <a>Zgodovina</a>
+                    </li>
+                    <li>
+                        <a>Uporabne povezave</a>
+                    </li>
+                </ul>            
+            </li>
+            <li>Statistika</li>
+        </ul>
+    </nav>
+
+    <section id="content-section"> @*same on home, search statistics, samo content se bo spreminjal*@
+        <p>test</p>
+    </section>
+
 </body>
 </html>

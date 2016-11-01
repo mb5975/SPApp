@@ -36,5 +36,10 @@ namespace SPApp.Controllers
         {
             return View();
         }
+
+        public ActionResult ItemDetails()
+        {
+            return View();
+        }
     }
 }
