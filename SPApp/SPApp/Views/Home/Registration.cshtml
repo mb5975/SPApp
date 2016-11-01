@@ -34,15 +34,15 @@
         <div id="registration-form-div">
             <form id="registration-form">
                 <div>Podatki za registracijo</div>
-                <input type="text" placeholder="Ime" required/>
+                <input type="text" placeholder="Ime" required oninvalid="this.setCustomValidity('Polje ne sme biti prazno.')" oninput="setCustomValidity('')"/>
                 <br />
-                <input type="text" placeholder="Priimek" required/>
+                <input type="text" placeholder="Priimek" required oninvalid="this.setCustomValidity('Polje ne sme biti prazno.')" oninput="setCustomValidity('')"/>
                 <br />
-                <input type="email" placeholder="Elektronski naslov" required/>
+                <input type="email" placeholder="Elektronski naslov" required oninvalid="this.setCustomValidity('Vnesite elektronski naslov.')" oninput="setCustomValidity('')"/>
                 <br />
-                <input id="password" type="password" placeholder="Geslo" required/>
+                <input id="password" type="password" placeholder="Geslo" required oninvalid="this.setCustomValidity('Polje ne sme biti prazno.')" oninput="setCustomValidity('')"/>
                 <br />
-                <input id="confirm-password" type="password" placeholder="Ponovite geslo" required oninput="validatePassword()" />
+                <input id="confirm-password" type="password" placeholder="Ponovite geslo" required oninput="validatePassword()"/>
                 <br />
 
                 <button type="submit">Registriraj me!</button>
@@ -59,7 +59,7 @@
 
             
                 if (password.value != confirm_password.value) {
-                    confirm_password.setCustomValidity("Gesli se ne ujemata!");
+                    confirm_password.setCustomValidity("Gesli se ne ujemata.");
                     return false;
                 } else {
                     confirm_password.setCustomValidity('');

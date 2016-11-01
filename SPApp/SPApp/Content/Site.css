@@ -49,32 +49,20 @@ header.index-page-header {
         */
 }
 
-nav {
+/*nav {
     display: inline-block;
     text-align: center;
     padding-right: 30px;
+}*/
+
+
+.login { /*ne vpliva na flow strani*/
+    float: right;
+    position: center;
+    margin-right: 30px;
+    margin-top: -140px;
 }
 
-section {
-    /*display: inline-block; po defaultu je block čez celo*/
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 900; 
-    font-size: 34px;
-}
-
-div.colored {
-    background-color: rgb(255,228,181);  	/*(255,250,240)*/
-    display: inline-block;
-    border-radius: 60px;
-    padding: 5px;
-    border-style: groove;
-    width: 70%;
-}
-
-section.index-page {
-    display: block;
-}
 
 .logo {
     /*display: inline-block;*/
@@ -91,79 +79,15 @@ section.index-page {
     font-size: 40px;
 }
 
-.logo > img {
-    width: 200px;
-    height: 200px;
+
+span.emphasize {
+    text-decoration: underline;
+    font-weight:900;
 }
 
-.one-line-container {
-    margin-top: 14px;
-}
 
-#search-section {
-    margin-top: 90px;
-}
-
-#registration {
-    margin-top: 14px;
-}
-
-#registration > h2 {
-    margin-top: 0px;
-    margin-bottom: 50px;
-}
-
-hr.inline-with-text {
-    display: inline-block;
-    width: 30%;
-}
-
-#new-block-title {
-    display: inline-block;
-
-}
-
-.divWithBackgroundImage {
-    background-image: url(Images/pexels-photo-46274.jpeg);
-    min-height: 1000px;
-    background-size: cover;
-    /*background-color:#F0FFFF;*/ /*not working because of opacity*/
-}
-
-.login { /*ne vpliva na flow strani*/
-    float: right;
-    position: center;
-    margin-right: 30px;
-    margin-top: -140px;
-}
-
-.fixed-index-header {
-    position: fixed;
-    background-color: rgb(205, 137, 20);
-    width: 100%;
-    height: 90px;
-    visibility: hidden;
-}
-
-.fixed-index-header > a {
-    float: right;
-    margin-top: 30px;
-    margin-right: 30px;
-}
-
-.fixed-index-header > a { /*spremeni link v button, uporabi za ostale*/
-    border-radius: 50px;
-    /*border: 2px;*/
-    border-color: white;
-    border-style: solid;
-    padding: 5px;
-    color: white;
-    text-decoration: solid;
-    background-color: rgb(205, 137, 20);
-}
-
-.linkToButton { /*spremeni link v button, uporabi za ostale*/
-    border-radius: 50px;
+.linkToButton-big { /*spremeni link v button, uporabi za ostale*/
+    border-radius: 40px;
     /*border: 2px;*/
     border-color: white;
     border-style: solid;
@@ -173,31 +97,19 @@ hr.inline-with-text {
     background-color: rgb(205, 137, 20);
 }
 
-.linkToButton-small { /*spremeni link v button, uporabi za ostale*/
+.linkToButton-default {
     border-radius: 50px;
-    /*border: 2px;*/
+    border: 2px;
     border-color: white;
     border-style: solid;
-    padding: 2px;
+    padding: 12px;
     color: white;
     text-decoration: solid;
     background-color: rgb(205, 137, 20);
-    font-size: 20px;
+    font-size: 24px;
 }
 
-.new-item-image {
-    display: inline-block;
-    /*float: left;
-    margin-left: 60px;*/
-}
-.new-item-description {
-    display: inline-block;
-    vertical-align: top;
-}
 
-figure {
-    margin: 16px;
-}
 
 
 footer {

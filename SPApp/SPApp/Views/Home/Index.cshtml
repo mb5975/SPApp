@@ -14,6 +14,7 @@
     <title>My ASP.NET Application</title>
 
     <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Index.css" />
     @*<script src="~/Scripts/jquery-1.10.2.js"></script>*@
     <script src="~/Scripts/site.js"></script>
      
@@ -32,26 +33,29 @@
                     <h1>LOGO/NAME</h1>
                 </div>
                 <div class="login">
-                    <a class="linkToButton" href='@Url.Action("Login")'>VPIS</a> 
+                    <a class="linkToButton-big" href='@Url.Action("Login")'>VPIS</a> 
                 </div>
             </div>
         </header>
 
-        @*<div style="min-height: 800px">
-            test
-        </div>*@
+        <section id="index-app-description">
+            <h3>
+                NAME je aplikacija, ki uporabnikom omogoča <span class="emphasize">rezervacijo</span> in <span class="emphasize">izposojo</span> izdelkov v naši knjižnici.
+            </h3>
+            <br />
+            <br />
+        </section>
 
-
-        <section id="registration" class="registration animateblock centerleft">
-            <h2>Prvič pri nas?</h2>
-            <a href='@Url.Action("Registration")' class="linkToButton">
+        <section id="registration" class="registration">
+            <h3>Prvič pri nas? Registrirajte se in začnite z uporabno že danes!</h3>
+            <a href='@Url.Action("Registration")' class="linkToButton-default">
                 <span>REGISTRACIJA</span>
             </a>
         </section>
 
         <section id="search-section" class="animateblock centerright"> @*search*@
-            <h2>Poiščite knjige preko naše aplikacije in jih rezervirajte kar od doma</h2>
-        <a class="linkToButton" href="Details">IŠČI</a>
+            <h3>Ali pa samo pobrskajte po naših izdelkih</h3>
+        <a class="linkToButton-default" href="Details">Brskaj</a>
         </section>
     </div>
 
