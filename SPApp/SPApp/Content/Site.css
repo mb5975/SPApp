@@ -19,7 +19,8 @@
 
 #default-header {
     background-color: rgb(205, 137, 20);
-    height:120px; /*to get the background color*/ /**enako kot indey-page-header*/
+    height: 120px; /*to get the background color*/ /**enako kot indey-page-header*/
+    width: 100%;
 }
 
 
@@ -238,6 +239,12 @@ input[type=checkbox]:checked ~ #navigation-menu {
 
     /**********responsive header*/
 
+    #default-header {
+        background-color: rgb(205, 137, 20);
+        height: 60px; /*to get the background color*/ /**enako kot indey-page-header*/
+        width: 100%;
+    }
+    
     #header-left-div {
         float: left;
         width: 60%;
@@ -249,7 +256,7 @@ input[type=checkbox]:checked ~ #navigation-menu {
         justify-content: center;
     }
 
-    #header-right-div { /*ne vpliva na flow strani*/
+    #header-right-div {
         float: left;
         width: 40%;
         height: 100%;
