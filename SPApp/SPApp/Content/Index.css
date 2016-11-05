@@ -95,3 +95,27 @@ hr.inline-with-text {
     justify-content: center;
 }
 
+/*----------------------Responsive Styles-----------*/ 
+@media screen and (max-width : 760px) {
+    .divWithBackgroundImage section {
+        margin-top: 0px; 
+
+    }
+
+    .divWithBackgroundImage {
+        background-image: url(Images/pexels-photo-46274.jpeg);
+        min-height: 400px;
+        background-size: cover;
+        /*background-color:#F0FFFF;*/ /*not working because of opacity*/
+    }
+
+    .fixed-index-header {
+        position: fixed;
+        background-color: rgb(205, 137, 20);
+        width: 100%;
+        height: 50px;
+        visibility: hidden;
+    }
+
+
+}
