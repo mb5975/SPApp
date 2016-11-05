@@ -6,19 +6,6 @@
     font-size: 34px;
 }
 
-section > h3 {
-    font-weight: 700;
-}
-
-div.colored {
-    background-color: rgb(255,228,181);  	/*(255,250,240)*/
-    display: inline-block;
-    border-radius: 60px;
-    padding: 5px;
-    border-style: groove;
-    width: 70%;
-}
-
 section.index-page {
     display: block;
 }
@@ -48,15 +35,7 @@ section.index-page {
     background-color: rgb(205, 137, 20);
 }
 
-.new-item-image {
-    display: inline-block;
-    /*float: left;
-    margin-left: 60px;*/
-}
-.new-item-description {
-    display: inline-block;
-    vertical-align: top;
-}
+
 
 figure {
     margin: 16px;
@@ -76,24 +55,7 @@ figure {
 }
 
 
-hr.inline-with-text {
-    float: left;
-    width: 34%;
-}
 
-#new-block-title {
-    float: left;
-    width: 32%;
-}
-
-
-#new-in-section {
-    height: 100px;
-    /*vertical center*/
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 /*----------------------Responsive Styles-----------*/ 
 @media screen and (max-width : 760px) {

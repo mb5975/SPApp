@@ -41,5 +41,10 @@ namespace SPApp.Controllers
         {
             return View();
         }
+
+        public ActionResult Home()
+        {
+            return View();
+        }
     }
 }

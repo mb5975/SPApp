@@ -102,6 +102,29 @@ span.emphasize {
 
 
 
+table {
+	border-width: 1px;
+	border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+table th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    background-color: rgb(205, 137, 20); /*darkgray*/
+}
+
+table td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	/*background-color: rgb(205, 137, 20);*/
+}
+
+
+
+
 footer {
     min-height: 160px; /*for testing*/
     background-color: black;
@@ -242,7 +265,7 @@ input[type=checkbox]:checked ~ #navigation-menu {
     #default-header {
         background-color: rgb(205, 137, 20);
         height: 60px; /*to get the background color*/ /**enako kot indey-page-header*/
-        width: 100%;
+        width: 100%; /*na telefonu se to ne pokaže*/
     }
     
     #header-left-div {
@@ -272,4 +295,55 @@ input[type=checkbox]:checked ~ #navigation-menu {
 
 .text-align-center {
     text-align: center; /*probi dat une 3 notr, pa poglej če se kje kej pokvari*/
+}
+
+
+
+/*------------novo v naši knjižnici je v site.css zato ker se pojavi na index in home page-u*/
+div.colored {
+    background-color: rgb(255,228,181);  	/*(255,250,240)*/
+    display: inline-block;
+    border-radius: 60px;
+    padding: 5px;
+    border-style: groove;
+    width: 70%;
+}
+
+hr.inline-with-text {
+    float: left;
+    width: 34%;
+}
+
+#new-block-title {
+    float: left;
+    width: 32%;
+}
+
+
+#new-in-section {
+    height: 100px;
+    text-align: center;
+    /*vertical center*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.new-item-image {
+    display: inline-block;
+    /*float: left;
+    margin-left: 60px;*/
+}
+.new-item-description {
+    display: inline-block;
+    vertical-align: top;
+}
+
+/*****************end novo v naši knjižnici*/
+
+
+#table-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

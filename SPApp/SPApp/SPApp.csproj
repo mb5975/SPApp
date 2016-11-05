@@ -210,6 +210,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Home.css" />
     <Content Include="Content\Images\book-hi.png" />
     <Content Include="Content\Images\pexels-photo-46274.jpeg" />
     <Content Include="Content\Index.css" />
@@ -277,6 +278,7 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\ItemDetails.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -32,7 +32,7 @@
     <nav id="navigation-menu">
         <ul>
             <li> 
-                <a href='#'>Domov</a>
+                <a href='@Url.Action("Home")'>Domov</a>
             </li>
             <li class="active-menu-element">
                 <a href="#">Iskanje izdelkov</a>
@@ -68,26 +68,29 @@
     </section>
 
     <section>
-        <div id="rent-history" class="text-align-center">
+        <div @*id="rent-history"*@ class="text-align-center">
             <span>Zgodovina izposoj</span>
-            <table>
-                <tr>
-                    <th>Datum izposoje</th>
-                    <th>Datum vrnitve</th>
-                </tr>
-                <tr>
-                    <td>10.10.2016</td>
-                    <td>4.11.2016</td>
-                </tr>
-                <tr>
-                    <td>23.9.2016</td>
-                    <td>9.10.2016</td>
-                </tr>
-                <tr>
-                    <td>2.9.2016</td>
-                    <td>20.9.2016</td>
-                </tr>
-            </table>
+            <div id="table-container">  <!--da lahko spravim tabelo na sredino, drugače gre span zraven pa ni vredu-->
+
+                <table>
+                    <tr>
+                        <th>Datum izposoje</th>
+                        <th>Datum vrnitve</th>
+                    </tr>
+                    <tr>
+                        <td>10.10.2016</td>
+                        <td>4.11.2016</td>
+                    </tr>
+                    <tr>
+                        <td>23.9.2016</td>
+                        <td>9.10.2016</td>
+                    </tr>
+                    <tr>
+                        <td>2.9.2016</td>
+                        <td>20.9.2016</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </section>
 

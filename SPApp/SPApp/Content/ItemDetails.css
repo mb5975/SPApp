@@ -33,7 +33,7 @@
 }
 
 
-#rent-history > table {
+/*#rent-history > table {
 	border-width: 1px;
 	border-collapse: collapse;
 }
@@ -41,7 +41,7 @@
     border-width: 1px;
     padding: 8px;
     border-style: solid;
-    background-color: rgb(205, 137, 20); /*darkgray*/
+    background-color: rgb(205, 137, 20); /*darkgray
 }
 
 #rent-history > table td {
@@ -49,7 +49,7 @@
 	padding: 8px;
 	border-style: solid;
 	/*background-color: rgb(205, 137, 20);*/
-}
+}*/
 
 
 

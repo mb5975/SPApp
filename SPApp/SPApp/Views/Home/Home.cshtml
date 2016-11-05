@@ -1,0 +1,138 @@
+﻿@*@{
+        Layout = null;
+    }*@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ItemDetails</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Home.css" />
+
+
+    <script src="~/Scripts/site.js"></script>
+</head>
+<body>
+    <header id="default-header">
+        <div id="header-left-div">
+            <span>LOGO/NAME</span>
+        </div>
+        <div id="header-right-div">
+            <span>Janez Novak FONT</span>
+        </div>
+    </header>
+
+    <label for="show-menu" id="show-menu-label">Show Menu</label>
+    <input type="checkbox" id="show-menu" role="button">
+
+    @*MENU*@
+    <nav id="navigation-menu">
+        <ul>
+            <li>
+                <a href='#'>Domov</a>
+            </li>
+            <li class="active-menu-element">
+                <a href="#">Iskanje izdelkov</a>
+            </li>
+            <li>
+                <a href="#">Statistika</a>
+            </li>
+        </ul>
+    </nav>
+
+    
+
+    <section>
+        <div id="rent-history-for-user" class="text-align-center">
+            <span>Trenutno izposojene knjige</span>
+            <br />
+            <div id="table-container"> <!--da lahko spravim tabelo na sredino, drugače gre span zraven pa ni vredu-->
+                <table>
+                    <tr>
+                        <th>Knjiga</th>
+                        <th>Datum izposoje</th>
+                        <th>Datum vrnitve</th>
+                        <th>Možnost podaljšanja</th>
+                    </tr>
+                    <tr>
+                        <td><a href='@Url.Action("ItemDetails")'>LINK do knjige</a></td>
+                        <td>10.10.2016</td>
+                        <td>4.11.2016</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><a href='@Url.Action("ItemDetails")'>LINK do knjige</a></td>
+                        <td>23.9.2016</td>
+                        <td>9.10.2016</td>
+                        <td>Podaljšaj</td>
+                    </tr>
+                    <tr>
+                        <td><a href='@Url.Action("ItemDetails")'>LINK do knjige</a></td>
+                        <td>2.9.2016</td>
+                        <td>20.9.2016</td>
+                        <td>Podaljšaj</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    @*copy-----------------------------------*@
+
+    <section id="new-in-section">
+        <hr class="inline-with-text" />
+        <span id="new-block-title">NOVO V NAŠI KNJIŽNICI</span>
+        <hr class="inline-with-text" />
+    </section>
+    @* uporabi span za formatiranje besed v stavkih *@
+
+
+    <section class="animateblock centerright">
+        <div class="colored">
+            <figure>
+                <img class="new-item-image" style="width: 200px; height: 200px;" src="~/Content/Images/book-hi.png" />
+                <figcaption class="new-item-description">
+                    Description of the book
+                </figcaption>
+                <a href='@Url.Action("ItemDetails")'>več -></a>
+            </figure>
+        </div>
+    </section>
+
+
+    <section class="animateblock centerright">
+        <div class="colored">
+            <figure>
+                <img class="new-item-image" style="width: 200px; height: 200px;" src="~/Content/Images/book-hi.png" />
+                <figcaption class="new-item-description">
+                    Description of the book2
+                </figcaption>
+                <a href='@Url.Action("ItemDetails")'>več -></a>
+            </figure>
+        </div>
+    </section>
+
+    <section class="animateblock centerright">
+        <div class="colored">
+            <figure>
+                <img class="new-item-image" style="width: 200px; height: 200px;" src="~/Content/Images/book-hi.png" />
+                <figcaption class="new-item-description">
+                    Description of the book3
+                </figcaption>
+                <a href='@Url.Action("ItemDetails")'>več -></a>
+            </figure>
+        </div>
+    </section>
+
+
+    @*coy end -------------------------------------*@
+
+    <footer class="text-align-center">
+        <br />
+        <span>&copy; Matic Bizjak</span>
+    </footer>
+
+</body>
+</html>
