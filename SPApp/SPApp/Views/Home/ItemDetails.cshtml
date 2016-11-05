@@ -10,56 +10,108 @@
     <meta name="viewport" content="width=device-width" />
     <title>ItemDetails</title>
     <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/ItemDetails.css" />
+
 
     <script src="~/Scripts/site.js"></script>
 </head>
 <body>
-    <header class="default-header">
-        <div class="logo-text">
-            <div>
-                <h1>LOGO/NAME</h1>
-            </div>
-            <div id="logged-in">
-                <span>Janez Novak FONT</span>
-            </div>
+    <header id="default-header">
+        <div id="header-left-div">
+            <span>LOGO/NAME</span>
+        </div>
+        <div id="header-right-div">
+            <span>Janez Novak FONT</span>
         </div>
     </header>
+
+    <label for="show-menu" id="show-menu-label">Show Menu</label>
+    <input type="checkbox" id="show-menu" role="button">
 
     @*MENU*@
     <nav id="navigation-menu">
         <ul>
             <li> 
                 <a href='#'>Domov</a>
-                <ul>
-                    <li>
-                        <a href="#rent-history">Zgodovina izposoj</a>
-                    </li>
-                </ul>
             </li>
             <li class="active-menu-element">
                 <a href="#">Iskanje izdelkov</a>
-                <ul>
-                    <li>
-                        <a>Glavni podatki</a>
-                    </li>
-                    <li>
-                        <a>Opis</a>
-                    </li>
-                    <li>
-                        <a>Zgodovina</a>
-                    </li>
-                    <li>
-                        <a>Uporabne povezave</a>
-                    </li>
-                </ul>            
             </li>
-            <li>Statistika</li>
+            <li>
+                <a href="#">Statistika</a>
+            </li>
         </ul>
     </nav>
 
-    <section id="content-section"> @*same on home, search statistics, samo content se bo spreminjal*@
-        <p>test</p>
+    <section id="item-details-container">
+        <div id="title-info" class="text-align-center centered">
+            <span>NASLOV KNJIGE</span>
+        </div>
+
+        <div id="main-and-description-info-container"> <!--make two divs and fieldsets inside have same height-->
+            <div id="main-info">
+                <fieldset>
+                    <legend>Glavni podatki</legend>
+                    <label>Avtor: <input type="text" value="avtor.." disabled></label><br />
+                    <label>Leto izdaje: <input type="number" value="2001" disabled></label><br />
+                    <label>Status: <input type="text" value="izposojena" disabled></label>
+                </fieldset>
+            </div>
+
+            <div id="description-info">
+                <fieldset>
+                    <legend>Opis</legend>
+                    <span> opis....</span>
+                </fieldset>
+            </div>
+        </div>
     </section>
+
+    <section>
+        <div id="rent-history" class="text-align-center">
+            <span>Zgodovina izposoj</span>
+            <table>
+                <tr>
+                    <th>Datum izposoje</th>
+                    <th>Datum vrnitve</th>
+                </tr>
+                <tr>
+                    <td>10.10.2016</td>
+                    <td>4.11.2016</td>
+                </tr>
+                <tr>
+                    <td>23.9.2016</td>
+                    <td>9.10.2016</td>
+                </tr>
+                <tr>
+                    <td>2.9.2016</td>
+                    <td>20.9.2016</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section>
+        <div id="useful-links" class="text-align-center">
+            <span>Uporabne povezave</span>
+            <ul>
+                <li>
+                    <a href="#">www.knjiga1.com</a>
+                </li>
+                <li>
+                    <a href="#">www.avtor1.com</a>
+                </li>
+                <li>
+                    <a href="#">www.cobiss.com/knjiga1</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="text-align-center">
+        <br />
+        <span>&copy; Matic Bizjak</span>
+    </footer>
 
 </body>
 </html>

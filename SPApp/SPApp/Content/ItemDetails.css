@@ -1,0 +1,82 @@
+﻿#item-details-container {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+
+#item-details-container > div.centered {
+    /* these 2 lines align div to center*/
+    width: 70%;
+    margin: 0 auto; 
+    /*background-color:  rgb(205, 137, 20);*/
+    /*border-radius: 60px;*/
+}
+
+#main-and-description-info-container { /*make two divs and filedsets inside have same height*/
+    height: 250px;
+}
+
+#main-info {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+#main-info > fieldset, #description-info > fieldset {/*make two divs and filedsets inside have same height*/
+    height: 100%;
+}
+
+#description-info {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+
+#rent-history > table {
+	border-width: 1px;
+	border-collapse: collapse;
+}
+#rent-history > table th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    background-color: rgb(205, 137, 20); /*darkgray*/
+}
+
+#rent-history > table td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	/*background-color: rgb(205, 137, 20);*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----------------------Responsive Styles-----------*/
+
+@media screen and (max-width : 760px) {
+    #main-info {
+        float: none;
+        width: 100%;
+        height: 50%;
+        margin-bottom: 50px; /*fieldset gleda čez div, zato se brez tega prekrivata*/
+    }
+
+    #description-info {
+        float: none;
+        width: 100%;
+        height: 50%;
+    }
+}

@@ -213,6 +213,7 @@
     <Content Include="Content\Images\book-hi.png" />
     <Content Include="Content\Images\pexels-photo-46274.jpeg" />
     <Content Include="Content\Index.css" />
+    <Content Include="Content\ItemDetails.css" />
     <Content Include="Content\Registration.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
