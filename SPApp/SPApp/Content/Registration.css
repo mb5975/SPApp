@@ -5,12 +5,12 @@
     border-radius: 20px;
     background-color: rgb(255,228,181);
     text-align: center;
-    font-weight: 600; 
-    font-size: 30px;
     margin-top: 30px;
     width: 400px;
-    padding-bottom: 10px;
-    
+    padding-bottom: 10px; /*barva pod register button*/
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 #registration-form-div {
@@ -20,7 +20,14 @@
 #registration-form > input {
     border-radius: 5px;
     border-style: groove;
+    width: 70%; /*70% od forme*/
+    margin-bottom: 30px;
 }
+
+#registration-form > div {
+    margin-bottom: 30px;
+}
+
 
 #registration-container-div {
     text-align: center;
@@ -34,12 +41,12 @@
     border-radius: 20px;
     background-color: rgb(255,228,181);
     text-align: center;
-    font-weight: 600; 
-    font-size: 30px;
     margin-top: 30px;
     width: 400px;
-    padding-bottom: 10px;
-    
+    padding-bottom: 10px; /*barva pod vpis button*/
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 #login-form-div {
@@ -49,8 +56,70 @@
 #login-form > input {
     border-radius: 5px;
     border-style: groove;
+    width: 70%; /*70% od forme*/
+    margin-bottom: 30px;
+}
+
+#login-form > div {
+    margin-bottom: 30px;
 }
 
 #login-container-div {
     text-align: center;
+}
+
+
+
+/*----------------------Responsive Styles-----------*/
+
+@media screen and (max-width : 480px) { /*5inch*/
+    #registration-form {
+        display: inline-block; /*da gre na sredino*/
+        border-radius: 20px;
+        background-color: rgb(255,228,181);
+        text-align: center;
+        margin-top: 30px;
+        width: 90%;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    #registration-form > div {
+        /*pod textom prostor*/
+        margin-bottom: 10px;
+    }
+
+    #registration-form > input {
+        border-radius: 5px;
+        border-style: groove;
+        width: 70%; /*70% od forme*/
+        margin-bottom: 10px;
+    }
+
+
+    #login-form {
+        display: inline-block; /*da gre na sredino*/
+        border-radius: 20px;
+        background-color: rgb(255,228,181);
+        text-align: center;
+        margin-top: 30px;
+        width: 90%;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    #login-form > input {
+        border-radius: 5px;
+        border-style: groove;
+        width: 70%; /*70% od forme*/
+        margin-bottom: 10px;
+    }
+
+    #login-form > div {
+        /*pod textom prostor*/
+        margin-bottom: 10px;
+    }
+
 }

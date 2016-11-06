@@ -1,6 +1,7 @@
 ﻿#item-details-container {
     margin-top: 20px;
     margin-bottom: 50px;
+    height: 350px; /*TODO na roko spremeni, tako da ne grejo podatki čez črto*/
 }
 
 
@@ -8,74 +9,46 @@
     /* these 2 lines align div to center*/
     width: 70%;
     margin: 0 auto; 
+    margin-bottom: 40px;
     /*background-color:  rgb(205, 137, 20);*/
     /*border-radius: 60px;*/
 }
 
 #main-and-description-info-container { /*make two divs and filedsets inside have same height*/
-    height: 250px;
+    /*height: 250px;*/
+    margin-bottom: 20px;
 }
 
 #main-info {
     float: left;
-    width: 50%;
+    /*width: 50%;*/
     height: 100%;
-}
-
-#main-info > fieldset, #description-info > fieldset {/*make two divs and filedsets inside have same height*/
-    height: 100%;
+    /*text-align: center;*/
 }
 
 #description-info {
     float: left;
-    width: 50%;
+    /*width: 50%;*/
     height: 100%;
+    /*text-align: center;*/
+    margin-left: 20px;
 }
-
-
-/*#rent-history > table {
-	border-width: 1px;
-	border-collapse: collapse;
-}
-#rent-history > table th {
-    border-width: 1px;
-    padding: 8px;
-    border-style: solid;
-    background-color: rgb(205, 137, 20); /*darkgray
-}
-
-#rent-history > table td {
-	border-width: 1px;
-	padding: 8px;
-	border-style: solid;
-	/*background-color: rgb(205, 137, 20);*/
-}*/
-
-
-
-
-
-
-
-
-
-
 
 
 
 
 /*----------------------Responsive Styles-----------*/
 
-@media screen and (max-width : 760px) {
+@media screen and (max-width : 600px) { /*5inch: malo prej zamenjaj, ker se malo pred tem pojavijo čudne postavitve*/
     #main-info {
-        float: none;
+        /*float: none;*/
         width: 100%;
         height: 50%;
         margin-bottom: 50px; /*fieldset gleda čez div, zato se brez tega prekrivata*/
     }
 
     #description-info {
-        float: none;
+        /*float: none;*/
         width: 100%;
         height: 50%;
     }

@@ -58,7 +58,7 @@ figure {
 
 
 /*----------------------Responsive Styles-----------*/ 
-@media screen and (max-width : 760px) {
+@media screen and (max-width : 480px) { /*5inch*/
     .divWithBackgroundImage section {
         margin-top: 0px; 
 
