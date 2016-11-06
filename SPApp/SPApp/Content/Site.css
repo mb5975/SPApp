@@ -113,21 +113,21 @@ table {
 	border-collapse: collapse;
     margin-top: 20px;
     margin-bottom: 20px;
-    width: 100%;
-    min-width: 500px; /*TODO glede na informacije v tabeli*/
+    width: 100%; /*če 95 centriram na center, ampak noče scrollat čist v levo css: table {}*/
+    min-width: 400px; /*TODO glede na informacije v tabeli*/
 }
 table th {
     border-width: 1px;
     padding: 8px;
     border-style: solid;
     background-color: rgb(205, 137, 20); /*darkgray*/
+    font-weight: 700; /*ta prepiše neko default vrednost ki se pojavi -- tudi 700*/
 }
 
 table td {
 	border-width: 1px;
 	padding: 8px;
 	border-style: solid;
-	/*background-color: rgb(205, 137, 20);*/
 }
 
 
@@ -139,6 +139,7 @@ footer {
     color: white;
     font-size: 30px;
     font-weight: 500;
+    width: 100%;
 }
 
 
@@ -292,6 +293,7 @@ hr.inline-with-text {
 
 
 #table-container {
+    /**s temi tremi noče overflow-x scrollat čist na levo*/
     /*display: flex;
     align-items: center;
     justify-content: center;*/

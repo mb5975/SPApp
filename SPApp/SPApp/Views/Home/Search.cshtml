@@ -1,0 +1,130 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Search</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Search.css" />
+
+    <script src="~/Scripts/site.js"></script>
+</head>
+<body>
+    <header id="default-header">
+        <div id="header-left-div">
+            <span>LOGO/NAME</span>
+        </div>
+        <div id="header-right-div">
+            <span>Janez Novak FONT</span>
+        </div>
+    </header>
+
+    <label for="show-menu" id="show-menu-label">Show Menu</label>
+    <input type="checkbox" id="show-menu" role="button">
+
+    @*MENU*@
+    <nav id="navigation-menu">
+        <ul>
+            <li>
+                <a href='@Url.Action("Home")'>Domov</a>
+            </li>
+            <li class="active-menu-element">
+                <a href='@Url.Action("Search")'>Iskanje izdelkov</a>
+            </li>
+            <li>
+                <a href="#">Statistika</a>
+            </li>
+        </ul>
+    </nav>
+
+    <section id="content"> <!--search input in izbira kategorije-->
+        <div id="category-and-search-input-container">
+            <form>
+                <select>
+                    <option disabled selected value="disabled"> -- izberite kategorijo -- </option>
+                    <option value="books">Knjige</option>
+                    <option value="tools">Orodje</option>
+                    <option value="cars">Avtomobili</option>
+                </select>
+
+                <input id="search-filter" type="text" placeholder="Vpišite iskalni niz" />
+                <!--onclick return false prepreči submitanje, če imam button type submit znotraj forme-->
+                <!--js bom itak mel ajax in ne celega refreshanja tko da se bo tole še spremenilo-->
+                <button type="submit" onclick="submit_search(); return false;">Išči</button>
+            </form>
+        </div>
+        <div id="result-container" style="visibility: hidden;">
+            <div id="table-container">
+                <!--(najprej za sredino), zdaj za responsive oz overflow-x-->
+                <table>
+                    <tr>
+                        <th>Naziv</th>
+                        <th>Čas izposoje</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr>
+                        <td><a href='@Url.Action("ItemDetails")'>LINK do knjige</a></td>
+                        <td>25 dni</td>
+                        <td>Izposojeno</td>
+                    </tr>
+                    <tr>
+                        <td><a href='@Url.Action("ItemDetails")'>LINK do knjige</a></td>
+                        <td>25 dni</td>
+                        <td>Izposojeno</td>
+                    </tr>
+                    <tr>
+                        <td><a href='@Url.Action("ItemDetails")'>LINK do knjige</a></td>
+                        <td>25 dni</td>
+                        <td>Prosto</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showResults() {
+            document.getElementById('result-container').style.visibility = 'visible';
+        }
+
+        function validate_search() {
+            var selectedIndex = document.querySelector('#category-and-search-input-container select').selectedIndex;
+            var selectedValue = document.querySelector('#category-and-search-input-container select').value;
+
+            //var searchFilter = document.getElementById('search-filter').value;
+            //if (selectedIndex == 0 || searchFilter == "") {
+            if (selectedValue == 'disabled') { //dela tudi tam, kjer ni prvega disabled za razliko od indexa
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+
+        function submit_search() {
+            var validation_successful = validate_search();
+            if (validation_successful) {
+                //submit
+                console.log("validation successful");
+                showResults();
+                return true;
+            }
+            else {
+                //set custom valididty
+                return false;
+            }
+        }
+    </script>
+
+    <footer class="text-align-center">
+        <br />
+        <span>&copy; Matic Bizjak</span>
+    </footer>
+
+</body>
+</html>

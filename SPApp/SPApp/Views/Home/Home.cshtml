@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>ItemDetails</title>
+    <title>Home</title>
     <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/Home.css" />
 
@@ -31,10 +31,10 @@
     <nav id="navigation-menu">
         <ul>
             <li>
-                <a href='#'>Domov</a>
+                <a href='@Url.Action("Home")'>Domov</a>
             </li>
             <li class="active-menu-element">
-                <a href="#">Iskanje izdelkov</a>
+                <a href='@Url.Action("Search")'>Iskanje izdelkov</a>
             </li>
             <li>
                 <a href="#">Statistika</a>
@@ -48,7 +48,7 @@
         <div id="rent-history-for-user" class="text-align-center">
             <span>Trenutno izposojene knjige</span>
             <br />
-            <div id="table-container"> <!--da lahko spravim tabelo na sredino, drugače gre span zraven pa ni vredu-->
+            <div id="table-container"> <!--(najprej za sredino), zdaj za responsive oz overflow-x-->
                 <table>
                     <tr>
                         <th>Knjiga</th>
