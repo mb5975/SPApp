@@ -1,0 +1,44 @@
+﻿/*#description-about-us div, #map-and-contact div, #contack-container div {
+    text-align: center;
+}*/
+
+
+/*fix because parent element has height of 0 if child divs are floating*/
+#map-and-contact:after { 
+    content: " "; 
+    display: block;
+    clear: both;
+}
+
+#map-container, #contack-container {
+    float: left;
+    width: 50%;
+    min-width: 500px;
+    margin-bottom: 30px;
+}
+#google-maps-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*width: 500px;
+    height: 500px;*/
+}
+
+#google-maps { /*MUST HAVE, OTHERWISE it doesn't display*/
+    width: 500px;
+    height: 500px;
+}
+
+/*----------------------Responsive Styles-----------*/
+
+@media screen and (max-width : 480px) { /*5inch*/
+    #google-maps { /*MUST HAVE, OTHERWISE it doesn't display*/
+        width: 200px;
+        height: 200px;
+    }
+    #map-container, #contack-container {
+        width: 100%;
+        margin-bottom: 20px;
+        min-width: 0px;
+    }
+}

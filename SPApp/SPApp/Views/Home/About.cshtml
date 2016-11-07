@@ -1,7 +1,91 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿<!DOCTYPE html>
 
-<p>Use this area to provide additional information.</p>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registration</title>
+
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/About.css" />
+
+
+    @*<script src="~/Scripts/jquery-1.10.2.js"></script>*@
+    <script src="~/Scripts/site.js"></script>
+
+</head>
+<body>
+    <header id="default-header">
+        <div id="header-left-div">
+            <span>LOGO/NAME</span>
+        </div>
+        <div id="header-right-div">
+            <a class="linkToButton-default" href='@Url.Action("Login")'>VPIS</a>
+        </div>
+    </header>
+
+
+    <section id="description-about-us" class="text-align-center">
+        <div>
+            <span>O nas</span>
+        </div>
+        <div> <!--description-->
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque turpis, commodo id odio id, semper tempus justo. Cras pharetra nisi sit amet ex lobortis egestas. Donec sed tincidunt urna. Etiam congue lacus et nisl eleifend, quis venenatis leo tristique. Nullam placerat, 
+                ante rhoncus vestibulum dignissim, est turpis tempus augue, at tempor justo purus varius leo.
+                 Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                 Ut scelerisque consectetur erat, ut accumsan lectus porttitor a. 
+                Maecenas suscipit velit at leo sollicitudin fermentum. Praesent id venenatis arcu.
+            </p>
+        </div>
+    </section>
+
+
+    <section id="map-and-contact">
+        <div id="map-container" class="text-align-center">
+            <div>
+                <span>Kje smo?</span>
+                <br />
+                <p>Nahajamo se v središču Ljubljane, na Slovenski cesti 25.</p>
+            </div>
+            <div id="google-maps-container" class="text-align-center">
+                <div id="google-maps"></div>
+            </div>
+        </div>
+        <div id="contack-container" class="text-align-center">
+            <div>
+                <span>Kontakt</span>
+                <br />
+                <p>Dosegljivi smo vsak delovnik med 8.00 in 20.00 na info@spapp.com</p>
+            </div>
+            <div>
+                <span>Naročite se na naše novice</span>
+                <br />
+                <br />
+                <form>
+                    <input type="email" placeholder="Vaš elektronski naslov" required/>
+                    <button type="submit">Pošlji</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function myMap() {
+            var mapCanvas = document.getElementById("google-maps");
+            var mapOptions = {
+                center: new google.maps.LatLng(46.0506628, 14.5025265),
+                zoom: 14
+            }
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=MY-KEY&callback=myMap"></script>
+
+
+    <footer class="text-align-center">
+        <br />
+        <span>&copy; Matic Bizjak</span>
+    </footer>
+
+</body>
+</html>
