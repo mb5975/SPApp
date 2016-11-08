@@ -24,10 +24,10 @@
         </div>
     </header>
 
+    @*MENU*@
     <label for="show-menu" id="show-menu-label">Show Menu</label>
     <input type="checkbox" id="show-menu" role="button">
 
-    @*MENU*@
     <nav id="navigation-menu">
         <ul>
             <li>
@@ -39,6 +39,9 @@
             <li>
                 <a href="#">Statistika</a>
             </li>
+            <li>
+                <a href="@Url.Action("Recommend")">Predlagaj nakup</a>
+            </li>
         </ul>
     </nav>
 
@@ -49,7 +52,7 @@
                     <option disabled selected value="disabled"> -- izberite kategorijo -- </option>
                     <option value="books">Knjige</option>
                     <option value="tools">Orodje</option>
-                    <option value="cars">Avtomobili</option>
+                    <option value="cds">CDji</option>
                 </select>
 
                 <input id="search-filter" type="text" placeholder="Vpišite iskalni niz" />
@@ -92,6 +95,7 @@
             document.getElementById('result-container').style.visibility = 'visible';
         }
 
+        //za post je treba sam prvega dat praznega (value) in required na select in bo delal
         function validate_search() {
             var selectedIndex = document.querySelector('#category-and-search-input-container select').selectedIndex;
             var selectedValue = document.querySelector('#category-and-search-input-container select').value;

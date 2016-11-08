@@ -13,10 +13,6 @@
     padding-right: 30px;
 }
 
-#registration-form-div {
-    text-align: center; /*da gre notranja forma na sredino*/
-}
-
 #registration-form > input {
     border-radius: 5px;
     border-style: groove;
@@ -29,7 +25,7 @@
 }
 
 
-#registration-container-div {
+#registration-container-section {
     text-align: center;
 }
 

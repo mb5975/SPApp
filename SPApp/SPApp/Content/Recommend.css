@@ -1,0 +1,68 @@
+﻿#recommend-container > #input-data {
+    /*display: flex;*/
+    align-items: center;
+    justify-content: center;
+}
+
+form select, form input, form textarea, form button {
+
+}
+
+#recommend-container form {
+    display: inline-block; /*da gre na sredino*/
+    border-radius: 20px;
+    background-color: rgb(255,228,181);
+    text-align: center;
+    margin-top: 30px;
+    width: 500px;
+    padding-bottom: 10px; /*barva pod register button*/
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#recommend-container form input, #recommend-container form select,
+#recommend-container form textarea, #recommend-container form button  {
+    border-radius: 5px;
+    border-style: groove;
+    width: 70%; /*70% od forme*/
+    margin-bottom: 30px;
+    /*hack za une pixle, ki se pojavijo na mobilcu*/
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+
+section#recommend-section {
+    text-align: center;
+}
+
+#recommend-container form > div:first-child {
+    margin-bottom: 30px;
+}
+
+/*----------------------Responsive Styles-----------*/
+
+@media screen and (max-width : 480px) { /*5inch*/
+
+    #recommend-container form {
+        display: inline-block; /*da gre na sredino*/
+        border-radius: 20px;
+        background-color: rgb(255,228,181);
+        text-align: center;
+        margin-top: 30px;
+        width: 90%;
+        padding-bottom: 10px; /*barva pod register button*/
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    #recommend-container form input, #recommend-container form select,
+    #recommend-container form textarea, #recommend-container form button  {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+}

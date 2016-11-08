@@ -218,6 +218,7 @@
     <Content Include="Content\Index.css" />
     <Content Include="Content\ItemDetails.css" />
     <Content Include="Content\Registration.css" />
+    <Content Include="Content\Recommend.css" />
     <Content Include="Content\Search.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -284,6 +285,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Home.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Home\Statistics.cshtml" />
+    <Content Include="Views\Home\Recommend.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

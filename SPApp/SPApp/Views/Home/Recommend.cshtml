@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Recommend</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Recommend.css" />
+
+
+    <script src="~/Scripts/site.js"></script>
+</head>
+<body>
+    <header id="default-header">
+        <div id="header-left-div">
+            <span>LOGO/NAME</span>
+        </div>
+        <div id="header-right-div">
+            <a class="linkToButton-default" href='@Url.Action("Login")'>VPIS</a>
+        </div>
+    </header>
+
+    @*MENU*@
+    <label for="show-menu" id="show-menu-label">Show Menu</label>
+    <input type="checkbox" id="show-menu" role="button">
+
+    <nav id="navigation-menu">
+        <ul>
+            <li>
+                <a href='@Url.Action("Home")'>Domov</a>
+            </li>
+            <li class="active-menu-element">
+                <a href='@Url.Action("Search")'>Iskanje izdelkov</a>
+            </li>
+            <li>
+                <a href="#">Statistika</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Recommend")">Predlagaj nakup</a>
+            </li>
+        </ul>
+    </nav>
+
+    <section id="recommend-section">
+        <div id="recommend-container">
+            
+            <div id="input-data">
+                <form>
+                    <div>
+                        <span>Predlagaj izdelek za nakup</span>
+                    </div>
+                    <div>
+                        <select required>
+                            <option selected value=""> -- izberite kategorijo -- </option>
+                            <option value="books">Knjige</option>
+                            <option value="tools">Orodje</option>
+                            <option value="cds">CDji</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input id="name" type="text" placeholder="Vpišite naziv" required/>
+                    </div>
+                    <div>
+                        <textarea placeholder="Opis"></textarea>
+                        <!--onclick return false prepreči submitanje, če imam button type submit znotraj forme-->
+                        <!--js bom itak mel ajax in ne celega refreshanja tko da se bo tole še spremenilo-->
+                        <button type="submit">Pošlji</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

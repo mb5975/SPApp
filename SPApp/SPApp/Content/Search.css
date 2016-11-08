@@ -22,5 +22,9 @@ section#content {
     #category-and-search-input-container select, #category-and-search-input-container input,
     #category-and-search-input-container button {
         width: 100%;
+        /*hack za une pixle, ki se pojavijo na mobilcu*/
+        -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+        box-sizing: border-box;
     }   
 }

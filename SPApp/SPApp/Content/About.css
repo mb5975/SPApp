@@ -42,3 +42,9 @@
         min-width: 0px;
     }
 }
+
+@media screen and (max-width : 1000px) { /*ko se prelomita, da gresta na sredino*/
+        #map-container, #contack-container {
+        width: 100%;
+    }
+} 

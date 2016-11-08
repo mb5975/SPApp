@@ -25,13 +25,13 @@
         </div>
     </header>
 
+    @*MENU*@
     <label for="show-menu" id="show-menu-label">Show Menu</label>
     <input type="checkbox" id="show-menu" role="button">
 
-    @*MENU*@
     <nav id="navigation-menu">
         <ul>
-            <li> 
+            <li>
                 <a href='@Url.Action("Home")'>Domov</a>
             </li>
             <li class="active-menu-element">
@@ -39,6 +39,9 @@
             </li>
             <li>
                 <a href="#">Statistika</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Recommend")">Predlagaj nakup</a>
             </li>
         </ul>
     </nav>
@@ -48,10 +51,10 @@
             <span>DaVincijeva šifra (referenčna številka)</span>
         </div>
 
-        <div id="main-and-description-info-container"> <!--make two divs and fieldsets inside have same height-->
+        <div id="main-and-image-info-container"> <!--make two divs and fieldsets inside have same height-->
             
 
-            <div id="description-info">
+            <div id="image-info">
                 <img alt="Davincijeva šifra" src="~/Content/Images/da-vincijeva-sifra.jpg" style="width: 200px; height: 250px;" />
             </div>
 

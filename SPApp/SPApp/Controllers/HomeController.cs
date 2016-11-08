@@ -51,5 +51,15 @@ namespace SPApp.Controllers
         {
             return View();
         }
+
+        public ActionResult Statistics()
+        {
+            return View();
+        }
+
+        public ActionResult Recommend()
+        {
+            return View();
+        }
     }
 }

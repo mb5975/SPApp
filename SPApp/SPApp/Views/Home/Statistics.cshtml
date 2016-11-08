@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Statistics</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+
+    <script src="~/Scripts/site.js"></script>
+</head>
+<body>
+    <header id="default-header">
+        <div id="header-left-div">
+            <span>LOGO/NAME</span>
+        </div>
+        <div id="header-right-div">
+            <a class="linkToButton-default" href='@Url.Action("Login")'>VPIS</a>
+        </div>
+    </header>
+
+    @*MENU*@
+    <label for="show-menu" id="show-menu-label">Show Menu</label>
+    <input type="checkbox" id="show-menu" role="button">
+
+    <nav id="navigation-menu">
+        <ul>
+            <li>
+                <a href='@Url.Action("Home")'>Domov</a>
+            </li>
+            <li class="active-menu-element">
+                <a href='@Url.Action("Search")'>Iskanje izdelkov</a>
+            </li>
+            <li>
+                <a href="#">Statistika</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Recommend")">Predlagaj nakup</a>
+            </li>
+        </ul>
+    </nav>
+
+    <section>
+        <div>
+
+        </div>
+    </section>
+</body>
+</html>
