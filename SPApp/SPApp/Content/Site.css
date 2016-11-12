@@ -131,6 +131,12 @@ table td {
 }
 
 
+/*create class for all titles*/
+span.title {
+    /*background-color: rgb(205, 137, 20);*/
+    font-weight: bold;
+    text-transform: uppercase;
+}
 
 
 footer {
@@ -314,17 +320,57 @@ hr.inline-with-text {
 
 
 /*----------------------Responsive Styles-----------*/
+@media screen and (max-width : 910px) { /*cca 9 inch*/
+
+    /*****novo  naši knjižnici*/
+    div.colored {
+        background-color: rgb(255,228,181); /*(255,250,240)*/
+        display: inline-block;
+        border-radius: 60px;
+        padding: 5px;
+        border-style: groove;
+        width: 90%;
+    }
+
+    hr.inline-with-text {
+        float: left;
+        width: 20%;
+    }
+
+    #new-block-title {
+        float: left;
+        width: 60%;
+    }
+    /********end novo*/
+
+
+    /***menu naj se malo zmanjša za tablice, da ni en link v dveh vrsticah v velikem fontu*/
+    #navigation-menu li a {
+	    font-size: 24px;
+    }
+
+}
+
+
+
+
+
+
 
 @media screen and (max-width : 480px) { /*5inch TODO  550px bolj ustreza tabeli na itemDetails, mal več pa tabeli na Home, ker ima več podatkov*/
 
     html *
-{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 400;
-    font-size: 20px;
-}
+    {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+    }
 
     /**********resposive menu */
+
+    #navigation-menu li a {
+	    font-size: 20px; /*resetiraj tisto, kar je bilo pri 9inch*/
+    }
 
     /*hide list, when menu label is first displayed*/
 	#navigation-menu {
@@ -370,33 +416,4 @@ hr.inline-with-text {
         align-items: center;
         justify-content: center;
     }
-
-
-
-
-}
-
-@media screen and (max-width : 850px) {
-
-    /*****novo  naši knjižnici*/
-    div.colored {
-        background-color: rgb(255,228,181); /*(255,250,240)*/
-        display: inline-block;
-        border-radius: 60px;
-        padding: 5px;
-        border-style: groove;
-        width: 90%;
-    }
-
-    hr.inline-with-text {
-        float: left;
-        width: 20%;
-    }
-
-    #new-block-title {
-        float: left;
-        width: 60%;
-    }
-    /********end novo*/
-
 }

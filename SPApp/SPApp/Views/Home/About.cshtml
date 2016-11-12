@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Registration</title>
+    <title>About</title>
 
     <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/About.css" />
@@ -26,7 +26,7 @@
 
     <section id="description-about-us" class="text-align-center">
         <div>
-            <span>O nas</span>
+            <span class="title">O nas</span>
         </div>
         <div> <!--description-->
             <p>
@@ -43,22 +43,86 @@
     <section id="map-and-contact">
         <div id="map-container" class="text-align-center">
             <div>
-                <span>Kje smo?</span>
+                <span class="title">Kje smo?</span>
                 <br />
-                <p>Nahajamo se v središču Ljubljane, na Slovenski cesti 25.</p>
+                <br />
+                <span>Nahajamo se v središču Ljubljane, na Slovenski cesti 25.</span>
+                <br />
+                <br />
             </div>
             <div id="google-maps-container" class="text-align-center">
                 <div id="google-maps"></div>
             </div>
+            <div id="get-my-gps-container">
+                <div>
+                    <span class="title">Izpiši moje koordinate</span>
+                </div>
+                <div>
+                    <input type="button" onclick="getGPSLocation();" value="Poizvedba GPS" />
+                </div>
+                <div id="gps-result">
+                </div>
+
+            </div>
+
+            <script>
+                function showLocation(position) {
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+                    console.log(latitude);
+                    console.log(longitude);
+                    newLocation(latitude, longitude); /*show on map*/
+
+                    if (document.getElementById("gps-result-span")) {
+                        document.getElementById("gps-result-span").remove();
+                    }
+                    
+                    var node = document.createElement("span");
+                    node.id = "gps-result-span";
+                    var textnode = document.createTextNode("Latitude: " + Math.round(latitude * 1000) / 1000 + " Longitude: " + Math.round(longitude * 1000) / 1000);
+                    node.appendChild(textnode);
+                    document.getElementById("gps-result").appendChild(node);
+                    
+
+                    //document.getElementById("gps-result").appendChild("<p>Latitude: " + latitude + " Longitude: " + longitude + "</p>");
+                }
+
+                function errorHandler(err) {
+                    if (err.code == 1) {
+                        alert("Dostop je zavrnjen!");
+                    }
+                    else if (err.code == 2) {
+                        alert("Lokacija je nedostopna!");
+                    }
+                }
+
+                function getGPSLocation() {
+                    if (navigator.geolocation) {
+                        var options = { timeout: 10000 };// 10s   //success function
+                        navigator.geolocation.getCurrentPosition(showLocation, errorHandler, options);
+                    }
+
+                    else {
+                        alert("Brskalnik ne podpira GPS lokacije!");
+                    }
+                }
+
+
+
+            </script>
+
         </div>
         <div id="contack-container" class="text-align-center">
             <div>
-                <span>Kontakt</span>
+                <span class="title">Kontakt</span>
                 <br />
-                <p>Dosegljivi smo vsak delovnik med 8.00 in 20.00 na info@spapp.com</p>
+                <br />
+                <span>Dosegljivi smo vsak delovnik med 8.00 in 20.00 na info@spapp.com</span>
+                <br />
+                <br />
             </div>
             <div>
-                <span>Naročite se na naše novice</span>
+                <span class="title">Naročite se na naše novice</span>
                 <br />
                 <br />
                 <form>
@@ -70,16 +134,38 @@
     </section>
 
     <script>
+        var map;
         function myMap() {
             var mapCanvas = document.getElementById("google-maps");
             var mapOptions = {
                 center: new google.maps.LatLng(46.0506628, 14.5025265),
-                zoom: 14
+                zoom: 13
             }
-            var map = new google.maps.Map(mapCanvas, mapOptions);
+            map = new google.maps.Map(mapCanvas, mapOptions);
         }
+
+        function newLocation(newLat, newLng) {
+            // the next line is required to work around a bug in WebKit (Chrome / Safari)
+            location.href = "#";
+            location.href = "#google-maps";
+            //var rect = document.getElementById("google-maps").getBoundingClientRect();
+            //console.log(rect.top, rect.right, rect.bottom, rect.left);
+
+            //window.scrollTo(0, rect.top);
+            //map.setZoom(9); // Back to default zoom
+            map.panTo(new google.maps.LatLng(newLat, newLng));
+            setTimeout("map.setZoom(15)", 1000); // Zoom in after 1 sec
+
+
+            //map.setCenter({
+            //    lat: newLat,
+            //    lng: newLng
+            //});
+        }
+
+
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=MY-KEY&callback=myMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=My-KEY&callback=myMap"></script>
 
 
     <footer class="text-align-center">

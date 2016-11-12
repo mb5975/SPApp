@@ -20,13 +20,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /*width: 500px;
-    height: 500px;*/
+    margin-bottom: 50px;
 }
 
 #google-maps { /*MUST HAVE, OTHERWISE it doesn't display*/
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
+}
+
+
+/*input gps poizvedba*/
+#get-my-gps-container > div:first-child {
+    margin-bottom: 20px;
 }
 
 /*----------------------Responsive Styles-----------*/
@@ -44,7 +49,14 @@
 }
 
 @media screen and (max-width : 1000px) { /*ko se prelomita, da gresta na sredino*/
-        #map-container, #contack-container {
+    #map-container, #contack-container {
         width: 100%;
     }
-} 
+}
+
+@media screen and (max-width : 700px) { /*ko se prelomita, da gresta na sredino*/
+    #google-maps { /*MUST HAVE, OTHERWISE it doesn't display*/
+        width: 480px;
+        height: 480px;
+    }
+}
