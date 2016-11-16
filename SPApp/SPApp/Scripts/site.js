@@ -17,8 +17,7 @@ function animate_element(item, winheight) {
     if (item.classList.contains('animated')) { return true; }
 
     topcoords = getElemDistance(item); // element's distance from top of page
-    if (wintop > (topcoords - (winheight * .60))) {
-        // window is 3/4 above the element
+    if (wintop > (topcoords - (winheight * 0.70))) {
         item.classList.add('animated');
     }
 }

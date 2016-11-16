@@ -20,7 +20,7 @@
 <body>
     <header id="default-header">
         <div id="header-only-div">
-            <span>LOGO/NAME</span>
+            <span class="logo-text">MOJA KNJIŽNICA&trade;</span>
         </div>
     </header>
 
@@ -29,9 +29,9 @@
             <form id="login-form">
                 <div>Dobrodošli nazaj!</div>
 
-                <input type="email" placeholder="Elektronski naslov" required />
+                <input type="email" placeholder="Elektronski naslov" required oninvalid="this.setCustomValidity('Vnesite elektronski naslov.')" oninput="setCustomValidity('')" />
                 <br />
-                <input id="password" type="password" placeholder="Geslo" required />
+                <input id="password" type="password" placeholder="Geslo" required oninvalid="this.setCustomValidity('Polje ne sme biti prazno.')" oninput="setCustomValidity('')"/>
                 <br />
 
                 <button type="submit">Vpis</button>
@@ -41,23 +41,7 @@
 
         <a href='@Url.Action("Index")'>Domov</a>
     </div>
-    <script>
-        function validatePassword() {
-            var password = document.getElementById("password");
-            var confirm_password = document.getElementById("confirm-password");
-
-
-                if (password.value != confirm_password.value) {
-                    confirm_password.setCustomValidity("Gesli se ne ujemata!");
-                    return false;
-                } else {
-                    confirm_password.setCustomValidity('');
-                    return true;
-                }
-
-        }
-    </script>
-
+    
     <div>
     </div>
 </body>

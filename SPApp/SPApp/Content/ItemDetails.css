@@ -32,6 +32,10 @@
     margin-left: 20px;
 }
 
+#chartdiv {
+    width: 100%;
+    height: 500px;
+}
 
 
 

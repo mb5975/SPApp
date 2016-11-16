@@ -16,7 +16,7 @@
     <!-- fixed header, invisible at first-->
     <div class="fixed-index-header">
         <div id="header-left-div">
-            <span>LOGO/NAME</span>
+            <span class="logo-text">MOJA KNJIŽNICA&trade;</span>
         </div>
         <div id="header-right-div">
             <span>
@@ -27,7 +27,7 @@
     <div class="divWithBackgroundImage">
         <header id="index-page-header">
             <div id="header-left-div">
-                <span>LOGO/NAME</span>
+                <span class="logo-text">MOJA KNJIŽNICA&trade;</span>
             </div>
             <div id="header-right-div">
                 <span>
@@ -38,8 +38,8 @@
 
         <section>
             <span>
-                NAME je aplikacija, ki uporabnikom omogoča <span class="emphasize">rezervacijo</span> in <span class="emphasize">izposojo</span> izdelkov v naši knjižnici.
-            </span>
+                <span class="logo-text">MOJA KNJIŽNICA&trade;</span> je aplikacija, ki uporabnikom omogoča <span class="emphasize">rezervacijo</span> in <span class="emphasize">izposojo</span> izdelkov v naši knjižnici.
+                </span>
         </section>
 
         <section>
@@ -110,8 +110,15 @@
     </section>
 
     <footer class="text-align-center">
-        <br />
-        <span>&copy; Matic Bizjak</span>
+        <div>
+            <span id="about-link">
+                <a href='@Url.Action("About")'>O nas</a>
+            </span>
+            <span>&copy; Matic Bizjak</span>
+            <a id="fb-link" href="http://www.facebook.com/Moja-Knjižnica-242222909528420">
+                <img src="~/Content/Images/FBicon.gif" />
+            </a>
+        </div>
     </footer>
 
 </body>

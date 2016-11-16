@@ -12,16 +12,22 @@
     <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/ItemDetails.css" />
 
-
     <script src="~/Scripts/site.js"></script>
+    <!-- Resources -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+
+    <script src="~/Scripts/ItemDetails.js"></script>
+
 </head>
 <body>
     <header id="default-header">
         <div id="header-left-div">
-            <span>LOGO/NAME</span>
+            <span class="logo-text">MOJA KNJIŽNICA&trade;</span>
         </div>
         <div id="header-right-div">
-            <span>Janez Novak FONT</span>
+            <span class="username">Janez Novak</span>
+            <img class="user-icon" src="~/Content/Images/user_icon.svg" />
         </div>
     </header>
 
@@ -93,6 +99,15 @@
         </div>
     </section>
 
+
+    <section>
+        <div class="text-align-center">
+            <span class="title">Število izposoj na mesec</span>
+            <div id="chartdiv"></div>
+        </div>
+    </section>
+
+
     <section>
         <div id="useful-links" class="text-align-center">
             <span class="title">Uporabne povezave</span>
@@ -111,8 +126,15 @@
     </section>
 
     <footer class="text-align-center">
-        <br />
-        <span>&copy; Matic Bizjak</span>
+        <div>
+            <span id="about-link">
+                <a href='@Url.Action("About")'>O nas</a>
+            </span>
+            <span>&copy; Matic Bizjak</span>
+            <a id="fb-link" href="http://www.facebook.com/Moja-Knjižnica-242222909528420">
+                <img src="~/Content/Images/FBicon.gif" />
+            </a>
+        </div>
     </footer>
 
 </body>

@@ -35,19 +35,6 @@
 }
 
 /*----------------------Responsive Styles-----------*/
-
-@media screen and (max-width : 480px) { /*5inch*/
-    #google-maps { /*MUST HAVE, OTHERWISE it doesn't display*/
-        width: 200px;
-        height: 200px;
-    }
-    #map-container, #contack-container {
-        width: 100%;
-        margin-bottom: 20px;
-        min-width: 0px;
-    }
-}
-
 @media screen and (max-width : 1000px) { /*ko se prelomita, da gresta na sredino*/
     #map-container, #contack-container {
         width: 100%;
@@ -56,7 +43,20 @@
 
 @media screen and (max-width : 700px) { /*ko se prelomita, da gresta na sredino*/
     #google-maps { /*MUST HAVE, OTHERWISE it doesn't display*/
-        width: 480px;
+        width: 480px; /*100% noče delat*/
         height: 480px;
     }
 }
+
+@media screen and (max-width : 480px) { /*5inch*/
+    #google-maps { /*MUST HAVE, OTHERWISE it doesn't display*/
+        width: 270px;
+        height: 270px;
+    }
+    #map-container, #contack-container {
+        width: 100%;
+        margin-bottom: 20px;
+        min-width: 0px;
+    }
+}
+

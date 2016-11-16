@@ -17,10 +17,11 @@
 <body>
     <header id="default-header">
         <div id="header-left-div">
-            <span>LOGO/NAME</span>
+            <span class="logo-text">MOJA KNJIŽNICA&trade;</span>
         </div>
         <div id="header-right-div">
-            <span>Janez Novak FONT</span>
+            <span class="username">Janez Novak</span>
+            <img class="user-icon" src="~/Content/Images/user_icon.svg" />
         </div>
     </header>
 
@@ -132,8 +133,15 @@
     @*copy end -------------------------------------*@
 
     <footer class="text-align-center">
-        <br />
-        <span>&copy; Matic Bizjak</span>
+        <div>
+            <span id="about-link">
+                <a href='@Url.Action("About")'>O nas</a>
+            </span>
+            <span>&copy; Matic Bizjak</span>
+            <a id="fb-link" href="http://www.facebook.com/Moja-Knjižnica-242222909528420">
+                <img src="~/Content/Images/FBicon.gif" />
+            </a>
+        </div>
     </footer>
 
 </body>

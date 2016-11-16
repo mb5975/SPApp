@@ -14,6 +14,21 @@ section#content {
 
 /*----------------------Responsive Styles-----------*/
 
+@media screen and (max-width : 864px) { /*9inch*/
+    #category-and-search-input-container select, #category-and-search-input-container input, 
+    #category-and-search-input-container button {
+        margin-left: auto; /*center element*/
+        margin-right: auto;
+        width: 70%;
+        /*hack za une pixle, ki se pojavijo na mobilcu*/
+        -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        margin-top: 20px;
+
+    }
+}
+
 @media screen and (max-width : 480px) { /*5inch*/
     #category-and-search-input-container {
         margin-top: 0px;
@@ -26,5 +41,7 @@ section#content {
         -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
         box-sizing: border-box;
+        margin-top: 0px;
     }   
 }
+

@@ -214,7 +214,10 @@
     <Content Include="Content\Home.css" />
     <Content Include="Content\Images\book-hi.png" />
     <Content Include="Content\Images\da-vincijeva-sifra.jpg" />
+    <Content Include="Content\Images\FBicon.gif" />
     <Content Include="Content\Images\pexels-photo-46274.jpeg" />
+    <Content Include="Content\Images\user_icon.png" />
+    <Content Include="Content\Images\user_icon.svg" />
     <Content Include="Content\Index.css" />
     <Content Include="Content\ItemDetails.css" />
     <Content Include="Content\Registration.css" />
@@ -224,6 +227,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\about.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -233,6 +237,7 @@
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\index.js" />
+    <Content Include="Scripts\ItemDetails.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

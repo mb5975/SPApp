@@ -11,12 +11,13 @@
 
     @*<script src="~/Scripts/jquery-1.10.2.js"></script>*@
     <script src="~/Scripts/site.js"></script>
-
+    <script src="~/Scripts/about.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=My-KEY&callback=initialize"></script>
 </head>
 <body>
     <header id="default-header">
         <div id="header-left-div">
-            <span>LOGO/NAME</span>
+            <span class="logo-text">MOJA KNJIŽNICA&trade;</span>
         </div>
         <div id="header-right-div">
             <a class="linkToButton-default" href='@Url.Action("Login")'>VPIS</a>
@@ -64,7 +65,7 @@
                 </div>
 
             </div>
-
+            <!--
             <script>
                 function showLocation(position) {
                     var latitude = position.coords.latitude;
@@ -79,7 +80,7 @@
                     
                     var node = document.createElement("span");
                     node.id = "gps-result-span";
-                    var textnode = document.createTextNode("Latitude: " + Math.round(latitude * 1000) / 1000 + " Longitude: " + Math.round(longitude * 1000) / 1000);
+                    var textnode = document.createTextNode("Zemplepisna širina: " + Math.round(latitude * 1000) / 1000 + ". Zemljepisna dolžina: " + Math.round(longitude * 1000) / 1000 + ".");
                     node.appendChild(textnode);
                     document.getElementById("gps-result").appendChild(node);
                     
@@ -110,7 +111,7 @@
 
 
             </script>
-
+            -->
         </div>
         <div id="contack-container" class="text-align-center">
             <div>
@@ -133,9 +134,10 @@
         </div>
     </section>
 
+    <!--
     <script>
         var map;
-        function myMap() {
+        function initialize() {
             var mapCanvas = document.getElementById("google-maps");
             var mapOptions = {
                 center: new google.maps.LatLng(46.0506628, 14.5025265),
@@ -148,29 +150,20 @@
             // the next line is required to work around a bug in WebKit (Chrome / Safari)
             location.href = "#";
             location.href = "#google-maps";
-            //var rect = document.getElementById("google-maps").getBoundingClientRect();
-            //console.log(rect.top, rect.right, rect.bottom, rect.left);
 
-            //window.scrollTo(0, rect.top);
-            //map.setZoom(9); // Back to default zoom
             map.panTo(new google.maps.LatLng(newLat, newLng));
             setTimeout("map.setZoom(15)", 1000); // Zoom in after 1 sec
-
-
-            //map.setCenter({
-            //    lat: newLat,
-            //    lng: newLng
-            //});
         }
-
-
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=My-KEY&callback=myMap"></script>
-
+    -->
 
     <footer class="text-align-center">
-        <br />
-        <span>&copy; Matic Bizjak</span>
+        <div>
+            <span>&copy; Matic Bizjak</span>
+            <a id="fb-link" href="http://www.facebook.com/Moja-Knjižnica-242222909528420">
+                <img src="~/Content/Images/FBicon.gif" />
+            </a>
+        </div>
     </footer>
 
 </body>

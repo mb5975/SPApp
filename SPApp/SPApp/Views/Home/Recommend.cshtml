@@ -13,7 +13,7 @@
 <body>
     <header id="default-header">
         <div id="header-left-div">
-            <span>LOGO/NAME</span>
+            <span class="logo-text">MOJA KNJIŽNICA&trade;</span>
         </div>
         <div id="header-right-div">
             <a class="linkToButton-default" href='@Url.Action("Login")'>VPIS</a>
@@ -50,7 +50,7 @@
                         <span class="title">Predlagaj izdelek za nakup</span>
                     </div>
                     <div>
-                        <select required>
+                        <select required oninvalid="this.setCustomValidity('Izberite kategorijo.')" oninput="this.setCustomValidity('')">
                             <option selected value=""> -- izberite kategorijo -- </option>
                             <option value="books">Knjige</option>
                             <option value="tools">Orodje</option>
@@ -58,7 +58,7 @@
                         </select>
                     </div>
                     <div>
-                        <input id="name" type="text" placeholder="Vpišite naziv" required/>
+                        <input id="name" type="text" placeholder="Vpišite naziv" required oninvalid="this.setCustomValidity('Vpišite naziv.')" oninput="this.setCustomValidity('')"/>
                     </div>
                     <div>
                         <textarea placeholder="Opis"></textarea>

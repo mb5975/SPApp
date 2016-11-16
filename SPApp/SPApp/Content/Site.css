@@ -1,6 +1,6 @@
 ﻿body
 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Century Gothic';
     font-weight: 500;
     font-size: 32px;
     margin: 0px;
@@ -140,7 +140,7 @@ span.title {
 
 
 footer {
-    min-height: 160px; /*for testing*/
+    min-height: 100px; /*for testing*/
     background-color: black;
     color: white;
     font-size: 30px;
@@ -148,7 +148,24 @@ footer {
     width: 100%;
 }
 
+footer > div {
+    padding-top: 30px;
+}
 
+footer > div > span#about-link {
+    float: left; 
+    padding-left: 50px;
+}
+
+#fb-link {
+    float: right;
+    padding-right: 50px; 
+}
+
+#fb-link > img {
+    width: 40px; 
+    height: 40px; 
+}
 
 /*---------------------------------*/
 
@@ -308,15 +325,23 @@ hr.inline-with-text {
 
 
 
+.logo-text {
+    text-decoration: underline;
+}
 
 
 
 
+img.user-icon {
+    width: 50px; 
+    height: 50px;
+    padding-left: 10px;
+}
 
 
-
-
-
+/*span.username { /*span pr uporabniku se ne zlomi
+    white-space: nowrap;
+}*/
 
 
 /*----------------------Responsive Styles-----------*/
@@ -349,6 +374,17 @@ hr.inline-with-text {
 	    font-size: 24px;
     }
 
+
+    img.user-icon {
+        width: 40px; 
+        height: 40px;
+        padding-left: 0px;
+    }
+
+    #header-right-div span.username {
+        display: none;
+    }
+
 }
 
 
@@ -361,7 +397,7 @@ hr.inline-with-text {
 
     html *
     {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /*font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
         font-weight: 400;
         font-size: 20px;
     }
@@ -416,4 +452,6 @@ hr.inline-with-text {
         align-items: center;
         justify-content: center;
     }
+
+
 }
