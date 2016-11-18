@@ -54,7 +54,7 @@
             @*search*@
             <span>Ali pa samo pobrskajte po naših izdelkih</span>
             <br />
-            <a class="linkToButton-default" href="Search">Brskaj</a>
+            <a class="linkToButton-default" href='@Url.Action("Search")'>Brskaj</a>
         </section>
     </div>
 
@@ -111,13 +111,19 @@
 
     <footer class="text-align-center">
         <div>
-            <span id="about-link">
-                <a href='@Url.Action("About")'>O nas</a>
-            </span>
-            <span>&copy; Matic Bizjak</span>
-            <a id="fb-link" href="http://www.facebook.com/Moja-Knjižnica-242222909528420">
-                <img src="~/Content/Images/FBicon.gif" />
-            </a>
+            <div>
+                <span id="about-link">
+                    <a href='@Url.Action("About")'>O nas</a>
+                </span>
+            </div>
+            <div>
+                <span id="fcopy">&copy; Matic Bizjak</span>
+            </div>
+            <div>
+                <a id="fb-link" href="http://www.facebook.com/Moja-Knjižnica-242222909528420">
+                    <img src="~/Content/Images/FBicon.gif" />
+                </a>
+            </div>
         </div>
     </footer>
 

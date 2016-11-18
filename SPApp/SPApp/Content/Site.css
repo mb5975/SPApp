@@ -140,7 +140,7 @@ span.title {
 
 
 footer {
-    min-height: 100px; /*for testing*/
+    min-height: 110px; /*for testing*/
     background-color: black;
     color: white;
     font-size: 30px;
@@ -152,20 +152,17 @@ footer > div {
     padding-top: 30px;
 }
 
-footer > div > span#about-link {
-    float: left; 
-    padding-left: 50px;
-}
-
-#fb-link {
-    float: right;
-    padding-right: 50px; 
+footer > div > div {
+    width: 33%;
+    float: left;
+    min-width: 60px;
 }
 
 #fb-link > img {
     width: 40px; 
     height: 40px; 
 }
+
 
 /*---------------------------------*/
 
@@ -453,5 +450,13 @@ img.user-icon {
         justify-content: center;
     }
 
+    input, select, button {
+        height: 37px;
+    }
+
+    #fb-link > img {
+        width: 25px; 
+        height: 25px; 
+    }
 
 }

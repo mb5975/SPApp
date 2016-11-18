@@ -34,6 +34,10 @@
     margin-bottom: 20px;
 }
 
+#about-link {
+    visibility: hidden;
+}
+
 /*----------------------Responsive Styles-----------*/
 @media screen and (max-width : 1000px) { /*ko se prelomita, da gresta na sredino*/
     #map-container, #contack-container {

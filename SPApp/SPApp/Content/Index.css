@@ -64,9 +64,9 @@ figure {
     }
 
     .divWithBackgroundImage {
-        background-image: url(Images/pexels-photo-46274.jpeg);
-        min-height: 600px;
-        background-size: cover;
+        background-image: none; /*url(Images/pexels-photo-46274.jpeg);*/
+        min-height: 400px;
+        /*background-size: cover;*/
         /*background-color:#F0FFFF;*/ /*not working because of opacity*/
     }
 
@@ -76,6 +76,12 @@ figure {
         width: 100%;
         height: 60px;
         visibility: hidden;
+    }
+
+    #index-page-header {
+        background-color: rgb(205, 137, 20);
+        height: 60px; /*to get the background color*/ /**enako kot indey-page-header*/
+        width: 100%; /*na telefonu se to ne pokaže*/
     }
 
 

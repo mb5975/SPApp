@@ -57,6 +57,11 @@ section#recommend-section {
 
 @media screen and (max-width : 480px) { /*5inch*/
 
+    html *
+    { /*override 580px */
+        font-size: 20px; /*back to default, as in site.css*/
+    }
+
     #recommend-container form {
         display: inline-block; /*da gre na sredino*/
         border-radius: 20px;
