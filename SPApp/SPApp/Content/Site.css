@@ -150,8 +150,8 @@ footer {
     min-height: 110px; /*for testing*/
     background-color: black;
     color: white;
-    font-size: 30px;
-    font-weight: 500;
+    /*font-size: 30px;*/
+    /*font-weight: 500;*/
     width: 100%;
 }
 
