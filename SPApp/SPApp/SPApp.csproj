@@ -222,6 +222,7 @@
     <Content Include="Content\Registration.css" />
     <Content Include="Content\Recommend.css" />
     <Content Include="Content\Search.css" />
+    <Content Include="Content\Statistics.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
