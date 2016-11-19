@@ -12,8 +12,6 @@ window.onload = function() {
 function showLocation(position) {
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
-    console.log(latitude);
-    console.log(longitude);
     newLocation(latitude, longitude); /*show on map*/
 
     if (document.getElementById("gps-result-span")) {
@@ -54,7 +52,6 @@ function initialize() {
     //if (mapShown && ((mapSize == 1 && screen.width <= 480) || (mapSize == 2 && screen.width > 480))) {
     //    return;
     //}
-    //console.log("draw map...");
     var mapCanvas = document.getElementById("google-maps");
     var mapOptions = {
         center: new google.maps.LatLng(46.0506628, 14.5025265),

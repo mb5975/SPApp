@@ -114,18 +114,6 @@ span.emphasize {
     box-shadow: none;
 }
 
-
-/*več link styling*/
-figure > a {
-    text-decoration: none;
-    color: black;
-    text-shadow: 2px 3px 8px rgb(205, 137, 40);
-}
-
-
-
-
-
 table {
 	border-width: 1px;
 	border-collapse: collapse;
@@ -337,6 +325,24 @@ hr.inline-with-text {
     vertical-align: top;
 }
 
+/*več link styling*/
+figure > figcaption > a {
+    text-decoration: none;
+    color: black;
+    text-shadow: 2px 3px 8px rgb(205, 137, 40);
+}
+
+figure > img {
+    height: 250px;
+    width: 200px;
+}
+
+figure > figcaption {
+    width: 60%;
+    min-width: 400px;
+}
+
+
 /*****************end novo v naši knjižnici*/
 
 
@@ -503,4 +509,17 @@ img.user-icon {
     .animateblock.centerright.animated {
         margin-top: 0;
     }
+
+
+    /*novo*/
+    figure > img {
+        width: 100px;
+        height: 150px;
+    }
+
+    figure > figcaption {
+        min-width: 200px;
+    }
+
+
 }

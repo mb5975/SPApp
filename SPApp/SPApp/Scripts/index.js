@@ -10,7 +10,6 @@ window.addEventListener("scroll", toggleFixedMenu);
 
 function fader() {
     var scrolledFromTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
-    console.log(scrolledFromTop);
     if (scrolledFromTop > 200) {
         document.getElementsByClassName("divWithBackgroundImage")[0].style.opacity = Math.min(1, Math.max(1 - scrolledFromTop / 500 + 0.4, 0));
     }
