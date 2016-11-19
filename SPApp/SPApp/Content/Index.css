@@ -1,8 +1,8 @@
 ﻿section {
     /*display: inline-block; po defaultu je block čez celo*/
     text-align: center;
-    font-weight: 500;
-    font-size: 34px;
+    /*font-weight: 500;*/
+    /*font-size: 34px;*/
 }
 
 section.index-page {
@@ -59,7 +59,7 @@ figure {
 /*----------------------Responsive Styles-----------*/ 
 @media screen and (max-width : 480px) { /*5inch*/
     .divWithBackgroundImage section {
-        margin-top: 0px; 
+        margin-top: 40px; 
 
     }
 

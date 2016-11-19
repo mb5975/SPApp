@@ -16,7 +16,8 @@
             <span class="logo-text">MOJA KNJIŽNICA&trade;</span>
         </div>
         <div id="header-right-div">
-            <a class="linkToButton-default" href='@Url.Action("Login")'>VPIS</a>
+            <span class="username">Janez Novak</span>
+            <img class="user-icon" src="~/Content/Images/user_icon.svg" />
         </div>
     </header>
 
@@ -33,7 +34,7 @@
                 <a href='@Url.Action("Search")'>Iskanje izdelkov</a>
             </li>
             <li>
-                <a href="#">Statistika</a>
+                <a href='@Url.Action("Statistics")'>Statistika</a>
             </li>
             <li>
                 <a href="@Url.Action("Recommend")">Predlagaj nakup</a>

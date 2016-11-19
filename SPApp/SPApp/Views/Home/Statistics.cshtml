@@ -5,8 +5,16 @@
     <meta name="viewport" content="width=device-width" />
     <title>Statistics</title>
     <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Statistics.css" />
+
 
     <script src="~/Scripts/site.js"></script>
+    <!-- Resources -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+
+    <script src="~/Scripts/statistics.js"></script>
+
 </head>
 <body>
     <header id="default-header">
@@ -14,7 +22,8 @@
             <span class="logo-text">MOJA KNJIŽNICA&trade;</span>
         </div>
         <div id="header-right-div">
-            <a class="linkToButton-default" href='@Url.Action("Login")'>VPIS</a>
+            <span class="username">Janez Novak</span>
+            <img class="user-icon" src="~/Content/Images/user_icon.svg" />
         </div>
     </header>
 
@@ -31,7 +40,7 @@
                 <a href='@Url.Action("Search")'>Iskanje izdelkov</a>
             </li>
             <li>
-                <a href="#">Statistika</a>
+                <a href='@Url.Action("Statistics")'>Statistika</a>
             </li>
             <li>
                 <a href="@Url.Action("Recommend")">Predlagaj nakup</a>
@@ -40,9 +49,37 @@
     </nav>
 
     <section>
-        <div>
-
+        <div class="text-align-center">
+            <span class="title">Najbolj brano ta mesec</span>
+            <div id="chart-top-month"></div>
         </div>
     </section>
+
+    <section>
+        <div class="text-align-center">
+            <span class="title">Število izposoj na mesec</span>
+            <div id="chart-number-rents-per-month"></div>
+        </div>
+    </section>
+
+
+
+    <footer class="text-align-center">
+        <div>
+            <div>
+                <span id="about-link">
+                    <a href='@Url.Action("About")'>O nas</a>
+                </span>
+            </div>
+            <div id="footer-middle-div">
+                <span id="fcopy">&copy; Matic Bizjak</span>
+            </div>
+            <div>
+                <a id="fb-link" href="http://www.facebook.com/Moja-Knjižnica-242222909528420">
+                    <img src="~/Content/Images/FBicon.gif" />
+                </a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
