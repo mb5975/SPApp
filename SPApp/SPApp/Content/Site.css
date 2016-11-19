@@ -96,14 +96,19 @@ span.emphasize {
 .linkToButton-default {
     border-radius: 50px;
     border: 2px;
-    /*border-color: white;
-    border-style: solid;
-    padding: 12px;*/
-    /*color: white;
+    /*border-color: white;*/
+    /*border-style: solid;*/
+    padding: 12px;
+    color: black;
     text-decoration: solid;
     background-color: rgb(205, 137, 20);
-    font-size: 24px;*/
+    /*font-size: 24px;*/
 }
+
+.linkToButton-default:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    color: white;
+} 
 
 
 
@@ -153,9 +158,13 @@ footer > div {
 }
 
 footer > div > div {
-    width: 33%;
+    width: 25%;
     float: left;
     min-width: 60px;
+}
+
+footer > div > div#footer-middle-div {
+    width: 50%;
 }
 
 #fb-link > img {
@@ -458,5 +467,13 @@ img.user-icon {
         width: 25px; 
         height: 25px; 
     }
+
+
+    .linkToButton-default {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+
+
 
 }
