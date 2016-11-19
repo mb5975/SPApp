@@ -503,10 +503,6 @@ input[type="button"]:active {
         justify-content: center;
     }
 
-    input, select, button {
-        height: 37px;
-    }
-
     #fb-link > img {
         width: 25px; 
         height: 25px; 
@@ -516,6 +512,11 @@ input[type="button"]:active {
     .linkToButton-default {
         box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     }
+
+    input[type="button"] {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
 
     /*make animations go up/down instead from right*/
     .animateblock.centerright {
@@ -539,6 +540,4 @@ input[type="button"]:active {
     figure > figcaption {
         min-width: 200px;
     }
-
-
 }

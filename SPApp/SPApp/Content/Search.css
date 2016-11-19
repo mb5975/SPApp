@@ -43,5 +43,9 @@ section#content {
         box-sizing: border-box;
         margin-top: 0px;
     }   
+
+    input, select, button {
+        height: 37px;
+    }
 }
 
