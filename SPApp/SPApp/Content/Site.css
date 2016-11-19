@@ -115,6 +115,13 @@ span.emphasize {
 }
 
 
+/*več link styling*/
+figure > a {
+    text-decoration: none;
+    color: black;
+    text-shadow: 2px 3px 8px rgb(205, 137, 40);
+}
+
 
 
 
@@ -147,6 +154,7 @@ span.title {
     /*background-color: rgb(205, 137, 20);*/
     font-weight: bold;
     text-transform: uppercase;
+    text-shadow: 2px 3px 8px rgb(205, 137, 40);
 }
 
 
