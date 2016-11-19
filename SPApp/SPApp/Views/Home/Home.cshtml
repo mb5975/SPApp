@@ -87,7 +87,7 @@
 
     <section id="new-in-section">
         <hr class="inline-with-text" />
-        <span id="new-block-title">NOVO V NAŠI KNJIŽNICI</span>
+        <span id="new-block-title" class="title">NOVO V NAŠI KNJIŽNICI</span>
         <hr class="inline-with-text" />
     </section>
     @* uporabi span za formatiranje besed v stavkih *@
@@ -96,11 +96,15 @@
     <section class="animateblock centerright">
         <div class="colored">
             <figure>
-                <img class="new-item-image" style="width: 200px; height: 200px;" src="~/Content/Images/book-hi.png" />
+                <img class="new-item-image" src="~/Content/Images/da-vincijeva-sifra.jpg" />
                 <figcaption class="new-item-description">
-                    Description of the book
+                    DaVincijeva šifra
+                    <br />
+                    Dan Brown
+                    <br />
+                    <a href='@Url.Action("ItemDetails")'>več</a>
                 </figcaption>
-                <a href='@Url.Action("ItemDetails")'>več</a>
+
             </figure>
         </div>
     </section>
@@ -109,11 +113,15 @@
     <section class="animateblock centerright">
         <div class="colored">
             <figure>
-                <img class="new-item-image" style="width: 200px; height: 200px;" src="~/Content/Images/book-hi.png" />
+                <img class="new-item-image" src="~/Content/Images/z_idejo_do_bogastva.jpg" />
                 <figcaption class="new-item-description">
-                    Description of the book2
+                    Z idejo do bogastva
+                    <br />
+                    Napoleon Hill
+                    <br />
+                    <a href='@Url.Action("ItemDetails")'>več</a>
+
                 </figcaption>
-                <a href='@Url.Action("ItemDetails")'>več</a>
             </figure>
         </div>
     </section>
@@ -121,16 +129,20 @@
     <section class="animateblock centerright">
         <div class="colored">
             <figure>
-                <img class="new-item-image" style="width: 200px; height: 200px;" src="~/Content/Images/book-hi.png" />
+                <img class="new-item-image" src="~/Content/Images/WWW.jpg" />
                 <figcaption class="new-item-description">
-                    Description of the book3
+                    Programming the World Wide Web
+                    <br />
+                    Robert W. Sebesta
+                    <br />
+                    8. izdaja
+                    <br />
+                    <a href='@Url.Action("ItemDetails")'>več</a>
                 </figcaption>
-                <a href='@Url.Action("ItemDetails")'>več</a>
             </figure>
         </div>
     </section>
 
-    @*copy end -------------------------------------*@
 
     <footer class="text-align-center">
         <div>

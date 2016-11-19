@@ -24,12 +24,19 @@
 #main-info {
     float: left;
     height: 100%;
+    /*width: 70%;*/
+    padding-left: 40px;
 }
 
 #image-info {
     float: left;
     height: 100%;
-    margin-left: 20px;
+    /*margin-left: 20px;*/
+    width: 40%;
+}
+
+#image-info > img {
+    float: right; /*to zjebe 5inch, */
 }
 
 #chartdiv {
@@ -46,12 +53,16 @@
         text-align: center;
         width: 100%;
         height: 50%;
+        padding-left: 0px; /*reset padding*/
     }
 
     #image-info {
         text-align: center;
         width: 100%;
         height: 50%;
-        margin-left: 0px; /*reset margin*/
+    }
+
+    #image-info > img {
+        float: none;
     }
 }
