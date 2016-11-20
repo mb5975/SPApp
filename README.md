@@ -45,3 +45,7 @@ v ekran ob spremembi pozicije na strani. Druga karakteristika pa je **prilagodlj
 V svojo aplikacijo bi, poleg fizičnih kopij knjig in cdjev, rad dodal še **e-knjige**, ki bi si jih uporabnik lahko tudi izposodil, za določeno obdobje 
 in bi dobil dostop do njih na strežniku, tako da mu jih ne bi bilo treba fizično dvigniti v knjižnici. Poleg tega bi rad dodal še **opomnik** za bližanje
 roka za vračanje izdelkov.
+
+## AVTOR
+
+**Matic Bizjak**, Copyright © 2016
