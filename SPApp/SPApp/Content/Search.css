@@ -39,7 +39,7 @@ section#content {
         width: 100%;
         /*hack za une pixle, ki se pojavijo na mobilcu*/
         -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
+        -moz-box-sizing: border-box;
         box-sizing: border-box;
         margin-top: 0px;
     }   

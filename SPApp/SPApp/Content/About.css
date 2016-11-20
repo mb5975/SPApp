@@ -37,6 +37,11 @@
 #about-link {
     visibility: hidden;
 }
+p {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: justify;
+}
 
 /*----------------------Responsive Styles-----------*/
 @media screen and (max-width : 1000px) { /*ko se prelomita, da gresta na sredino*/

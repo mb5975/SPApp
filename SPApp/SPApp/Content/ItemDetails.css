@@ -36,7 +36,7 @@
 }
 
 #image-info > img {
-    float: right; /*to zjebe 5inch, */
+    float: right;
 }
 
 #chartdiv {
@@ -44,11 +44,24 @@
     height: 500px;
 }
 
+#useful-links ul {
+    list-style-type: none;
+}
+
+#useful-links li {
+    padding-top: 10px;
+}
+
+#useful-links a {
+    text-decoration: none;
+    color: black;
+}
+
 
 
 /*----------------------Responsive Styles-----------*/
 
-@media screen and (max-width : 600px) { /*5inch: malo prej zamenjaj, ker se malo pred tem pojavijo čudne postavitve*/
+@media screen and (max-width : 864px) {
     #main-info {
         text-align: center;
         width: 100%;

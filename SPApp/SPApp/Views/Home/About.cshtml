@@ -12,7 +12,7 @@
     @*<script src="~/Scripts/jquery-1.10.2.js"></script>*@
     <script src="~/Scripts/site.js"></script>
     <script src="~/Scripts/about.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=My-KEY&callback=initialize"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=MY-KEY&callback=initialize"></script>
 </head>
 <body>
     <header id="default-header">
@@ -29,13 +29,12 @@
         <div>
             <span class="title">O nas</span>
         </div>
-        <div> <!--description-->
+        <div > <!--description-->
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque turpis, commodo id odio id, semper tempus justo. Cras pharetra nisi sit amet ex lobortis egestas. Donec sed tincidunt urna. Etiam congue lacus et nisl eleifend, quis venenatis leo tristique. Nullam placerat, 
-                ante rhoncus vestibulum dignissim, est turpis tempus augue, at tempor justo purus varius leo.
-                 Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                 Ut scelerisque consectetur erat, ut accumsan lectus porttitor a. 
-                Maecenas suscipit velit at leo sollicitudin fermentum. Praesent id venenatis arcu.
+                Glavni namen spletne aplikacije je <span class="emphasize">iskanje</span>, <span class="emphasize">
+                rezervacija</span> in <span class="emphasize">izposoja</span> izdelkov (knjig, cdjev, ...). Poleg tega aplikacija omogoča vpogled v 
+                <span class="emphasize">statistiko</span> (največkrat izposojeni izdelki v zadnjem mesecu/letu, število izposoj ne mesec za tekoče leto,
+                ...) ter <span class="emphasize">predlaganje novih izdelkov</span> za izposojo, ki jih trenutno še ni v knjižnici.
             </p>
         </div>
     </section>
@@ -47,12 +46,10 @@
                 <span class="title">Kje smo?</span>
                 <br />
                 <br />
-                <span>
-                    Nahajamo se v središču Ljubljane, na Slovenski cesti 25. Odprti smo od ponedeljka do petka od 8.00 do 20.00. 
-                    V soboto smo odprti od 8.00 do 13.00.
-                </span>
-                <br />
-                <br />
+                <p>
+                    Nahajamo se v središču Ljubljane, na <span class="emphasize">Slovenski cesti 25</span>. 
+                    Odprti smo od ponedeljka do petka od 8.00 do 20.00. V soboto smo odprti od 8.00 do 13.00.
+                </p>
             </div>
             <div id="google-maps-container" class="text-align-center">
                 <div id="google-maps"></div>
@@ -121,7 +118,7 @@
                 <span class="title">Kontakt</span>
                 <br />
                 <br />
-                <span>Dosegljivi smo vsak delovnik med 8.00 in 20.00 na info@spapp.com.</span>
+                <p>Dosegljivi smo vsak delovnik med 8.00 in 20.00 na <span class="emphasize">info@spapp.com</span>.</p>
                 <br />
                 <br />
             </div>
@@ -136,29 +133,6 @@
             </div>
         </div>
     </section>
-
-    <!--
-    <script>
-        var map;
-        function initialize() {
-            var mapCanvas = document.getElementById("google-maps");
-            var mapOptions = {
-                center: new google.maps.LatLng(46.0506628, 14.5025265),
-                zoom: 13
-            }
-            map = new google.maps.Map(mapCanvas, mapOptions);
-        }
-
-        function newLocation(newLat, newLng) {
-            // the next line is required to work around a bug in WebKit (Chrome / Safari)
-            location.href = "#";
-            location.href = "#google-maps";
-
-            map.panTo(new google.maps.LatLng(newLat, newLng));
-            setTimeout("map.setZoom(15)", 1000); // Zoom in after 1 sec
-        }
-    </script>
-    -->
 
     <footer class="text-align-center">
         <div>

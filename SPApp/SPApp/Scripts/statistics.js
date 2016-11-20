@@ -7,6 +7,7 @@ window.onload = function () {
 
 window.addEventListener('resize', ShowGraph);
 
+//https://docs.amcharts.com/javascriptcharts/AmGraph
 
 function ShowGraph() {
     if (graphShown && ((graphSize == 1 && screen.width <= 480) || (graphSize == 2 && screen.width > 480))) {
@@ -22,12 +23,12 @@ function ShowGraph() {
                 "title": "Davincijeva šifra",
                 "rents": 5
             }, {
-                "title": "Subtle art",
+                "title": "Z idejo do bogastva",
                 "rents": 3
 
             }, {
-                "title": "Grow rich",
-                "rents": 2
+                "title": "Programming the World Wide Web",
+                "rents": 1
             }],
             "valueAxes": [{
                 //"axisAlpha": 0,
@@ -37,12 +38,12 @@ function ShowGraph() {
             }],
             "startDuration": 1,
             "graphs": [{
-                "type": "line",
+                "type": "column",
                 "balloonText": "<b>[[category]]: [[value]]</b>",
-                "fillAlphas": 0,
+                "fillAlphas": 0.6,
                 "lineAlpha": 1,
                 "valueField": "rents",
-                "bullet": "round"
+                "bullet": "none"
             }],
             "chartCursor": {
                 "categoryBalloonEnabled": false,
@@ -108,12 +109,12 @@ function ShowGraph() {
                 "title": "Davincijeva šifra",
                 "rents": 5
             }, {
-                "title": "Subtle art",
+                "title": "Z idejo do bogastva",
                 "rents": 3
 
             }, {
-                "title": "Grow rich",
-                "rents": 2
+                "title": "Programming the World Wide Web",
+                "rents": 1
             }],
             "valueAxes": [{
                 //"axisAlpha": 0,
@@ -123,12 +124,12 @@ function ShowGraph() {
             }],
             "startDuration": 1,
             "graphs": [{
-                "type": "line",
+                "type": "column",
                 "balloonText": "<b>[[category]]: [[value]]</b>",
-                "fillAlphas": 0,
+                "fillAlphas": 0.6,
                 "lineAlpha": 1,
                 "valueField": "rents",
-                "bullet": "round"
+                "bullet": "none"
             }],
             "chartCursor": {
                 "categoryBalloonEnabled": false,
