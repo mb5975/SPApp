@@ -2,11 +2,11 @@
 
 
 ### Aplikacija omogoča:
-* Neregistriranemu uporabniku:
+* **Neregistriranemu uporabniku:**
   * Registracijo
   * Iskanje po bazi izdelkov
   * Vpogled v posamezne izdelke
-* Registriranemu uporabniku:
+* **Registriranemu uporabniku:**
   * Vpis
   * Iskanje po bazi izdelkov
   * Vpogled v posamezne izdelke
@@ -14,7 +14,7 @@
   * Vpogled v statistiko izdelkov
   * Vpogled v svojo zgodovino izposoj
   * Predlaganje izdelka za izposojo
-* Administratorju
+* **Administratorju**
   * Upravljanje z izdelki
   * Upravljanje z uporabniki
 
