@@ -11,6 +11,12 @@ section#content {
     margin-bottom: 100px;
 }
 
+table a {
+    text-decoration: none;
+    color: black;
+    text-shadow: 2px 3px 8px rgb(205, 137, 40);
+}
+
 
 /*----------------------Responsive Styles-----------*/
 

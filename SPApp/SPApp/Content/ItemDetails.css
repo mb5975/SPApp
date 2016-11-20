@@ -37,6 +37,8 @@
 
 #image-info > img {
     float: right;
+    width: 200px;
+    height: 250px;
 }
 
 #chartdiv {
@@ -77,5 +79,12 @@
 
     #image-info > img {
         float: none;
+    }
+}
+
+@media screen and (max-width : 480px) {
+    #image-info > img {
+        width: 100px;
+        height: 150px;
     }
 }

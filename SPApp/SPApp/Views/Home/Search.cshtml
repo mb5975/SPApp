@@ -13,6 +13,8 @@
     <link rel="stylesheet" type="text/css" href="~/Content/Search.css" />
 
     <script src="~/Scripts/site.js"></script>
+    <script src="~/Scripts/search.js"></script>
+
 </head>
 <body>
     <header id="default-header">
@@ -41,7 +43,7 @@
                 <a href='@Url.Action("Statistics")'>Statistika</a>
             </li>
             <li>
-                <a href="@Url.Action("Recommend")">Predlagaj nakup</a>
+                <a href='@Url.Action("Recommend")'>Predlagaj nakup</a>
             </li>
         </ul>
     </nav>
@@ -95,41 +97,5 @@
             </div>
         </div>
     </section>
-
-    <script>
-        function showResults() {
-            document.getElementById('result-container').style.visibility = 'visible';
-        }
-
-        //za post je treba sam prvega dat praznega (value) in required na select in bo delal
-        function validate_search() {
-            var selectedIndex = document.querySelector('#category-and-search-input-container select').selectedIndex;
-            var selectedValue = document.querySelector('#category-and-search-input-container select').value;
-
-            //var searchFilter = document.getElementById('search-filter').value;
-            //if (selectedIndex == 0 || searchFilter == "") {
-            if (selectedValue == 'disabled') { //dela tudi tam, kjer ni prvega disabled za razliko od indexa
-                return false;
-            }
-            else {
-                return true;
-            }
-        }
-
-        function submit_search() {
-            var validation_successful = validate_search();
-            if (validation_successful) {
-                //submit
-                console.log("validation successful");
-                showResults();
-                return true;
-            }
-            else {
-                //set custom valididty
-                return false;
-            }
-        }
-    </script>
-
 </body>
 </html>
