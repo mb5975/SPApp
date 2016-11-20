@@ -28,11 +28,11 @@ Ker je dizajn **prilagodljiv**, se aplikacija lepo obnaša na ekranih vseh napra
 Za dobro uporabniško izkušnjo sem uporabil tople barve in preprostost, poleg tega pa še dobro mero *javascripta*. 
 
 ## TEŽAVE V RAZLIČNIH BRSKALNIKIH
-Prva opazna težava, na katero sem naletel je bila ta, da ko sem hotel imeti gumbe in vnosna polja na mobilnih napravah čez celo širino, je v *firefoxu* delalo vse pravilno, 
-na *chromu* pa širina gumbov in vnosnih polj ni bila čisto čez vse *piksle*. To sem popravil s css atributom *box-sizing*, ki sem ga nastavil na *border-box*. 
+Prva opazna težava, na katero sem naletel je bila ta, da ko sem hotel imeti gumbe in vnosna polja na mobilnih napravah čez celo širino, je v *Firefoxu* delalo vse pravilno, na *Chromu* pa širina gumbov in vnosnih polj ni bila čisto čez vse *piksle*. To sem popravil s css atributom *box-sizing*, ki sem ga nastavil na *border-box*. 
 To pomeni, da celotna širina elementa vsebuje tudi *padding* in *border*. Drug bolj opazen problem je bil ta, da ima vsak brskalnik svojo privzeto pisavo za 
 vnosna polja. Ker sem hotel, da ima moja aplikacija na različnih brskalnikih enako pisavo na vnosnih poljih, sem moral posebej določiti pisavo, 
 ki je povozila privzete nastavitve posameznih brskalnikov. Ostali manjši problemi so nastajali predvsem pri pisanju css datotek.
+Testiral sem na *Firefoxu*, *Chromu* in *Operi*.
 
 ## ZMOGLJIVOSTI S POSEBNIM TRUDOM
 Prva karakteristika se nahaja na naslovni strani in sicer zato, ker je naslovna stran prva stran, ki jo potencialni uporabniki vidijo in sem hotel, 
