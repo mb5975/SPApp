@@ -18,18 +18,18 @@
 </head>
 <body>
     <header id="default-header">
-        <div id="header-left-div">
+        <div class="header-left-div">
             <span class="logo-text">MOJA KNJIŽNICA&trade;</span>
         </div>
-        <div id="header-right-div">
+        <div class="header-right-div">
             <span class="username">Janez Novak</span>
-            <img class="user-icon" src="~/Content/Images/user_icon.svg" />
+            <img class="user-icon" src="~/Content/Images/user_icon.svg" alt="Uporabniška ikona"/>
         </div>
     </header>
 
     @*MENU*@
     <label for="show-menu" id="show-menu-label">Show Menu</label>
-    <input type="checkbox" id="show-menu" role="button">
+    <input type="checkbox" id="show-menu" value="button">
 
     <nav id="navigation-menu">
         <ul>
@@ -51,7 +51,7 @@
     <section id="content"> <!--search input in izbira kategorije-->
         <div id="category-and-search-input-container">
             <div>
-                <span class="title">Pobrskajte po izdelkih</span>
+                <h3 class="title">Pobrskajte po izdelkih</h3>
             </div>
             <form>
                 <select>

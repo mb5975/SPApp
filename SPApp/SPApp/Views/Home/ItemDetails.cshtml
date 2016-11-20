@@ -22,18 +22,18 @@
 </head>
 <body>
     <header id="default-header">
-        <div id="header-left-div">
+        <div class="header-left-div">
             <span class="logo-text">MOJA KNJIŽNICA&trade;</span>
         </div>
-        <div id="header-right-div">
+        <div class="header-right-div">
             <span class="username">Janez Novak</span>
-            <img class="user-icon" src="~/Content/Images/user_icon.svg" />
+            <img class="user-icon" src="~/Content/Images/user_icon.svg" alt="Uporabniška ikona"/>
         </div>
     </header>
 
     @*MENU*@
     <label for="show-menu" id="show-menu-label">Show Menu</label>
-    <input type="checkbox" id="show-menu" role="button">
+    <input type="checkbox" id="show-menu" value="button">
 
     <nav id="navigation-menu">
         <ul>
@@ -75,7 +75,7 @@
 
     <section>
         <div @*id="rent-history"*@ class="text-align-center">
-            <span class="title">Zgodovina izposoj</span>
+            <h3 class="title">Zgodovina izposoj</h3>
             <div id="table-container">  <!--da lahko spravim tabelo na sredino, drugače gre span zraven pa ni vredu-->
 
                 <table>
@@ -103,7 +103,7 @@
 
     <section>
         <div class="text-align-center">
-            <span class="title">Število izposoj na mesec</span>
+            <h3 class="title">Število izposoj na mesec</h3>
             <div id="chartdiv"></div> <!--more met višino in širino !-->
         </div>
     </section>
@@ -111,7 +111,7 @@
 
     <section>
         <div id="useful-links" class="text-align-center">
-            <span class="title">Uporabne povezave</span>
+            <h3 class="title">Uporabne povezave</h3>
             <ul>
                 <li>
                     <a href="https://sl.wikipedia.org/wiki/Da_Vincijeva_%C5%A1ifra_(roman)">O knjigi</a>
@@ -138,7 +138,7 @@
             </div>
             <div>
                 <a id="fb-link" href="http://www.facebook.com/Moja-Knjižnica-242222909528420">
-                    <img src="~/Content/Images/FBicon.gif" />
+                    <img src="~/Content/Images/FBicon.gif" alt="Facebook ikona"/>
                 </a>
             </div>
         </div>

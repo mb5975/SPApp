@@ -16,18 +16,18 @@
 </head>
 <body>
     <header id="default-header">
-        <div id="header-left-div">
+        <div class="header-left-div">
             <span class="logo-text">MOJA KNJIŽNICA&trade;</span>
         </div>
-        <div id="header-right-div">
+        <div class="header-right-div">
             <span class="username">Janez Novak</span>
-            <img class="user-icon" src="~/Content/Images/user_icon.svg" />
+            <img class="user-icon" src="~/Content/Images/user_icon.svg" alt="Uporabniška ikona"/>
         </div>
     </header>
 
     @*MENU*@
     <label for="show-menu" id="show-menu-label">Show Menu</label>
-    <input type="checkbox" id="show-menu" role="button">
+    <input type="checkbox" id="show-menu" value="button">
 
     <nav id="navigation-menu">
         <ul>
@@ -50,7 +50,7 @@
 
     <section>
         <div id="rent-history-for-user" class="text-align-center">
-            <span class="title">Trenutno izposojene knjige</span>
+            <h3 class="title">Trenutno izposojene knjige</h3>
             <br />
             <div id="table-container"> <!--(najprej za sredino), zdaj za responsive oz overflow-x-->
                 <table>
@@ -156,7 +156,7 @@
             </div>
             <div>
                 <a id="fb-link" href="http://www.facebook.com/Moja-Knjižnica-242222909528420">
-                    <img src="~/Content/Images/FBicon.gif" />
+                    <img src="~/Content/Images/FBicon.gif" alt="Facebook ikona"/>
                 </a>
             </div>
         </div>

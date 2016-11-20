@@ -16,10 +16,10 @@
 </head>
 <body>
     <header id="default-header">
-        <div id="header-left-div">
+        <div class="header-left-div">
             <span class="logo-text">MOJA KNJIŽNICA&trade;</span>
         </div>
-        <div id="header-right-div">
+        <div class="header-right-div">
             <a class="linkToButton-default" href='@Url.Action("Login")'>VPIS</a>
         </div>
     </header>
@@ -27,7 +27,7 @@
 
     <section id="description-about-us" class="text-align-center">
         <div>
-            <span class="title">O nas</span>
+            <h3 class="title">O nas</h3>
         </div>
         <div > <!--description-->
             <p>
@@ -43,9 +43,7 @@
     <section id="map-and-contact">
         <div id="map-container" class="text-align-center">
             <div>
-                <span class="title">Kje smo?</span>
-                <br />
-                <br />
+                <h3 class="title">Kje smo?</h3>
                 <p>
                     Nahajamo se v središču Ljubljane, na <span class="emphasize">Slovenski cesti 25</span>. 
                     Odprti smo od ponedeljka do petka od 8.00 do 20.00. V soboto smo odprti od 8.00 do 13.00.
@@ -56,7 +54,7 @@
             </div>
             <div id="get-my-gps-container">
                 <div>
-                    <span class="title">Izpiši moje koordinate</span>
+                    <h3 class="title">Izpiši moje koordinate</h3>
                 </div>
                 <div>
                     <input type="button" onclick="getGPSLocation();" value="Poizvedba GPS" />
@@ -68,17 +66,13 @@
         </div>
         <div id="contack-container" class="text-align-center">
             <div>
-                <span class="title">Kontakt</span>
-                <br />
-                <br />
+                <h3 class="title">Kontakt</h3>
                 <p>Dosegljivi smo vsak delovnik med 8.00 in 20.00 na <span class="emphasize">info@spapp.com</span>.</p>
                 <br />
                 <br />
             </div>
             <div>
-                <span class="title">Naročite se na naše novice</span>
-                <br />
-                <br />
+                <h3 class="title">Naročite se na naše novice</h3>
                 <form>
                     <input type="email" placeholder="Vaš elektronski naslov" required/>
                     <button type="submit">Pošlji</button>
@@ -99,7 +93,7 @@
             </div>
             <div>
                 <a id="fb-link" href="http://www.facebook.com/Moja-Knjižnica-242222909528420">
-                    <img src="~/Content/Images/FBicon.gif" />
+                    <img src="~/Content/Images/FBicon.gif" alt="Facebook ikona"/>
                 </a>
             </div>
         </div>

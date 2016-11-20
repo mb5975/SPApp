@@ -38,7 +38,7 @@ input, textarea, select, button { /*drugače ma vsak browser po svoje*/
 }
 
 
-#header-left-div {
+.header-left-div {
     /*display: inline-block;*/
     float: left;
     width: 60%;
@@ -51,7 +51,7 @@ input, textarea, select, button { /*drugače ma vsak browser po svoje*/
     justify-content: center;
 }
 
-#header-right-div { /*ne vpliva na flow strani*/
+.header-right-div { /*ne vpliva na flow strani*/
     float: left;
     width: 40%;
     height: 100%;
@@ -139,6 +139,12 @@ table td {
 
 /*create class for all titles*/
 span.title {
+    /*background-color: rgb(205, 137, 20);*/
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 3px 8px rgb(205, 137, 40);
+}
+h3.title {
     /*background-color: rgb(205, 137, 20);*/
     font-weight: bold;
     text-transform: uppercase;
@@ -431,7 +437,7 @@ input[type="button"]:active {
         padding-left: 0px;
     }
 
-    #header-right-div span.username {
+    .header-right-div span.username {
         display: none;
     }
 
@@ -481,7 +487,7 @@ input[type="button"]:active {
         width: 100%; /*na telefonu se to ne pokaže*/
     }
     
-    #header-left-div {
+    .header-left-div {
         float: left;
         width: 60%;
         height: 100%;
@@ -492,7 +498,7 @@ input[type="button"]:active {
         justify-content: center;
     }
 
-    #header-right-div {
+    .header-right-div {
         float: left;
         width: 40%;
         height: 100%;
