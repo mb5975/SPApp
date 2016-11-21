@@ -74,7 +74,7 @@
             <div>
                 <h3 class="title">Naročite se na naše novice</h3>
                 <form>
-                    <input type="email" placeholder="Vaš elektronski naslov" required/>
+                    <input type="email" placeholder="Vaš elektronski naslov" oninvalid="this.setCustomValidity('Vnesite elektronski naslov.')" oninput="setCustomValidity('')" required/>
                     <button type="submit">Pošlji</button>
                 </form>
             </div>
