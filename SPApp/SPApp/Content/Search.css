@@ -11,6 +11,10 @@ section#content {
     margin-bottom: 100px;
 }
 
+#result-container {
+	visibility: hidden;
+}
+
 table a {
     text-decoration: none;
     color: black;
