@@ -41,10 +41,8 @@ da bi pritegnila čim več uporabnikov. To je slika v ozadju. Veliko časa sem n
 v ekran ob spremembi pozicije na strani. Druga karakteristika pa je **prilagodljiv dizajn**, kar povzroči dober izgled na ekranih vseh naprav.
 
 
-## KOMENTAR:
-V svojo aplikacijo bi, poleg fizičnih kopij knjig in cdjev, rad dodal še **e-knjige**, ki bi si jih uporabnik lahko tudi izposodil, za določeno obdobje 
-in bi dobil dostop do njih na strežniku, tako da mu jih ne bi bilo treba fizično dvigniti v knjižnici. Poleg tega bi rad dodal še **opomnik** za bližanje
-roka za vračanje izdelkov.
+## KOMENTAR
+V svojo aplikacijo bi, poleg fizičnih kopij knjig in cdjev, rad dodal še **e-knjige**, ki bi si jih uporabnik lahko tudi izposodil, za določeno obdobje in bi dobil dostop do njih na strežniku, tako da mu jih ne bi bilo treba fizično dvigniti v knjižnici. Poleg tega bi rad dodal še **opomnik** za bližanje roka za vračanje izdelkov in **glasovanje** za najboljše predloge, ki bi potem sprožil nakup najbolj zaželjenih izdelkov med uporabniki.
 
 ## AVTOR
 
