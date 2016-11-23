@@ -51,30 +51,30 @@
     <section>
         <div id="rent-history-for-user" class="text-align-center">
             <h3 class="title">Trenutno izposojene knjige</h3>
-            <br />
+            @*<br />*@
             <div id="table-container"> <!--(najprej za sredino), zdaj za responsive oz overflow-x-->
                 <table>
                     <tr>
                         <th>Knjiga</th>
-                        <th>Datum izposoje</th>
+                        @*<th>Datum izposoje</th>*@
                         <th>Datum vrnitve</th>
                         <th>Možnost podaljšanja</th>
                     </tr>
                     <tr>
                         <td><a href='@Url.Action("ItemDetails")'>Da Vincijeva šifra</a></td>
-                        <td>10.10.2016</td>
+                        @*<td>10.10.2016</td>*@
                         <td>4.11.2016</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td><a href='@Url.Action("ItemDetails")'>Z idejo do bogastva</a></td>
-                        <td>23.9.2016</td>
+                        @*<td>23.9.2016</td>*@
                         <td>9.10.2016</td>
                         <td><input type="button" value="Podaljšaj" /></td>
                     </tr>
                     <tr>
                         <td><a href='@Url.Action("ItemDetails")'>Programming the World Wide Web</a></td>
-                        <td>2.9.2016</td>
+                        @*<td>2.9.2016</td>*@
                         <td>20.9.2016</td>
                         <td><input type="button" value="Podaljšaj"/></td>
                     </tr>
@@ -83,63 +83,60 @@
         </div>
     </section>
 
-    @*copy-----------------------------------*@
-
-    <section id="new-in-section">
-        <hr class="inline-with-text" />
-        <span id="new-block-title" class="title">NOVO V NAŠI KNJIŽNICI</span>
-        <hr class="inline-with-text" />
-    </section>
-    @* uporabi span za formatiranje besed v stavkih *@
-
-
-    <section class="animateblock centerright">
-        <div class="colored">
-            <figure>
-                <img class="new-item-image" src="~/Content/Images/da-vincijeva-sifra.jpg" />
-                <figcaption class="new-item-description">
-                    DaVincijeva šifra
-                    <br />
-                    Dan Brown
-                    <br />
-                    <a href='@Url.Action("ItemDetails")'>več</a>
-                </figcaption>
-
-            </figure>
+    <section>
+        <div id="new-in-section">
+            <hr class="inline-with-text" />
+            <h3 id="new-block-title" class="title">NOVO V NAŠI KNJIŽNICI</h3>
+            <hr class="inline-with-text" />
         </div>
-    </section>
 
+        <div class="animateblock centerright">
+            <div class="colored">
+                <figure>
+                    <img class="new-item-image" src="../Content/Images/da-vincijeva-sifra.jpg" alt="DaVincijeva šifra" />
+                    <figcaption class="new-item-description">
+                        DaVincijeva šifra
+                        <br />
+                        Dan Brown
+                        <br />
+                        <a href='@Url.Action("ItemDetails")'>več</a>
+                    </figcaption>
 
-    <section class="animateblock centerright">
-        <div class="colored">
-            <figure>
-                <img class="new-item-image" src="~/Content/Images/z_idejo_do_bogastva.jpg" />
-                <figcaption class="new-item-description">
-                    Z idejo do bogastva
-                    <br />
-                    Napoleon Hill
-                    <br />
-                    <a href='@Url.Action("ItemDetails")'>več</a>
-
-                </figcaption>
-            </figure>
+                </figure>
+            </div>
         </div>
-    </section>
 
-    <section class="animateblock centerright">
-        <div class="colored">
-            <figure>
-                <img class="new-item-image" src="~/Content/Images/WWW.jpg" />
-                <figcaption class="new-item-description">
-                    Programming the World Wide Web
-                    <br />
-                    Robert W. Sebesta
-                    <br />
-                    8. izdaja
-                    <br />
-                    <a href='@Url.Action("ItemDetails")'>več</a>
-                </figcaption>
-            </figure>
+
+        <div class="animateblock centerright">
+            <div class="colored">
+                <figure>
+                    <img class="new-item-image" src="../Content/Images/z_idejo_do_bogastva.jpg" alt="Z idejo do bogastva" />
+                    <figcaption class="new-item-description">
+                        Z idejo do bogastva
+                        <br />
+                        Napoleon Hill
+                        <br />
+                        <a href='@Url.Action("ItemDetails")'>več</a>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="animateblock centerright">
+            <div class="colored">
+                <figure>
+                    <img class="new-item-image" src="../Content/Images/WWW.jpg" alt="Programming the World Wide Web" />
+                    <figcaption class="new-item-description">
+                        Programming the World Wide Web
+                        <br />
+                        Robert W. Sebesta
+                        <br />
+                        8. izdaja
+                        <br />
+                        <a href='@Url.Action("ItemDetails")'>več</a>
+                    </figcaption>
+                </figure>
+            </div>
         </div>
     </section>
 
