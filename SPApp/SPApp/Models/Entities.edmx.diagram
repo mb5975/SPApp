@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fd181b9ee59b4463841997eabac9f210" Name="Diagram1">
+        <EntityTypeShape EntityType="databaseModel.item" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="databaseModel.recommendation" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="databaseModel.rent" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="databaseModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="databaseModel.user_account" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="databaseModel.vote" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <AssociationConnector Association="databaseModel.FK__recommend__user___07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseModel.FK__vote__recommenda__0D7A0286" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseModel.FK__rent__user_accou__02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseModel.FK__vote__user_accou__0C85DE4D" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseModel.rent_item" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

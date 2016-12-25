@@ -1,6 +1,4 @@
-﻿@*@{
-        Layout = null;
-    }*@
+﻿@model SPApp.Models.Home.HomeViewModel
 
 <!DOCTYPE html>
 
@@ -20,8 +18,11 @@
             <span class="logo-text">MOJA KNJIŽNICA&trade;</span>
         </div>
         <div class="header-right-div">
-            <span class="username">Janez Novak</span>
+            <span class="username">@Html.DisplayFor(model => model.FullName)</span>
             <img class="user-icon" src="~/Content/Images/user_icon.svg" alt="Uporabniška ikona"/>
+            <span>
+                <a class="linkToButton-default" href='@Url.Action("LogOutUser")'>Odjavi</a>
+            </span>
         </div>
     </header>
 

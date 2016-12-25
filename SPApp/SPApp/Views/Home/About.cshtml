@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model SPApp.Models.About.AboutViewModel
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -15,14 +17,55 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=MY-KEY&callback=initialize"></script>
 </head>
 <body>
-    <header id="default-header">
-        <div class="header-left-div">
-            <span class="logo-text">MOJA KNJIŽNICA&trade;</span>
-        </div>
-        <div class="header-right-div">
-            <a class="linkToButton-default" href='@Url.Action("Login")'>VPIS</a>
-        </div>
-    </header>
+    @if (ViewBag.IsValidSession)
+    {
+        <header id="default-header">
+            <div class="header-left-div">
+                <span class="logo-text">MOJA KNJIŽNICA&trade;</span>
+            </div>
+            <div class="header-right-div">
+                <span class="username">@Html.DisplayFor(model => model.FullName)</span>
+                <img class="user-icon" src="~/Content/Images/user_icon.svg" alt="Uporabniška ikona" />
+                <span>
+                    <a class="linkToButton-default" href='@Url.Action("LogOutUser")'>Odjavi</a>
+                </span>
+            </div>
+        </header>
+
+        @*MENU*@
+        <label for="show-menu" id="show-menu-label">Show Menu</label>
+        <input type="checkbox" id="show-menu" value="button">
+
+        <nav id="navigation-menu">
+            <ul>
+                <li>
+                    <a href='@Url.Action("Home")'>Domov</a>
+                </li>
+                <li class="active-menu-element">
+                    <a href='@Url.Action("Search")'>Iskanje izdelkov</a>
+                </li>
+                <li>
+                    <a href='@Url.Action("Statistics")'>Statistika</a>
+                </li>
+                <li>
+                    <a href='@Url.Action("Recommend")'>Predlagaj nakup</a>
+                </li>
+            </ul>
+        </nav>
+    }
+    else
+    {
+        <header id="default-header">
+            <div class="header-left-div">
+                <span class="logo-text">MOJA KNJIŽNICA&trade;</span>
+            </div>
+            <div class="header-right-div">
+                <span>
+                    <a class="linkToButton-default" href='@Url.Action("Login")'>VPIS</a>
+                </span>
+            </div>
+        </header>
+    }
 
 
     <section id="description-about-us" class="text-align-center">

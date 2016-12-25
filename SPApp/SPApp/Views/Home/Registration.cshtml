@@ -1,7 +1,4 @@
-﻿
-@*@{
-    Layout = null;
-}*@
+﻿@model SPApp.Models.Registration.RegistrationViewModel
 
 <!DOCTYPE html>
 
@@ -30,17 +27,31 @@
     </header>
 
     <div id="registration-container-section">
+        @if (!String.IsNullOrEmpty(Model.ErrorMsg))
+        {
+            <div id="error-message">
+                @Html.DisplayFor(model => model.ErrorMsg)
+            </div>
+        }
+
         <div>
-            <form id="registration-form">
+            <form id="registration-form" method="post" action="@Url.Action("RegisterUser", "Home")">
                 <div>Podatki za registracijo</div> <!--div zato da ma lahko margin spodi-->
-                <input type="text" placeholder="Ime" required oninvalid="this.setCustomValidity('Polje ne sme biti prazno.')" oninput="setCustomValidity('')"/>
+                @Html.TextBoxFor(model => model.FirstName, new { type = "text", placeholder = "Ime", oninvalid = "this.setCustomValidity('Polje ne sme biti prazno.')", oninput = "setCustomValidity('')", required="required" })
+                @*<input type="text" placeholder="Ime" value="@Model.FirstName" required oninvalid="this.setCustomValidity('Polje ne sme biti prazno.')" oninput="setCustomValidity('')"/>*@
                 <br />
-                <input type="text" placeholder="Priimek" required oninvalid="this.setCustomValidity('Polje ne sme biti prazno.')" oninput="setCustomValidity('')"/>
+                @Html.TextBoxFor(model => model.LastName, new { type = "text", placeholder = "Priimek", oninvalid = "this.setCustomValidity('Polje ne sme biti prazno.')", oninput = "setCustomValidity('')", required = "required" })
+@*                <input type="text" placeholder="Priimek" value="@Model.LastName" required oninvalid="this.setCustomValidity('Polje ne sme biti prazno.')" oninput="setCustomValidity('')"/>*@
                 <br />
-                <input type="email" placeholder="Elektronski naslov" required oninvalid="this.setCustomValidity('Vnesite elektronski naslov.')" oninput="setCustomValidity('')"/>
+                @Html.TextBoxFor(model => model.Email, new { type = "email", placeholder = "Elektronski naslov", oninvalid = "this.setCustomValidity('Polje ne sme biti prazno.')", oninput = "setCustomValidity('')", required = "required" })
+                @*<input type="email" placeholder="Elektronski naslov" value="@Model.Email" required oninvalid="this.setCustomValidity('Vnesite elektronski naslov.')" oninput="setCustomValidity('')"/>*@
                 <br />
-                <input id="password" type="password" placeholder="Geslo" required oninvalid="this.setCustomValidity('Polje ne sme biti prazno.')" oninput="setCustomValidity('')"/>
+                @Html.TextBoxFor(model => model.Username, new { type = "text", placeholder = "Uporabniško ime", oninvalid = "this.setCustomValidity('Polje ne sme biti prazno.')", oninput = "setCustomValidity('')", required = "required" })
                 <br />
+                @Html.TextBoxFor(model => model.Password, new { id = "password", type = "password", placeholder = "Geslo", oninvalid = "this.setCustomValidity('Polje ne sme biti prazno.')", oninput = "setCustomValidity('')", required = "required" })
+                @*<input id="password" type="password" placeholder="Geslo" value="@Model.Password" required oninvalid="this.setCustomValidity('Polje ne sme biti prazno.')" oninput="setCustomValidity('')"/>*@
+                <br />
+                @*@Html.TextBoxFor(model => model.?, new { id = "confirm-password", type = "password", placeholder = "Ponovite geslo", oninvalid = "this.setCustomValidity('Polje ne sme biti prazno.')", oninput = "setCustomValidity('')", required = "required" })*@
                 <input id="confirm-password" type="password" placeholder="Ponovite geslo" required oninput="validatePassword()"/>
                 <br />
 

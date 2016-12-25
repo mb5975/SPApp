@@ -1,6 +1,4 @@
-﻿@*@{
-        Layout = null;
-    }*@
+﻿@model SPApp.Models.Login.LoginViewModel
 
 <!DOCTYPE html>
 
@@ -25,15 +23,27 @@
     </header>
 
     <div id="login-container-div">
+        @if (!String.IsNullOrEmpty(Model.ErrorMsg))
+        {
+            <div>
+                @Html.DisplayFor(model => model.ErrorMsg)
+            </div>
+        }
+        @if (!String.IsNullOrEmpty(Model.SuccessMsg))
+        {
+            <div>
+                @Html.DisplayFor(model => model.SuccessMsg)
+            </div>
+        }
         <div id="login-form-div">
-            <form id="login-form">
+            <form id="login-form" method="post" action="@Url.Action("LoginUser", "Home")">
                 <div>Dobrodošli nazaj!</div>
-
-                <input type="email" placeholder="Elektronski naslov" required oninvalid="this.setCustomValidity('Vnesite elektronski naslov.')" oninput="setCustomValidity('')" />
+                @Html.TextBoxFor(model => model.Username, new { type = "text", placeholder = "Uporabniško ime", oninvalid = "this.setCustomValidity('Vnesite uporabniško ime.')", oninput = "setCustomValidity('')", required = "required" })
+                @*<input type="text" placeholder="uporabniško ime" required oninvalid="this.setCustomValidity('Vnesite uporabniško ime.')" oninput="setCustomValidity('')" />*@
                 <br />
-                <input id="password" type="password" placeholder="Geslo" required oninvalid="this.setCustomValidity('Vnesite geslo.')" oninput="setCustomValidity('')"/>
+                @Html.TextBoxFor(model => model.Password, new { id = "password", type = "password", placeholder = "Geslo", oninvalid = "this.setCustomValidity('Vnesite geslo.')", oninput = "setCustomValidity('')", required = "required" })
+                @*<input id="password" type="password" placeholder="Geslo" required oninvalid="this.setCustomValidity('Vnesite geslo.')" oninput="setCustomValidity('')"/>*@
                 <br />
-
                 <button class="linkToButton-default" type="submit">Vpis</button>
 
             </form>
