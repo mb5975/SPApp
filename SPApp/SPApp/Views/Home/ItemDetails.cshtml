@@ -18,134 +18,180 @@
 
 </head>
 <body>
-    @if (ViewBag.IsValidSession)
+    @using (Html.BeginForm("ItemDetails", "Home", FormMethod.Post))
     {
-        <header id="default-header">
-            <div class="header-left-div">
-                <span class="logo-text">MOJA KNJIŽNICA&trade;</span>
+        //hidden fields for ids:
+
+
+
+        if (ViewBag.IsValidSession)
+        {
+            <header id="default-header">
+                <div class="header-left-div">
+                    <span class="logo-text">MOJA KNJIŽNICA&trade;</span>
+                </div>
+                <div class="header-right-div">
+                    <span class="username">@Html.DisplayFor(model => model.FullName)</span>
+                    <img class="user-icon" src="~/Content/Images/user_icon.svg" alt="Uporabniška ikona" />
+                    <span>
+                        <a class="linkToButton-default" href='@Url.Action("LogOutUser")'>Odjavi</a>
+                    </span>
+                </div>
+            </header>
+
+            @*MENU*@
+            <label for="show-menu" id="show-menu-label">Show Menu</label>
+            <input type="checkbox" id="show-menu" value="button">
+
+            <nav id="navigation-menu">
+                <ul>
+                    <li>
+                        <a href='@Url.Action("Home")'>Domov</a>
+                    </li>
+                    <li class="active-menu-element">
+                        <a href='@Url.Action("Search")'>Iskanje izdelkov</a>
+                    </li>
+                    <li>
+                        <a href='@Url.Action("Statistics")'>Statistika</a>
+                    </li>
+                    <li>
+                        <a href='@Url.Action("Recommend")'>Predlagaj nakup</a>
+                    </li>
+                </ul>
+            </nav>
+        }
+        else
+        {
+            <header id="default-header">
+                <div class="header-left-div">
+                    <span class="logo-text">MOJA KNJIŽNICA&trade;</span>
+                </div>
+                <div class="header-right-div">
+                    <span>
+                        <a class="linkToButton-default" href='@Url.Action("Login")'>VPIS</a>
+                    </span>
+                </div>
+            </header>
+        }
+
+
+        <section id="item-details-container">
+            <div id="title-info" class="text-align-center centered">
+                @if (ViewBag.IsValidSession && ViewBag.IsAdmin)
+                {
+                    <span>@Html.TextBoxFor(model => model.Item.Name, new { required = "required", type = "text" }) (@Html.TextBoxFor(model => model.Item.IdentificationCode, new { required = "required", type = "text" }))</span>
+                }
+                else if (ViewBag.IsValidSession && !ViewBag.IsAdmin)
+                {
+                    <span>@Html.DisplayFor(model => model.Item.Name, new { required = "required", type = "text" }) (@Html.DisplayFor(model => model.Item.IdentificationCode, new { required = "required", type = "text" }))</span>
+                    <input type="button" value="Izposodi"/>
+                }
+                else
+                {
+                    <span>@Html.DisplayFor(model => model.Item.Name, new { required = "required", type = "text" }) (@Html.DisplayFor(model => model.Item.IdentificationCode, new { required = "required", type = "text" }))</span>
+                }
             </div>
-            <div class="header-right-div">
-                <span class="username">@Html.DisplayFor(model => model.FullName)</span>
-                <img class="user-icon" src="~/Content/Images/user_icon.svg" alt="Uporabniška ikona" />
-                <span>
-                    <a class="linkToButton-default" href='@Url.Action("LogOutUser")'>Odjavi</a>
-                </span>
-            </div>
-        </header>
 
-        @*MENU*@
-        <label for="show-menu" id="show-menu-label">Show Menu</label>
-        <input type="checkbox" id="show-menu" value="button">
-
-        <nav id="navigation-menu">
-            <ul>
-                <li>
-                    <a href='@Url.Action("Home")'>Domov</a>
-                </li>
-                <li class="active-menu-element">
-                    <a href='@Url.Action("Search")'>Iskanje izdelkov</a>
-                </li>
-                <li>
-                    <a href='@Url.Action("Statistics")'>Statistika</a>
-                </li>
-                <li>
-                    <a href='@Url.Action("Recommend")'>Predlagaj nakup</a>
-                </li>
-            </ul>
-        </nav>
-    }
-    else
-    {
-        <header id="default-header">
-            <div class="header-left-div">
-                <span class="logo-text">MOJA KNJIŽNICA&trade;</span>
-            </div>
-            <div class="header-right-div">
-                <span>
-                    <a class="linkToButton-default" href='@Url.Action("Login")'>VPIS</a>
-                </span>
-            </div>
-        </header>
-    }
-
-
-    <section id="item-details-container">
-        <div id="title-info" class="text-align-center centered">
-            <span>DaVincijeva šifra (referenčna številka)</span>
-            @if (ViewBag.IsValidSession)
-            {
-                <input type="button" value="Izposodi"/>
-            }
-        </div>
-
-        <div id="main-and-image-info-container"> <!--make two divs and fieldsets inside have same height-->
+            <div id="main-and-image-info-container"> <!--make two divs and fieldsets inside have same height-->
             
 
-            <div id="image-info">
-                <img alt="Davincijeva šifra" src="~/Content/Images/da-vincijeva-sifra.jpg" />
+                <div id="image-info">
+                    @*TODO slika iz baze*@
+                    @*<img alt="Davincijeva šifra" src="~/Content/Images/da-vincijeva-sifra.jpg" />*@
+                </div>
+
+                @if (ViewBag.IsValidSession && ViewBag.IsAdmin)
+                {
+                    <div id="main-info">
+                        <span>Avtor: @Html.TextBoxFor(model => model.Item.Author, new { required = "required", type = "text" })</span><br />
+                        <span>Leto izdaje: @Html.TextBoxFor(model => model.Item.Year, new { required = "required", type = "number" })</span><br />
+                        <span>Status: @Html.TextBoxFor(model => model.Item.IsAvailable, new { required = "required", type = "text" })</span><br />
+                        <span>Opis: @Html.TextAreaFor(model => model.Item.Description, new { required = "required", type = "text" })</span><br />
+                        <span>Tip: @Html.TextBoxFor(model => model.Item.Type, new { required = "required", type = "text" })</span><br />
+                    </div>
+                }
+                else
+                {
+                    <div id="main-info">
+                        <span>Avtor: @Html.DisplayFor(model => model.Item.Author)</span><br />
+                        <span>Leto izdaje: @Html.DisplayFor(model => model.Item.Year)</span><br />
+                        <span>Opis: @Html.DisplayFor(model => model.Item.Description)</span><br />
+                        <span>Tip: @Html.DisplayFor(model => model.Item.Type)</span><br />
+                        <span>Status: @Html.DisplayFor(model => model.Item.IsAvailable)</span><br />
+                    </div>
+                }
             </div>
+        </section>
 
-            <div id="main-info">
-                <span>Avtor: Dan Brown</span><br />
-                <span>Leto izdaje: 2003</span><br />
-                <span>Status: prosto</span>
+        <section>
+            <div @*id="rent-history"*@ class="text-align-center">
+                <h3 class="title">Zgodovina izposoj</h3>
+                <div id="table-container">  <!--da lahko spravim tabelo na sredino, drugače gre span zraven pa ni vredu-->
+
+                    <table>
+                        <tr>
+                            <th>Datum izposoje</th>
+                            <th>Datum vrnitve</th>
+                        </tr>
+                        <tr>
+                            <td>10.10.2016</td>
+                            <td>4.11.2016</td>
+                        </tr>
+                        <tr>
+                            <td>23.9.2016</td>
+                            <td>9.10.2016</td>
+                        </tr>
+                        <tr>
+                            <td>2.9.2016</td>
+                            <td>20.9.2016</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section>
-        <div @*id="rent-history"*@ class="text-align-center">
-            <h3 class="title">Zgodovina izposoj</h3>
-            <div id="table-container">  <!--da lahko spravim tabelo na sredino, drugače gre span zraven pa ni vredu-->
 
-                <table>
-                    <tr>
-                        <th>Datum izposoje</th>
-                        <th>Datum vrnitve</th>
-                    </tr>
-                    <tr>
-                        <td>10.10.2016</td>
-                        <td>4.11.2016</td>
-                    </tr>
-                    <tr>
-                        <td>23.9.2016</td>
-                        <td>9.10.2016</td>
-                    </tr>
-                    <tr>
-                        <td>2.9.2016</td>
-                        <td>20.9.2016</td>
-                    </tr>
-                </table>
+        <section>
+            <div class="text-align-center">
+                <h3 class="title">Število izposoj na mesec</h3>
+                <div id="chartdiv"></div> <!--more met višino in širino !-->
             </div>
-        </div>
-    </section>
+        </section>
 
 
-    <section>
-        <div class="text-align-center">
-            <h3 class="title">Število izposoj na mesec</h3>
-            <div id="chartdiv"></div> <!--more met višino in širino !-->
-        </div>
-    </section>
+        <section>
+            <div id="useful-links" class="text-align-center">
+                <h3 class="title">Uporabne povezave</h3>
+                <ul> @*TODO for čez vse linke*@
+                    @for (int i = 0; i < Model.Item.Links.Count; i++)
+                    {
+                        <li>
+                            @if (ViewBag.IsValidSession && ViewBag.IsAdmin)
+                            {
+                                @Html.TextBoxFor(x => Model.Item.Links[i].Link1, new { required = "required", type = "text" })
+                                <br />
+                                @Html.TextBoxFor(x => Model.Item.Links[i].Name, new { required = "required", type = "text" })
+                                
+                            }
+                            else
+                            {
+                                <a href=@Model.Item.Links[i].Link1>@Model.Item.Links[i].Name</a>
+                            }
+                        </li>
+                    }
+                </ul>
+                @if (ViewBag.IsValidSession && ViewBag.IsAdmin)
+                {
+                    <input type="submit" name="command" value="AddNewLink">
+                }
+            </div>
+        </section>
 
-
-    <section>
-        <div id="useful-links" class="text-align-center">
-            <h3 class="title">Uporabne povezave</h3>
-            <ul>
-                <li>
-                    <a href="https://sl.wikipedia.org/wiki/Da_Vincijeva_%C5%A1ifra_(roman)">O knjigi</a>
-                </li>
-                <li>
-                    <a href="https://sl.wikipedia.org/wiki/Dan_Brown">O avtorju</a>
-                </li>
-                @*<li>
-                    <a href="http://cobiss.izum.si/scripts/cobiss?command=DISPLAY&base=COBIB&RID=14235959">Cobiss</a>
-                </li>*@
-            </ul>
-        </div>
-    </section>
-
+        if (ViewBag.IsValidSession && ViewBag.IsAdmin)
+        {
+            <input type="submit" name="command" value="Shrani">
+        }
+    }
     <footer class="text-align-center">
         <div>
             <div>

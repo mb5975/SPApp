@@ -3,24 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace SPApp.Models.ItemDetails
+namespace SPApp.Models.AddItem
 {
-    public class ItemDetailsViewModel
+    public class AddItemViewModel
     {
         public string FullName { get; set; }
-
         public Item Item { get; set; }
 
-        public ItemDetailsViewModel()
+        public AddItemViewModel()
         {
-            Item = new Item();
+            //Empty constructor
         }
 
-        public ItemDetailsViewModel(string fullName, string code)
+        public AddItemViewModel(string fullName)
         {
             FullName = fullName;
-            Item = Classes.BLs.Common.CommonBL.GetItem(code);
+            Item = new Item();
         }
     }
-
 }

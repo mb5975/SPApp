@@ -17,14 +17,22 @@ namespace SPApp.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public item()
         {
+            this.link = new HashSet<link>();
             this.rent = new HashSet<rent>();
         }
     
         public int item_id { get; set; }
         public string name { get; set; }
         public string description { get; set; }
+        public string author { get; set; }
         public string type { get; set; }
+        public bool isAvailable { get; set; }
+        public int year { get; set; }
+        public string identificationCode { get; set; }
+        public byte[] item_image { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<link> link { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<rent> rent { get; set; }
     }

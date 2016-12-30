@@ -102,23 +102,91 @@ namespace SPApp.Controllers
             return View("Index");
         }
 
-        public ActionResult ItemDetails()
+        public ActionResult ItemDetails(Models.ItemDetails.ItemDetailsViewModel model, string code, string command) //edit za admina
         {
             var valid = IsSessionValid();
+            var username = GetUsernameFromCookie();
+            bool isAdmin = Classes.BLs.Common.CommonBL.IsUserAdmin(username);
+            ViewBag.IsAdmin = false; //reset
             if (!valid)
             {
-                //InvalidSessionRedirect();
                 ViewBag.IsValidSession = false;
                 return View();
             }
             else
             {
-                string fullName = GetFullNameFromCookie();
-                Models.ItemDetails.ItemDetailsViewModel model = new Models.ItemDetails.ItemDetailsViewModel(fullName);
                 ViewBag.IsValidSession = true;
-                return View(model);
+                if (isAdmin) ViewBag.IsAdmin = true;
+                string fullName = GetFullNameFromCookie();
+                if (command == "Shrani")
+                {
+                    bool success = Classes.BLs.Common.CommonBL.UpdateItem(model.Item);
+                    if (success)
+                    {
+                        //uspešno shranjeno
+                    }
+                    return View(model);
+                }
+                else if (command == "AddNewLink")
+                {
+                    model.Item.Links.Add(new Models.ItemDetails.Link());
+                    return View(model);
+                }
+                else if (String.IsNullOrEmpty(command)) //GET first time
+                {
+                    model = new Models.ItemDetails.ItemDetailsViewModel(fullName, code);
+                    return View(model);
+                }
+                else
+                {
+                    throw new NotImplementedException();
+                }
+
             }
         }
+
+        public ActionResult AddItem(Models.AddItem.AddItemViewModel model, string command)
+        {
+            //za edit morš met še id
+            var valid = IsSessionValid();
+            var username = GetUsernameFromCookie();
+            var fullName = GetFullNameFromCookie();
+            bool isAdmin = Classes.BLs.Common.CommonBL.IsUserAdmin(username);
+
+            if (!valid || !isAdmin)
+            {
+                InvalidSessionRedirect();
+                return View("Index");
+            }
+
+            if (command == "Shrani")
+            {
+                bool success = Classes.BLs.Common.CommonBL.SaveItem(model.Item);
+                if (success)
+                {
+                    //uspešno shranjeno
+                }
+
+                //redirect na AddItem---Edit
+                return View();
+            }
+            else if (String.IsNullOrEmpty(command)) //GET first time
+            {
+                model = new Models.AddItem.AddItemViewModel(fullName);
+                return View(model);
+            }
+            else if (command == "AddNewLink")
+            {
+                model.Item.Links.Add(new Models.AddItem.Link());
+                return View(model);
+            }
+
+            else
+            {
+                throw new NotImplementedException();
+        }
+    }
+
 
         public ActionResult Home()
         {
@@ -126,12 +194,13 @@ namespace SPApp.Controllers
             if (!valid)
             {
                 InvalidSessionRedirect();
-                return View();
+                return View("Index");
             }
             else
             {
                 string fullName = GetFullNameFromCookie();
-                Models.Home.HomeViewModel model = new Models.Home.HomeViewModel(fullName);
+                //morjo bit vsaj 3 v bazi!
+                Models.Home.HomeViewModel model = new Models.Home.HomeViewModel(fullName, Classes.BLs.HomeBL.GenerateCodes());
                 return View(model);
             }
         }

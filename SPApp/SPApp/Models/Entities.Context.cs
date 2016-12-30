@@ -26,6 +26,7 @@ namespace SPApp.Models
         }
     
         public virtual DbSet<item> item { get; set; }
+        public virtual DbSet<link> link { get; set; }
         public virtual DbSet<recommendation> recommendation { get; set; }
         public virtual DbSet<rent> rent { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }

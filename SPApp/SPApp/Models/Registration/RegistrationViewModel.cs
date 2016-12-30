@@ -12,6 +12,7 @@ namespace SPApp.Models.Registration
         public string FirstName { get; set; } //poglej če bo mapper delu za _ v veliko začetnico
         public string LastName { get; set; }
         public string Password { get; set; }
+        public string ConfirmPassword { get; set; }
         public string ErrorMsg { get; set; }
 
     }

@@ -7,6 +7,9 @@ namespace SPApp.Classes
 {
     public class Consts
     {
+
+        public static string DbAdminString = "admin";
+
         public class Registration
         {
             public static string InvalidPassword = "Napačno geslo";
@@ -21,5 +24,7 @@ namespace SPApp.Classes
         {
             public static string CookieName = "Spapp";
         }
+
+
     }
 }

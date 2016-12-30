@@ -198,6 +198,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Classes\BLs\Common\CommonBL.cs" />
+    <Compile Include="Classes\BLs\HomeBL.cs" />
     <Compile Include="Classes\BLs\LoginBL.cs" />
     <Compile Include="Classes\BLs\RegistrationBL.cs" />
     <Compile Include="Classes\Consts.cs" />
@@ -209,6 +210,9 @@
     </Compile>
     <Compile Include="Models\About\AboutViewModel.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AddItem\AddItemViewModel.cs" />
+    <Compile Include="Models\AddItem\Item.cs" />
+    <Compile Include="Models\AddItem\Link.cs" />
     <Compile Include="Models\Entities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -225,11 +229,17 @@
       <DependentUpon>Entities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Home\HomeViewModel.cs" />
+    <Compile Include="Models\Home\Item.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\item.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ItemDetails\Item.cs" />
     <Compile Include="Models\ItemDetails\ItemDetailsViewModel.cs" />
+    <Compile Include="Models\ItemDetails\Link.cs" />
+    <Compile Include="Models\link.cs">
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Login\LoginViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\recommendation.cs">
@@ -363,6 +373,7 @@
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Home\Statistics.cshtml" />
     <Content Include="Views\Home\Recommend.cshtml" />
+    <Content Include="Views\Home\AddItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,122 @@
+﻿@model SPApp.Models.AddItem.AddItemViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ItemDetails</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/ItemDetails.css" /> <!--enak css-->
+
+    <script src="~/Scripts/site.js"></script>
+
+
+</head>
+<body>
+    @using (Html.BeginForm("AddItem", "Home", FormMethod.Post))
+    {
+        <header id="default-header">
+            <div class="header-left-div">
+                <span class="logo-text">MOJA KNJIŽNICA&trade;</span>
+            </div>
+            <div class="header-right-div">
+                <span class="username">@Html.DisplayFor(model => model.FullName)</span>
+                <img class="user-icon" src="~/Content/Images/user_icon.svg" alt="Uporabniška ikona" />
+                <span>
+                    <a class="linkToButton-default" href='@Url.Action("LogOutUser")'>Odjavi</a>
+                </span>
+            </div>
+        </header>
+
+        @*MENU*@
+        <label for="show-menu" id="show-menu-label">Show Menu</label>
+        <input type="checkbox" id="show-menu" value="button">
+
+        <nav id="navigation-menu">
+            <ul>
+                <li>
+                    <a href='@Url.Action("Home")'>Domov</a>
+                </li>
+                <li class="active-menu-element">
+                    <a href='@Url.Action("Search")'>Iskanje izdelkov</a>
+                </li>
+                <li>
+                    <a href='@Url.Action("Statistics")'>Statistika</a>
+                </li>
+                <li>
+                    <a href='@Url.Action("Recommend")'>Predlagaj nakup</a>
+                </li>
+            </ul>
+        </nav>
+
+
+
+
+        <section id="item-details-container">
+            <div id="title-info" class="text-align-center centered">
+                <span>@Html.TextBoxFor(model => model.Item.Name, new { required = "required", type = "text", placeholder = "Naslov" })</span> 
+                <span>@Html.TextBoxFor(model => model.Item.IdentificationCode, new { required = "required", type = "text", placeholder = "Identifikacijska številka" })</span>
+            </div>
+
+            <div id="main-and-image-info-container">
+                <!--make two divs and fieldsets inside have same height-->
+
+
+                @*//TODO<div id="image-info">
+                    <img alt="Davincijeva šifra" src="~/Content/Images/da-vincijeva-sifra.jpg" />
+                </div>*@
+
+                <div id="main-info">
+                    <span>Avtor: @Html.TextBoxFor(model => model.Item.Author, new { required = "required", type = "text" })</span><br />
+                    <span>Leto izdaje: @Html.TextBoxFor(model => model.Item.Year, new { required = "required", type = "number" })</span><br />
+                    <span>Opis: @Html.TextAreaFor(model => model.Item.Description, new { required = "required", type = "text" })</span><br />
+                    <span>Tip: @Html.TextBoxFor(model => model.Item.Type, new { required = "required", type = "text" })</span><br />
+
+                    @*<span>Status: @Html.TextBoxFor(model => model.Item.IsAvailable)</span>*@
+                </div>
+            </div>
+        </section>
+
+
+
+        <section>
+            <div id="useful-links" class="text-align-center">
+                <h3 class="title">Uporabne povezave</h3>
+                <ul>
+                    @for(int i = 0; i < Model.Item.Links.Count; i++)
+                    {
+                        <li>
+                            <span>Url naslov: @Html.TextBoxFor(model => Model.Item.Links[i].Link1, new { required = "required", type = "text" })</span><br />
+                            <span>Ime: @Html.TextBoxFor(model => Model.Item.Links[i].Name, new { required = "required", type = "text" })</span>
+                        </li>
+                    }
+                </ul>
+
+                <input type="submit" name="command" value="AddNewLink">
+            </div>
+        </section>
+
+
+        <input type="submit" name="command" value="Shrani" >
+    }
+    <footer class="text-align-center">
+        <div>
+            <div>
+                <span id="about-link">
+                    <a href='@Url.Action("About")'>O nas</a>
+                </span>
+            </div>
+            <div id="footer-middle-div">
+                <span id="fcopy">&copy; Matic Bizjak</span>
+            </div>
+            <div>
+                <a id="fb-link" href="http://www.facebook.com/Moja-Knjižnica-242222909528420">
+                    <img src="~/Content/Images/FBicon.gif" alt="Facebook ikona" />
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

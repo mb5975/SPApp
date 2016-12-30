@@ -16,6 +16,10 @@ namespace SPApp.Classes.BLs
                 {
                     bool userExists = context.user_account.Where(u => u.email == model.Email || u.username == model.Username).Any();
                     if (userExists) return false;
+                    //validate user
+                    //check passwords
+                    //check email address with regex
+
                     //save user
                     Models.user_account user =
                         new Models.user_account(model.Username, model.Email, model.FirstName,

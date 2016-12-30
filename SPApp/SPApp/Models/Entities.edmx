@@ -12,7 +12,21 @@
           <Property Name="item_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="description" Type="text" Nullable="false" />
+          <Property Name="author" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="isAvailable" Type="bit" Nullable="false" />
+          <Property Name="year" Type="int" Nullable="false" />
+          <Property Name="identificationCode" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="item_image" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="link">
+          <Key>
+            <PropertyRef Name="link_id" />
+          </Key>
+          <Property Name="link_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="link" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="item_id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="recommendation">
           <Key>
@@ -71,6 +85,18 @@
           <Property Name="user_accout_id" Type="int" Nullable="false" />
           <Property Name="recommendation_id" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="FK__link__item_id__30C33EC3">
+          <End Role="item" Type="Self.item" Multiplicity="1" />
+          <End Role="link" Type="Self.link" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item">
+              <PropertyRef Name="item_id" />
+            </Principal>
+            <Dependent Role="link">
+              <PropertyRef Name="item_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__recommend__user___07C12930">
           <End Role="user_account" Type="Self.user_account" Multiplicity="1" />
           <End Role="recommendation" Type="Self.recommendation" Multiplicity="*" />
@@ -95,7 +121,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rent_item__item___18EBB532">
+        <Association Name="FK__rent_item__item___3C34F16F">
           <End Role="item" Type="Self.item" Multiplicity="1" />
           <End Role="rent_item" Type="Self.rent_item" Multiplicity="*" />
           <ReferentialConstraint>
@@ -107,7 +133,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rent_item__rent___17F790F9">
+        <Association Name="FK__rent_item__rent___3B40CD36">
           <End Role="rent" Type="Self.rent" Multiplicity="1" />
           <End Role="rent_item" Type="Self.rent_item" Multiplicity="*" />
           <ReferentialConstraint>
@@ -145,12 +171,17 @@
         </Association>
         <EntityContainer Name="databaseModelStoreContainer">
           <EntitySet Name="item" EntityType="Self.item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="link" EntityType="Self.link" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="recommendation" EntityType="Self.recommendation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="rent" EntityType="Self.rent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="rent_item" EntityType="Self.rent_item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="user_account" EntityType="Self.user_account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vote" EntityType="Self.vote" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__link__item_id__30C33EC3" Association="Self.FK__link__item_id__30C33EC3">
+            <End Role="item" EntitySet="item" />
+            <End Role="link" EntitySet="link" />
+          </AssociationSet>
           <AssociationSet Name="FK__recommend__user___07C12930" Association="Self.FK__recommend__user___07C12930">
             <End Role="user_account" EntitySet="user_account" />
             <End Role="recommendation" EntitySet="recommendation" />
@@ -159,11 +190,11 @@
             <End Role="user_account" EntitySet="user_account" />
             <End Role="rent" EntitySet="rent" />
           </AssociationSet>
-          <AssociationSet Name="FK__rent_item__item___18EBB532" Association="Self.FK__rent_item__item___18EBB532">
+          <AssociationSet Name="FK__rent_item__item___3C34F16F" Association="Self.FK__rent_item__item___3C34F16F">
             <End Role="item" EntitySet="item" />
             <End Role="rent_item" EntitySet="rent_item" />
           </AssociationSet>
-          <AssociationSet Name="FK__rent_item__rent___17F790F9" Association="Self.FK__rent_item__rent___17F790F9">
+          <AssociationSet Name="FK__rent_item__rent___3B40CD36" Association="Self.FK__rent_item__rent___3B40CD36">
             <End Role="rent" EntitySet="rent" />
             <End Role="rent_item" EntitySet="rent_item" />
           </AssociationSet>
@@ -188,8 +219,24 @@
           <Property Name="item_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="author" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="isAvailable" Type="Boolean" Nullable="false" />
+          <Property Name="year" Type="Int32" Nullable="false" />
+          <Property Name="identificationCode" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="item_image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="link" Relationship="Self.FK__link__item_id__30C33EC3" FromRole="item" ToRole="link" />
           <NavigationProperty Name="rent" Relationship="Self.rent_item" FromRole="item" ToRole="rent" />
+        </EntityType>
+        <EntityType Name="link">
+          <Key>
+            <PropertyRef Name="link_id" />
+          </Key>
+          <Property Name="link_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="link1" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="item_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="item" Relationship="Self.FK__link__item_id__30C33EC3" FromRole="link" ToRole="item" />
         </EntityType>
         <EntityType Name="recommendation">
           <Key>
@@ -249,6 +296,18 @@
           <NavigationProperty Name="recommendation" Relationship="Self.FK__vote__recommenda__0D7A0286" FromRole="vote" ToRole="recommendation" />
           <NavigationProperty Name="user_account" Relationship="Self.FK__vote__user_accou__0C85DE4D" FromRole="vote" ToRole="user_account" />
         </EntityType>
+        <Association Name="FK__link__item_id__30C33EC3">
+          <End Role="item" Type="Self.item" Multiplicity="1" />
+          <End Role="link" Type="Self.link" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="item">
+              <PropertyRef Name="item_id" />
+            </Principal>
+            <Dependent Role="link">
+              <PropertyRef Name="item_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__recommend__user___07C12930">
           <End Role="user_account" Type="Self.user_account" Multiplicity="1" />
           <End Role="recommendation" Type="Self.recommendation" Multiplicity="*" />
@@ -303,11 +362,16 @@
         </Association>
         <EntityContainer Name="databaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="item" EntityType="Self.item" />
+          <EntitySet Name="link" EntityType="Self.link" />
           <EntitySet Name="recommendation" EntityType="Self.recommendation" />
           <EntitySet Name="rent" EntityType="Self.rent" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="user_account" EntityType="Self.user_account" />
           <EntitySet Name="vote" EntityType="Self.vote" />
+          <AssociationSet Name="FK__link__item_id__30C33EC3" Association="Self.FK__link__item_id__30C33EC3">
+            <End Role="item" EntitySet="item" />
+            <End Role="link" EntitySet="link" />
+          </AssociationSet>
           <AssociationSet Name="FK__recommend__user___07C12930" Association="Self.FK__recommend__user___07C12930">
             <End Role="user_account" EntitySet="user_account" />
             <End Role="recommendation" EntitySet="recommendation" />
@@ -341,7 +405,22 @@
                 <ScalarProperty Name="item_id" ColumnName="item_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="author" ColumnName="author" />
                 <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="isAvailable" ColumnName="isAvailable" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="identificationCode" ColumnName="identificationCode" />
+                <ScalarProperty Name="item_image" ColumnName="item_image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="link">
+            <EntityTypeMapping TypeName="databaseModel.link">
+              <MappingFragment StoreEntitySet="link">
+                <ScalarProperty Name="link_id" ColumnName="link_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="link1" ColumnName="link" />
+                <ScalarProperty Name="item_id" ColumnName="item_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
