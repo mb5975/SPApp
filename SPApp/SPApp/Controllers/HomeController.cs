@@ -11,7 +11,8 @@ namespace SPApp.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            Models.Index.IndexViewModel model = new Models.Index.IndexViewModel(Classes.BLs.HomeBL.GenerateCodes());
+            return View(model);
         }
 
         public ActionResult About()
@@ -87,8 +88,9 @@ namespace SPApp.Controllers
                     return View("Login", model);
                 case Classes.BLs.LoginBL.LoginStatus.Success:
                     CreateSession(model.Username); //v sejo zapišeš username od uporabnika, da veš kdo je kdo
-                    Response.Redirect("Home", false);
-                    return View("Index");
+                    //Response.Redirect("Home", false);
+                    //return View("Login", model);
+                    return RedirectToAction("Home");
 
                 default:
                     throw new NotImplementedException("Login exception");
@@ -98,20 +100,28 @@ namespace SPApp.Controllers
         public ActionResult LogOutUser()
         {
             DestroySession();
-            Response.Redirect("Index");
-            return View("Index");
+            //Response.Redirect("Index");
+            //return View("Index");
+            return RedirectToAction("Index");
         }
 
         public ActionResult ItemDetails(Models.ItemDetails.ItemDetailsViewModel model, string code, string command) //edit za admina
         {
             var valid = IsSessionValid();
-            var username = GetUsernameFromCookie();
-            bool isAdmin = Classes.BLs.Common.CommonBL.IsUserAdmin(username);
+            bool isAdmin = false;
+
+            if (valid)
+            {
+                var username = GetUsernameFromCookie();
+                isAdmin = Classes.BLs.Common.CommonBL.IsUserAdmin(username);
+            }
+
             ViewBag.IsAdmin = false; //reset
             if (!valid)
             {
                 ViewBag.IsValidSession = false;
-                return View();
+                model = new Models.ItemDetails.ItemDetailsViewModel(null, code);
+                return View(model);
             }
             else
             {
@@ -125,15 +135,16 @@ namespace SPApp.Controllers
                     {
                         //uspešno shranjeno
                     }
-                    return View(model);
-                }
-                else if (command == "AddNewLink")
-                {
-                    model.Item.Links.Add(new Models.ItemDetails.Link());
+                    //ModelState.Clear();
+                    //model na novo potegni iz baze!!
+                    code = model.Item.IdentificationCode; //da dobiš isti item notr
+                    model = new Models.ItemDetails.ItemDetailsViewModel(fullName, code); 
                     return View(model);
                 }
                 else if (String.IsNullOrEmpty(command)) //GET first time
                 {
+                    //if (code == null) code = model.Item.IdentificationCode; //zaradi refreshinga
+
                     model = new Models.ItemDetails.ItemDetailsViewModel(fullName, code);
                     return View(model);
                 }
@@ -193,14 +204,14 @@ namespace SPApp.Controllers
             var valid = IsSessionValid();
             if (!valid)
             {
-                InvalidSessionRedirect();
-                return View("Index");
+                return RedirectToAction("Index");
             }
             else
             {
                 string fullName = GetFullNameFromCookie();
+                string username = GetUsernameFromCookie();
                 //morjo bit vsaj 3 v bazi!
-                Models.Home.HomeViewModel model = new Models.Home.HomeViewModel(fullName, Classes.BLs.HomeBL.GenerateCodes());
+                Models.Home.HomeViewModel model = new Models.Home.HomeViewModel(fullName, username, Classes.BLs.HomeBL.GenerateCodes());
                 return View(model);
             }
         }

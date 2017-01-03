@@ -11,6 +11,10 @@ namespace SPApp.Models.ItemDetails
 
         public Item Item { get; set; }
 
+        //public int IdForRemove { get; set; } //0 by default
+
+        public string ErrorMsg { get; set; }
+
         public ItemDetailsViewModel()
         {
             Item = new Item();

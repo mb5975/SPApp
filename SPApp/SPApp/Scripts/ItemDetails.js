@@ -6,6 +6,32 @@ window.onload = function () {
 }
 
 window.addEventListener('resize', ShowGraph);
+$(document).ready(function () {
+    //global
+    numOfElements = $("#useful-links ul li").length;
+    $(".remove-link-button").click(function () {
+        //zbriši vse kar je znotraj class-a link-data
+        $(this).closest('.link-data').remove();
+    });
+    $('#add-new-link').click(function () {
+        console.log("length:" + numOfElements);
+        $("#useful-links ul").append(
+            "<li class='link-data'>" +
+            "<input data-val='true' data-val-number='The field Id must be a number.' data-val-required='The Id field is required.' id='Item_Links_" + numOfElements + "__Id' name='Item.Links[" + numOfElements + "].Id' type='hidden'>" +
+            "<input id='Item_Links_" + numOfElements + "__Link1' name='Item.Links[" + numOfElements + "].Link1' required='required' type='text'>" +
+            "<br>" +
+            "<input id='Item_Links_" + numOfElements + "__Name' name='Item.Links[" + numOfElements + "].Name' required='required' type='text'>" +
+            "<br>" +
+            "<input class='remove-link-button' type='button' value='Izbriši povezavo'>" +
+            "</li>"
+        );
+        numOfElements = numOfElements + 1;
+        $(".remove-link-button").click(function () {
+            //zbriši vse kar je znotraj class-a link-data
+            $(this).closest('.link-data').remove();
+        });
+    });
+})
 
 
 function ShowGraph() {
@@ -129,5 +155,3 @@ function ShowGraph() {
         });
     }
 }
-
-

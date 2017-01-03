@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/ItemDetails.css" />
 
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/site.js"></script>
     <!-- Resources -->
     <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
@@ -18,12 +19,14 @@
 
 </head>
 <body>
+    @if (!String.IsNullOrEmpty(Model.ErrorMsg))
+    {
+        <div id="error-message">
+            @Html.DisplayFor(model => model.ErrorMsg)
+        </div>
+    }
     @using (Html.BeginForm("ItemDetails", "Home", FormMethod.Post))
     {
-        //hidden fields for ids:
-
-
-
         if (ViewBag.IsValidSession)
         {
             <header id="default-header">
@@ -165,12 +168,16 @@
                 <ul> @*TODO for čez vse linke*@
                     @for (int i = 0; i < Model.Item.Links.Count; i++)
                     {
-                        <li>
+                        <li class="link-data">
                             @if (ViewBag.IsValidSession && ViewBag.IsAdmin)
                             {
+                                @Html.HiddenFor(x => Model.Item.Links[i].Id)
                                 @Html.TextBoxFor(x => Model.Item.Links[i].Link1, new { required = "required", type = "text" })
                                 <br />
                                 @Html.TextBoxFor(x => Model.Item.Links[i].Name, new { required = "required", type = "text" })
+                                <br />
+                                <input type="button" class="remove-link-button" data-id="@Model.Item.Links[i].Id" value='Izbriši povezavo'/>
+                                
                                 
                             }
                             else
@@ -182,7 +189,7 @@
                 </ul>
                 @if (ViewBag.IsValidSession && ViewBag.IsAdmin)
                 {
-                    <input type="submit" name="command" value="AddNewLink">
+                    <input type="button" id="add-new-link" value="Dodaj povezavo"/>
                 }
             </div>
         </section>

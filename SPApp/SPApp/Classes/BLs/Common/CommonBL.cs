@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -59,10 +60,13 @@ namespace SPApp.Classes.BLs.Common
             {
                 try
                 {
-                    var item = context.item.Where(i => i.identificationCode == code).FirstOrDefault();
+                    var item = context.item.Where(i => i.identificationCode == code)
+                                           .Include(i => i.link)
+                                           .FirstOrDefault();
                     if (item == null)
                     { //poglej če je to default value!!!
-                        return null;
+                        throw new Exception();
+                        //return null;
                     }
                     return new Models.ItemDetails.Item(item);
                 }
@@ -124,19 +128,35 @@ namespace SPApp.Classes.BLs.Common
                     item.author = model.Author;
                     item.description = model.Description;
                     item.identificationCode = model.IdentificationCode;
-                    item.isAvailable = true; //TODO
+                    //item.isAvailable = true; //TODO ni nujno da je prosto...
                     //item.item_image //TODO
-                    foreach(var link in model.Links)
+                    List<int> linksToRemove = new List<int>(item.link.Select(l => l.link_id));
+                    foreach (var link in model.Links)
                     {
-                        //TODO brisanje
-                        if (item.link.Where(l => l.name == link.Name && l.link1 == link.Link1).Any()) continue; //skip 
-                        var linkTmp = new Models.link();//to ni v konstruktorju, ker je auto generated
-                        linkTmp.link1 = link.Link1;
-                        linkTmp.name = link.Name;
-                        linkTmp.item_id = context.item.Where(i => i.identificationCode == model.IdentificationCode).Select(i => i.item_id).Single();
-                        context.link.Add(linkTmp); //new link
-                        item.link.Add(linkTmp);
+                        //na obeh straneh je link -> ne naredi nič
+                        if (link.Id != 0) //po defaultu, če je na novo dodan. če ne ima id iz baze
+                        {
+                            linksToRemove.Remove(link.Id);
+                            continue; //skip 
+                        }
+                        //link je samo na viewModel -> dodaj
+                        else
+                        {
+                            var linkTmp = new Models.link();//to ni v konstruktorju, ker je auto generated
+                            linkTmp.link1 = link.Link1;
+                            linkTmp.name = link.Name;
+                            linkTmp.item_id = context.item.Where(i => i.identificationCode == model.IdentificationCode).Select(i => i.item_id).Single();
+                            context.link.Add(linkTmp); //new link
+                            item.link.Add(linkTmp);
+                        }
+                        
                     }
+                    //brisanje
+                    foreach (int id in linksToRemove)
+                    {
+                        context.link.Remove(item.link.Where(l => l.link_id == id).Single());
+                    }
+
                     item.name = model.Name;
                     item.type = model.Type;
                     item.year = model.Year;
@@ -153,5 +173,46 @@ namespace SPApp.Classes.BLs.Common
 
         }
 
+
+        //public static Models.ItemDetails.Link GetLink(int id)
+        //{
+        //    //TODO preverjanje če že obstaja email tudi oz username
+        //    using (var context = new Models.databaseEntities())
+        //    {
+        //        try
+        //        {
+        //            var link = context.link.Where(l => l.link_id == id).Single();
+        //            if (link == null)
+        //            { //poglej če je to default value!!!
+        //                throw new Exception();
+        //                //return null;
+        //            }
+        //            return new Models.ItemDetails.Link(link);
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            Console.WriteLine(ex.Message);
+        //            throw ex;
+        //        }
+        //    }
+        //}
+
+        public static bool RemoveLink(Models.ItemDetails.Item item, int id)
+        {
+            using (var context = new Models.databaseEntities())
+            {
+                try
+                {
+                    var success = item.Links.Remove(item.Links.Single(l => l.Id == id));
+                    if (!success) return false;
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    throw ex;
+                }
+            }
+        }
     }
 }

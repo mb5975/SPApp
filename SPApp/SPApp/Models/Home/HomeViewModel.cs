@@ -10,12 +10,15 @@ namespace SPApp.Models.Home
         public string FullName { get; set; }
         public List<Item> Items { get; set; }
 
+        public List<RentedItem> RentedItems { get; set; }
+
         public HomeViewModel()
         {
             Items = new List<Item>();
+            RentedItems = new List<RentedItem>();
         }
 
-        public HomeViewModel(string fullName, List<string> codes)
+        public HomeViewModel(string fullName, string username, List<string> codes)
         {
             FullName = fullName;
             Items = new List<Item>();
@@ -23,7 +26,7 @@ namespace SPApp.Models.Home
             {
                 Items.Add(Classes.BLs.HomeBL.GetItem(code));
             });
-            //Items = new List<Item>();
+            RentedItems = Classes.BLs.HomeBL.GetRentedItems(username);
 
         }
     }

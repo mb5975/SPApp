@@ -7,7 +7,7 @@ namespace SPApp.Models.ItemDetails
 {
     public class Link
     {
-        //public int Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Link1 { get; set; }
 
@@ -16,15 +16,15 @@ namespace SPApp.Models.ItemDetails
             //Empty constructor
         }
 
-        public Link(string name, string link)
-        {
-            Name = name;
-            Link1 = link;
-        }
+        //public Link(string name, string link)
+        //{
+        //    Name = name;
+        //    Link1 = link;
+        //}
 
         public Link(Models.link link)
         {
-            //Id = link.link_id;
+            Id = link.link_id;
             Name = link.name;
             Link1 = link.link1;
         }

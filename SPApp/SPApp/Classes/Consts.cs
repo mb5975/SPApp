@@ -9,6 +9,7 @@ namespace SPApp.Classes
     {
 
         public static string DbAdminString = "admin";
+        //public static int DefaultIntValue = -1;
 
         public class Registration
         {
@@ -17,8 +18,6 @@ namespace SPApp.Classes
             public static string Failed = "Registracija je bila neuspešna!";
             public static string Success = "Registracija je bila uspešna!";
         }
-
-        
 
         public class Session
         {

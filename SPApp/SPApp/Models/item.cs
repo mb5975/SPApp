@@ -30,6 +30,7 @@ namespace SPApp.Models
         public int year { get; set; }
         public string identificationCode { get; set; }
         public byte[] item_image { get; set; }
+        public bool isReserved { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<link> link { get; set; }

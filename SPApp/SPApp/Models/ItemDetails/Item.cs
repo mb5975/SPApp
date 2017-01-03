@@ -20,6 +20,7 @@ namespace SPApp.Models.ItemDetails
         public Item()
         {
             //Empty constructor
+            Links = new List<Link>();
         }
 
         //public Item(string code, string name, string description, string type, int year, string author, List<Link> links)
@@ -53,5 +54,6 @@ namespace SPApp.Models.ItemDetails
             }
             Links = links;
         }
+
     }
 }

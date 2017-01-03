@@ -199,6 +199,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Classes\BLs\Common\CommonBL.cs" />
     <Compile Include="Classes\BLs\HomeBL.cs" />
+    <Compile Include="Classes\BLs\IndexBL.cs" />
     <Compile Include="Classes\BLs\LoginBL.cs" />
     <Compile Include="Classes\BLs\RegistrationBL.cs" />
     <Compile Include="Classes\Consts.cs" />
@@ -230,7 +231,10 @@
     </Compile>
     <Compile Include="Models\Home\HomeViewModel.cs" />
     <Compile Include="Models\Home\Item.cs" />
+    <Compile Include="Models\Home\RentedItem.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Index\IndexViewModel.cs" />
+    <Compile Include="Models\Index\Item.cs" />
     <Compile Include="Models\item.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
@@ -304,6 +308,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ClassDiagram1.cd" />
     <EntityDeploy Include="Models\Entities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Entities.Designer.cs</LastGenOutput>

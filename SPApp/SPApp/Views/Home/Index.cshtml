@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model SPApp.Models.Index.IndexViewModel
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -7,7 +9,7 @@
 
     <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/Index.css" />
-    @*<script src="~/Scripts/jquery-1.10.2.js"></script>*@
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/site.js"></script>
     <script src="~/Scripts/index.js"></script>
 
@@ -67,54 +69,26 @@
             <hr class="inline-with-text" />
         </div>
 
-        <div class="animateblock centerright">
-            <div class="colored">
-                <figure>
-                    <img class="new-item-image" src="../Content/Images/da-vincijeva-sifra.jpg" alt="DaVincijeva šifra" />
-                    <figcaption class="new-item-description">
-                        DaVincijeva šifra
-                        <br />
-                        Dan Brown
-                        <br />
-                        <a href='@Url.Action("ItemDetails")'>več</a>
-                    </figcaption>
-
-                </figure>
+        @foreach (var item in Model.Items)
+        {
+            <div class="animateblock centerright">
+                <div class="colored">
+                    <figure>
+                        @*<img class="new-item-image" src="../Content/Images/da-vincijeva-sifra.jpg" alt=@item.Name />*@
+                        <figcaption class="new-item-description">
+                            @item.Name
+                            <br />
+                            @item.Author
+                            <br />
+                            <a href='@Url.Action("ItemDetails", new { code = item.IdentificationCode})'>več</a>
+                        </figcaption>
+                    </figure>
+                </div>
             </div>
-        </div>
+        }
 
 
-        <div class="animateblock centerright">
-            <div class="colored">
-                <figure>
-                    <img class="new-item-image" src="../Content/Images/z_idejo_do_bogastva.jpg" alt="Z idejo do bogastva" />
-                    <figcaption class="new-item-description">
-                        Z idejo do bogastva
-                        <br />
-                        Napoleon Hill
-                        <br />
-                        <a href='@Url.Action("ItemDetails")'>več</a>
-                    </figcaption>
-                </figure>
-            </div>
-        </div>
-
-        <div class="animateblock centerright">
-            <div class="colored">
-                <figure>
-                    <img class="new-item-image" src="../Content/Images/WWW.jpg" alt="Programming the World Wide Web" />
-                    <figcaption class="new-item-description">
-                        Programming the World Wide Web
-                        <br />
-                        Robert W. Sebesta
-                        <br />
-                        8. izdaja
-                        <br />
-                        <a href='@Url.Action("ItemDetails")'>več</a>
-                    </figcaption>
-                </figure>
-            </div>
-        </div>
+        
     </section>
 
     <footer class="text-align-center">
