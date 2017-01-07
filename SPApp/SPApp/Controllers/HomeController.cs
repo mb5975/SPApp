@@ -210,7 +210,7 @@ namespace SPApp.Controllers
             {
                 string fullName = GetFullNameFromCookie();
                 string username = GetUsernameFromCookie();
-                //morjo bit vsaj 3 v bazi!
+                //morjo bit vsaj 3 v bazi!, username zato, ker je enoličen in lahko preko njega dobim rente za userja
                 Models.Home.HomeViewModel model = new Models.Home.HomeViewModel(fullName, username, Classes.BLs.HomeBL.GenerateCodes());
                 return View(model);
             }
@@ -266,6 +266,47 @@ namespace SPApp.Controllers
             }
         }
 
+        //only for admin
+        public JsonResult ReturnItem(string code)
+        {
+            var valid = IsSessionValid();
+            var username = GetUsernameFromCookie();
+            bool isAdmin = Classes.BLs.Common.CommonBL.IsUserAdmin(username);
+            if (valid && isAdmin)
+            {
+                Classes.BLs.Common.CommonBL.ReturnItem(code, username);
+                var json = new JsonResult();
+                json.Data = new { redirectTo = Url.Action("ItemDetails", "Home", new { code = code }) }; //ostale dva parametrta sta null, tretiraš kot prvi dostop
+                return json;
+            }
+            else
+            {
+                //TODO invalid session
+                var json = new JsonResult();
+                json.Data = new { redirectTo = Url.Action("Index", "Home", null) };
+                return json;
+            }
+        }
+
+        public JsonResult RentItem(string code)
+        {
+            var valid = IsSessionValid();
+
+            if (valid)
+            {
+                var username = GetUsernameFromCookie();
+                Classes.BLs.Common.CommonBL.RentItem(code, username);
+                var json = new JsonResult();
+                json.Data = new { redirectTo = Url.Action("Home", "Home", null) };
+                return json;
+            }
+            else
+            {
+                //TODO invalid session
+                RedirectToAction("Index");
+                return null;
+            }
+        }
 
         /****************PRIVATE METHODS******************************/
 

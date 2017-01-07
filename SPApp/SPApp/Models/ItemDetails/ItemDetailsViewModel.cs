@@ -11,6 +11,8 @@ namespace SPApp.Models.ItemDetails
 
         public Item Item { get; set; }
 
+        public List<Rent> Rents { get; set; }
+
         //public int IdForRemove { get; set; } //0 by default
 
         public string ErrorMsg { get; set; }
@@ -18,12 +20,14 @@ namespace SPApp.Models.ItemDetails
         public ItemDetailsViewModel()
         {
             Item = new Item();
+            Rents = new List<Rent>();
         }
 
         public ItemDetailsViewModel(string fullName, string code)
         {
             FullName = fullName;
             Item = Classes.BLs.Common.CommonBL.GetItem(code);
+            Rents = Classes.BLs.Common.CommonBL.GetRentsForItem(code);
         }
     }
 

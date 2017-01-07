@@ -61,24 +61,20 @@
                         <th>Datum vrnitve</th>
                         <th>Možnost podaljšanja</th>
                     </tr>
-                    <tr>
-                        <td><a href='@Url.Action("ItemDetails")'>Da Vincijeva šifra</a></td>
-                        @*<td>10.10.2016</td>*@
-                        <td>4.11.2016</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><a href='@Url.Action("ItemDetails")'>Z idejo do bogastva</a></td>
-                        @*<td>23.9.2016</td>*@
-                        <td>9.10.2016</td>
-                        <td><input type="button" value="Podaljšaj" /></td>
-                    </tr>
-                    <tr>
-                        <td><a href='@Url.Action("ItemDetails")'>Programming the World Wide Web</a></td>
-                        @*<td>2.9.2016</td>*@
-                        <td>20.9.2016</td>
-                        <td><input type="button" value="Podaljšaj"/></td>
-                    </tr>
+                    @foreach (var rentedItem in Model.RentedItems)
+                    {
+                        <tr>
+                            <td><a href='@Url.Action("ItemDetails", new { code = rentedItem.IdentificationCode})'>@rentedItem.Name</a></td>
+                            @*<td>10.10.2016</td>*@
+                            <td>@rentedItem.RentedUntil</td>
+                            <td>
+                                @if (!rentedItem.IsReserved)
+                                {
+                                    <input type="button" value="Podaljšaj" />
+                                }
+                            </td>
+                        </tr>
+                    }
                 </table>
             </div>
         </div>

@@ -18,9 +18,9 @@ $(document).ready(function () {
         $("#useful-links ul").append(
             "<li class='link-data'>" +
             "<input data-val='true' data-val-number='The field Id must be a number.' data-val-required='The Id field is required.' id='Item_Links_" + numOfElements + "__Id' name='Item.Links[" + numOfElements + "].Id' type='hidden'>" +
-            "<input id='Item_Links_" + numOfElements + "__Link1' name='Item.Links[" + numOfElements + "].Link1' required='required' type='text'>" +
+            "<input id='Item_Links_" + numOfElements + "__Name' name='Item.Links[" + numOfElements + "].Name' required='required' type='text' placeholder='Ime povezave'>" +
             "<br>" +
-            "<input id='Item_Links_" + numOfElements + "__Name' name='Item.Links[" + numOfElements + "].Name' required='required' type='text'>" +
+            "<input id='Item_Links_" + numOfElements + "__Link1' name='Item.Links[" + numOfElements + "].Link1' required='required' type='text' placeholder='URL naslov'>" +
             "<br>" +
             "<input class='remove-link-button' type='button' value='Izbriši povezavo'>" +
             "</li>"
@@ -31,6 +31,57 @@ $(document).ready(function () {
             $(this).closest('.link-data').remove();
         });
     });
+    $('#rent-item-btn').click(function() {
+        var code = $(this).attr("data-code");
+        var parameters = {
+            url: "/Home/RentItem",
+            type: "POST",
+            dataType: "json",
+            data: {code: code},
+            success: function (data) {
+                console.log(data);
+                //redirect na home
+                // similar behavior as an HTTP redirect
+                window.location.replace(data.redirectTo);
+
+                // similar behavior as clicking on a link
+                //window.location.href = "http://stackoverflow.com";
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        }
+        $.ajax(parameters);
+    });
+    $('#return-item-btn').click(function () {
+        var code = $(this).attr("data-code");
+        var parameters = {
+            url: "/Home/ReturnItem",
+            type: "POST",
+            dataType: "json",
+            data: { code: code },
+            success: function (data) {
+                console.log(data);
+                //redirect na home
+                // similar behavior as an HTTP redirect
+                window.location.replace(data.redirectTo);
+
+                // similar behavior as clicking on a link
+                //window.location.href = "http://stackoverflow.com";
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        }
+        $.ajax(parameters);
+    });
+
 })
 
 

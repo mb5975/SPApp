@@ -95,7 +95,8 @@ namespace SPApp.Classes.BLs.Common
                     item.identificationCode = model.IdentificationCode;
                     item.isAvailable = true; //TODO
                     //item.item_image //TODO
-                    model.Links.ForEach(link => {
+                    model.Links.ForEach(link =>
+                    {
                         var linkTmp = new Models.link();//to ni v konstruktorju, ker je auto generated
                         linkTmp.link1 = link.Link1;
                         linkTmp.name = link.Name;
@@ -149,7 +150,7 @@ namespace SPApp.Classes.BLs.Common
                             context.link.Add(linkTmp); //new link
                             item.link.Add(linkTmp);
                         }
-                        
+
                     }
                     //brisanje
                     foreach (int id in linksToRemove)
@@ -206,6 +207,114 @@ namespace SPApp.Classes.BLs.Common
                     var success = item.Links.Remove(item.Links.Single(l => l.Id == id));
                     if (!success) return false;
                     return true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    throw ex;
+                }
+            }
+        }
+
+
+        //itemDetails:
+        public static void RentItem(string code, string username)
+        {
+            using (var context = new Models.databaseEntities())
+            {
+                try
+                {
+                    //po code najdi item
+                    var item = context.item.Where(i => i.identificationCode == code)
+                                           //.Include(i => i.link)
+                                           .Single();
+
+                     //new Models.ItemDetails.Item(item);
+                    //poglej če je res frej in če NI rezerviran
+                    if (!item.isAvailable)
+                    {
+                        throw new Exception("item not available");
+                        
+                    }
+                    //else if (item.isReserved) //TODO poglej če je rezervacija od current user in naredi tabelo rezervacij!! da sploh veš kdo je kaj rezerviral
+                    //naredi nov rent
+                    Models.rent newRent = new Models.rent();
+                    newRent.rent_start = DateTime.Now;
+                    newRent.rent_end = DateTime.Now.AddDays(14);//TODO 14 dni zaenkrat
+                    var userId = context.user_account.Where(u => u.username == username).Select(u => u.user_account_id).Single();
+                    newRent.user_account_id = userId;
+                    newRent.isActive = true; //Takoj aktiven?? tudi če ga še ni prevzel??
+                    context.rent.Add(newRent);
+                    //poveži rent z item-om in user_account-om
+                    //dodaj record v rent_item povezovalno tabelo
+                    item.rent.Add(newRent);
+                    item.isAvailable = false; //po novem ni available
+                    context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    throw ex;
+                }
+            }
+        }
+
+        public static List<Models.ItemDetails.Rent> GetRentsForItem(string code)
+        {
+            using (var context = new Models.databaseEntities())
+            {
+                try
+                {
+                    var item = context.item.Where(i => i.identificationCode == code)
+                                           .Include(i => i.rent)
+                                           .FirstOrDefault();
+                    if (item == null)
+                    { //poglej če je to default value!!!
+                        throw new Exception();
+                        //return null;
+                    }
+
+                    List<Models.ItemDetails.Rent> result = new List<Models.ItemDetails.Rent>();
+                    foreach (var rent in item.rent)
+                    {
+                        result.Add(new Models.ItemDetails.Rent(rent));
+                    }
+
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    throw ex;
+                }
+            }
+        }
+
+
+        public static void ReturnItem(string code, string username)
+        {
+            using (var context = new Models.databaseEntities())
+            {
+                try
+                {
+                    //po code najdi item
+                    var item = context.item.Where(i => i.identificationCode == code)
+                                           //.Include(i => i.link)
+                                           .Single();
+
+                    //poglej če je res izposojen
+                    if (item.isAvailable)
+                    {
+                        throw new Exception("item available");
+
+                    }
+                    //spremeni rentEnd če je treba, ITEM IMA LAHKO SAMO EN AKTIVEN RENT NAENKRAT
+                    var activeRent = item.rent.Where(r => r.isActive).Single();
+                    activeRent.isActive = false;
+                    activeRent.rent_end = DateTime.Now;
+                    //item postavi na available
+                    item.isAvailable = true;
+                    context.SaveChanges();
                 }
                 catch (Exception ex)
                 {

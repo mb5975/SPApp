@@ -83,11 +83,18 @@
                 @if (ViewBag.IsValidSession && ViewBag.IsAdmin)
                 {
                     <span>@Html.TextBoxFor(model => model.Item.Name, new { required = "required", type = "text" }) (@Html.TextBoxFor(model => model.Item.IdentificationCode, new { required = "required", type = "text" }))</span>
+                    if (!Model.Item.IsAvailable) //če je izposojena 
+                    {
+                        <input type="button" value="Potrdi vrnitev" id="return-item-btn" data-code="@Model.Item.IdentificationCode" />
+                    }
                 }
                 else if (ViewBag.IsValidSession && !ViewBag.IsAdmin)
                 {
                     <span>@Html.DisplayFor(model => model.Item.Name, new { required = "required", type = "text" }) (@Html.DisplayFor(model => model.Item.IdentificationCode, new { required = "required", type = "text" }))</span>
-                    <input type="button" value="Izposodi"/>
+                    if (Model.Item.IsAvailable)
+                    {
+                        <input type="button" value="Izposodi" id="rent-item-btn" data-code="@Model.Item.IdentificationCode" />
+                    }
                 }
                 else
                 {
@@ -136,18 +143,13 @@
                             <th>Datum izposoje</th>
                             <th>Datum vrnitve</th>
                         </tr>
-                        <tr>
-                            <td>10.10.2016</td>
-                            <td>4.11.2016</td>
-                        </tr>
-                        <tr>
-                            <td>23.9.2016</td>
-                            <td>9.10.2016</td>
-                        </tr>
-                        <tr>
-                            <td>2.9.2016</td>
-                            <td>20.9.2016</td>
-                        </tr>
+                        @for(int i = 0; i < Model.Rents.Count; i++)
+                        {
+                            <tr>
+                                <td>@Model.Rents[i].Start.ToShortDateString()</td>
+                                <td>@Model.Rents[i].End.Date.ToShortDateString()</td>
+                            </tr>
+                        }
                     </table>
                 </div>
             </div>
@@ -172,9 +174,9 @@
                             @if (ViewBag.IsValidSession && ViewBag.IsAdmin)
                             {
                                 @Html.HiddenFor(x => Model.Item.Links[i].Id)
-                                @Html.TextBoxFor(x => Model.Item.Links[i].Link1, new { required = "required", type = "text" })
-                                <br />
                                 @Html.TextBoxFor(x => Model.Item.Links[i].Name, new { required = "required", type = "text" })
+                                <br />
+                                @Html.TextBoxFor(x => Model.Item.Links[i].Link1, new { required = "required", type = "text" })
                                 <br />
                                 <input type="button" class="remove-link-button" data-id="@Model.Item.Links[i].Id" value='Izbriši povezavo'/>
                                 

@@ -44,7 +44,7 @@ namespace SPApp.Models.ItemDetails
             Description = item.description;
             Type = item.type;
             Year = item.year;
-            IsAvailable = true; //default, when creating new item ?? ali vzamem it item-a
+            IsAvailable = item.isAvailable; //default, when creating new item ?? ali vzamem it item-a
             Author = item.author;
             //LINKS
             List<Link> links = new List<Link>();

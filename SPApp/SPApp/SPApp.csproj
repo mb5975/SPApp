@@ -241,6 +241,7 @@
     <Compile Include="Models\ItemDetails\Item.cs" />
     <Compile Include="Models\ItemDetails\ItemDetailsViewModel.cs" />
     <Compile Include="Models\ItemDetails\Link.cs" />
+    <Compile Include="Models\ItemDetails\Rent.cs" />
     <Compile Include="Models\link.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
