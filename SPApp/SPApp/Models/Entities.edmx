@@ -17,8 +17,8 @@
           <Property Name="isAvailable" Type="bit" Nullable="false" />
           <Property Name="year" Type="int" Nullable="false" />
           <Property Name="identificationCode" Type="varchar" MaxLength="16" Nullable="false" />
-          <Property Name="item_image" Type="varbinary(max)" />
           <Property Name="isReserved" Type="bit" Nullable="false" />
+          <Property Name="rent_days_length" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="link">
           <Key>
@@ -45,8 +45,8 @@
           <Property Name="rent_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="rent_start" Type="date" Nullable="false" />
           <Property Name="rent_end" Type="date" Nullable="false" />
-          <Property Name="user_account_id" Type="int" Nullable="false" />
           <Property Name="isActive" Type="bit" Nullable="false" />
+          <Property Name="user_account_id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="rent_item">
           <Key>
@@ -87,7 +87,7 @@
           <Property Name="user_accout_id" Type="int" Nullable="false" />
           <Property Name="recommendation_id" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK__link__item_id__40F9A68C">
+        <Association Name="FK__link__item_id__6442E2C9">
           <End Role="item" Type="Self.item" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -101,7 +101,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__recommend__user___07C12930">
+        <Association Name="FK__recommend__user___6DCC4D03">
           <End Role="user_account" Type="Self.user_account" Multiplicity="1" />
           <End Role="recommendation" Type="Self.recommendation" Multiplicity="*" />
           <ReferentialConstraint>
@@ -113,7 +113,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rent__user_accou__02FC7413">
+        <Association Name="FK__rent__user_accou__690797E6">
           <End Role="user_account" Type="Self.user_account" Multiplicity="1" />
           <End Role="rent" Type="Self.rent" Multiplicity="*" />
           <ReferentialConstraint>
@@ -125,7 +125,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rent_item__item___4C6B5938">
+        <Association Name="FK__rent_item__item___793DFFAF">
           <End Role="item" Type="Self.item" Multiplicity="1" />
           <End Role="rent_item" Type="Self.rent_item" Multiplicity="*" />
           <ReferentialConstraint>
@@ -137,7 +137,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rent_item__rent___4B7734FF">
+        <Association Name="FK__rent_item__rent___7849DB76">
           <End Role="rent" Type="Self.rent" Multiplicity="1" />
           <End Role="rent_item" Type="Self.rent_item" Multiplicity="*" />
           <ReferentialConstraint>
@@ -149,7 +149,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__vote__recommenda__0D7A0286">
+        <Association Name="FK__vote__recommenda__73852659">
           <End Role="recommendation" Type="Self.recommendation" Multiplicity="1" />
           <End Role="vote" Type="Self.vote" Multiplicity="*" />
           <ReferentialConstraint>
@@ -161,7 +161,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__vote__user_accou__0C85DE4D">
+        <Association Name="FK__vote__user_accou__72910220">
           <End Role="user_account" Type="Self.user_account" Multiplicity="1" />
           <End Role="vote" Type="Self.vote" Multiplicity="*" />
           <ReferentialConstraint>
@@ -182,31 +182,31 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="user_account" EntityType="Self.user_account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vote" EntityType="Self.vote" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__link__item_id__40F9A68C" Association="Self.FK__link__item_id__40F9A68C">
+          <AssociationSet Name="FK__link__item_id__6442E2C9" Association="Self.FK__link__item_id__6442E2C9">
             <End Role="item" EntitySet="item" />
             <End Role="link" EntitySet="link" />
           </AssociationSet>
-          <AssociationSet Name="FK__recommend__user___07C12930" Association="Self.FK__recommend__user___07C12930">
+          <AssociationSet Name="FK__recommend__user___6DCC4D03" Association="Self.FK__recommend__user___6DCC4D03">
             <End Role="user_account" EntitySet="user_account" />
             <End Role="recommendation" EntitySet="recommendation" />
           </AssociationSet>
-          <AssociationSet Name="FK__rent__user_accou__02FC7413" Association="Self.FK__rent__user_accou__02FC7413">
+          <AssociationSet Name="FK__rent__user_accou__690797E6" Association="Self.FK__rent__user_accou__690797E6">
             <End Role="user_account" EntitySet="user_account" />
             <End Role="rent" EntitySet="rent" />
           </AssociationSet>
-          <AssociationSet Name="FK__rent_item__item___4C6B5938" Association="Self.FK__rent_item__item___4C6B5938">
+          <AssociationSet Name="FK__rent_item__item___793DFFAF" Association="Self.FK__rent_item__item___793DFFAF">
             <End Role="item" EntitySet="item" />
             <End Role="rent_item" EntitySet="rent_item" />
           </AssociationSet>
-          <AssociationSet Name="FK__rent_item__rent___4B7734FF" Association="Self.FK__rent_item__rent___4B7734FF">
+          <AssociationSet Name="FK__rent_item__rent___7849DB76" Association="Self.FK__rent_item__rent___7849DB76">
             <End Role="rent" EntitySet="rent" />
             <End Role="rent_item" EntitySet="rent_item" />
           </AssociationSet>
-          <AssociationSet Name="FK__vote__recommenda__0D7A0286" Association="Self.FK__vote__recommenda__0D7A0286">
+          <AssociationSet Name="FK__vote__recommenda__73852659" Association="Self.FK__vote__recommenda__73852659">
             <End Role="recommendation" EntitySet="recommendation" />
             <End Role="vote" EntitySet="vote" />
           </AssociationSet>
-          <AssociationSet Name="FK__vote__user_accou__0C85DE4D" Association="Self.FK__vote__user_accou__0C85DE4D">
+          <AssociationSet Name="FK__vote__user_accou__72910220" Association="Self.FK__vote__user_accou__72910220">
             <End Role="user_account" EntitySet="user_account" />
             <End Role="vote" EntitySet="vote" />
           </AssociationSet>
@@ -228,9 +228,9 @@
           <Property Name="isAvailable" Type="Boolean" Nullable="false" />
           <Property Name="year" Type="Int32" Nullable="false" />
           <Property Name="identificationCode" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="item_image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="isReserved" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="link" Relationship="Self.FK__link__item_id__40F9A68C" FromRole="item" ToRole="link" />
+          <Property Name="rent_days_length" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="link" Relationship="Self.FK__link__item_id__6442E2C9" FromRole="item" ToRole="link" />
           <NavigationProperty Name="rent" Relationship="Self.rent_item" FromRole="item" ToRole="rent" />
         </EntityType>
         <EntityType Name="link">
@@ -241,7 +241,7 @@
           <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="link1" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="item_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="item" Relationship="Self.FK__link__item_id__40F9A68C" FromRole="link" ToRole="item" />
+          <NavigationProperty Name="item" Relationship="Self.FK__link__item_id__6442E2C9" FromRole="link" ToRole="item" />
         </EntityType>
         <EntityType Name="recommendation">
           <Key>
@@ -251,8 +251,8 @@
           <Property Name="user_account_id" Type="Int32" Nullable="false" />
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="user_account" Relationship="Self.FK__recommend__user___07C12930" FromRole="recommendation" ToRole="user_account" />
-          <NavigationProperty Name="vote" Relationship="Self.FK__vote__recommenda__0D7A0286" FromRole="recommendation" ToRole="vote" />
+          <NavigationProperty Name="user_account" Relationship="Self.FK__recommend__user___6DCC4D03" FromRole="recommendation" ToRole="user_account" />
+          <NavigationProperty Name="vote" Relationship="Self.FK__vote__recommenda__73852659" FromRole="recommendation" ToRole="vote" />
         </EntityType>
         <EntityType Name="rent">
           <Key>
@@ -261,9 +261,9 @@
           <Property Name="rent_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="rent_start" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="rent_end" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="user_account_id" Type="Int32" Nullable="false" />
           <Property Name="isActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="user_account" Relationship="Self.FK__rent__user_accou__02FC7413" FromRole="rent" ToRole="user_account" />
+          <Property Name="user_account_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="user_account" Relationship="Self.FK__rent__user_accou__690797E6" FromRole="rent" ToRole="user_account" />
           <NavigationProperty Name="item" Relationship="Self.rent_item" FromRole="rent" ToRole="item" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -288,9 +288,9 @@
           <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="user_type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="deleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="recommendation" Relationship="Self.FK__recommend__user___07C12930" FromRole="user_account" ToRole="recommendation" />
-          <NavigationProperty Name="rent" Relationship="Self.FK__rent__user_accou__02FC7413" FromRole="user_account" ToRole="rent" />
-          <NavigationProperty Name="vote" Relationship="Self.FK__vote__user_accou__0C85DE4D" FromRole="user_account" ToRole="vote" />
+          <NavigationProperty Name="recommendation" Relationship="Self.FK__recommend__user___6DCC4D03" FromRole="user_account" ToRole="recommendation" />
+          <NavigationProperty Name="rent" Relationship="Self.FK__rent__user_accou__690797E6" FromRole="user_account" ToRole="rent" />
+          <NavigationProperty Name="vote" Relationship="Self.FK__vote__user_accou__72910220" FromRole="user_account" ToRole="vote" />
         </EntityType>
         <EntityType Name="vote">
           <Key>
@@ -299,10 +299,10 @@
           <Property Name="vote_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="user_accout_id" Type="Int32" Nullable="false" />
           <Property Name="recommendation_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="recommendation" Relationship="Self.FK__vote__recommenda__0D7A0286" FromRole="vote" ToRole="recommendation" />
-          <NavigationProperty Name="user_account" Relationship="Self.FK__vote__user_accou__0C85DE4D" FromRole="vote" ToRole="user_account" />
+          <NavigationProperty Name="recommendation" Relationship="Self.FK__vote__recommenda__73852659" FromRole="vote" ToRole="recommendation" />
+          <NavigationProperty Name="user_account" Relationship="Self.FK__vote__user_accou__72910220" FromRole="vote" ToRole="user_account" />
         </EntityType>
-        <Association Name="FK__link__item_id__40F9A68C">
+        <Association Name="FK__link__item_id__6442E2C9">
           <End Role="item" Type="Self.item" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -316,7 +316,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__recommend__user___07C12930">
+        <Association Name="FK__recommend__user___6DCC4D03">
           <End Role="user_account" Type="Self.user_account" Multiplicity="1" />
           <End Role="recommendation" Type="Self.recommendation" Multiplicity="*" />
           <ReferentialConstraint>
@@ -328,7 +328,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__vote__recommenda__0D7A0286">
+        <Association Name="FK__vote__recommenda__73852659">
           <End Role="recommendation" Type="Self.recommendation" Multiplicity="1" />
           <End Role="vote" Type="Self.vote" Multiplicity="*" />
           <ReferentialConstraint>
@@ -340,7 +340,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__rent__user_accou__02FC7413">
+        <Association Name="FK__rent__user_accou__690797E6">
           <End Role="user_account" Type="Self.user_account" Multiplicity="1" />
           <End Role="rent" Type="Self.rent" Multiplicity="*" />
           <ReferentialConstraint>
@@ -352,7 +352,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__vote__user_accou__0C85DE4D">
+        <Association Name="FK__vote__user_accou__72910220">
           <End Role="user_account" Type="Self.user_account" Multiplicity="1" />
           <End Role="vote" Type="Self.vote" Multiplicity="*" />
           <ReferentialConstraint>
@@ -376,23 +376,23 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="user_account" EntityType="Self.user_account" />
           <EntitySet Name="vote" EntityType="Self.vote" />
-          <AssociationSet Name="FK__link__item_id__40F9A68C" Association="Self.FK__link__item_id__40F9A68C">
+          <AssociationSet Name="FK__link__item_id__6442E2C9" Association="Self.FK__link__item_id__6442E2C9">
             <End Role="item" EntitySet="item" />
             <End Role="link" EntitySet="link" />
           </AssociationSet>
-          <AssociationSet Name="FK__recommend__user___07C12930" Association="Self.FK__recommend__user___07C12930">
+          <AssociationSet Name="FK__recommend__user___6DCC4D03" Association="Self.FK__recommend__user___6DCC4D03">
             <End Role="user_account" EntitySet="user_account" />
             <End Role="recommendation" EntitySet="recommendation" />
           </AssociationSet>
-          <AssociationSet Name="FK__vote__recommenda__0D7A0286" Association="Self.FK__vote__recommenda__0D7A0286">
+          <AssociationSet Name="FK__vote__recommenda__73852659" Association="Self.FK__vote__recommenda__73852659">
             <End Role="recommendation" EntitySet="recommendation" />
             <End Role="vote" EntitySet="vote" />
           </AssociationSet>
-          <AssociationSet Name="FK__rent__user_accou__02FC7413" Association="Self.FK__rent__user_accou__02FC7413">
+          <AssociationSet Name="FK__rent__user_accou__690797E6" Association="Self.FK__rent__user_accou__690797E6">
             <End Role="user_account" EntitySet="user_account" />
             <End Role="rent" EntitySet="rent" />
           </AssociationSet>
-          <AssociationSet Name="FK__vote__user_accou__0C85DE4D" Association="Self.FK__vote__user_accou__0C85DE4D">
+          <AssociationSet Name="FK__vote__user_accou__72910220" Association="Self.FK__vote__user_accou__72910220">
             <End Role="user_account" EntitySet="user_account" />
             <End Role="vote" EntitySet="vote" />
           </AssociationSet>
@@ -418,8 +418,8 @@
                 <ScalarProperty Name="isAvailable" ColumnName="isAvailable" />
                 <ScalarProperty Name="year" ColumnName="year" />
                 <ScalarProperty Name="identificationCode" ColumnName="identificationCode" />
-                <ScalarProperty Name="item_image" ColumnName="item_image" />
                 <ScalarProperty Name="isReserved" ColumnName="isReserved" />
+                <ScalarProperty Name="rent_days_length" ColumnName="rent_days_length" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -449,8 +449,8 @@
                 <ScalarProperty Name="rent_id" ColumnName="rent_id" />
                 <ScalarProperty Name="rent_start" ColumnName="rent_start" />
                 <ScalarProperty Name="rent_end" ColumnName="rent_end" />
-                <ScalarProperty Name="user_account_id" ColumnName="user_account_id" />
                 <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="user_account_id" ColumnName="user_account_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

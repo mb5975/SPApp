@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c1c06a5c4f104579be400b21a1089eee" Name="Diagram1">
+      <Diagram DiagramId="b41fb58c1f324bd19a20cd130d0760bb" Name="Diagram1">
         <EntityTypeShape EntityType="databaseModel.item" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="databaseModel.link" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="databaseModel.recommendation" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
@@ -12,11 +12,11 @@
         <EntityTypeShape EntityType="databaseModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="databaseModel.user_account" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="databaseModel.vote" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
-        <AssociationConnector Association="databaseModel.FK__link__item_id__40F9A68C" ManuallyRouted="false" />
-        <AssociationConnector Association="databaseModel.FK__recommend__user___07C12930" ManuallyRouted="false" />
-        <AssociationConnector Association="databaseModel.FK__vote__recommenda__0D7A0286" ManuallyRouted="false" />
-        <AssociationConnector Association="databaseModel.FK__rent__user_accou__02FC7413" ManuallyRouted="false" />
-        <AssociationConnector Association="databaseModel.FK__vote__user_accou__0C85DE4D" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseModel.FK__link__item_id__6442E2C9" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseModel.FK__recommend__user___6DCC4D03" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseModel.FK__vote__recommenda__73852659" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseModel.FK__rent__user_accou__690797E6" ManuallyRouted="false" />
+        <AssociationConnector Association="databaseModel.FK__vote__user_accou__72910220" ManuallyRouted="false" />
         <AssociationConnector Association="databaseModel.rent_item" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

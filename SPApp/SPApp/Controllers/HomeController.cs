@@ -10,7 +10,13 @@ namespace SPApp.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
-        {
+        {   //TODO ALI JE TO PAMETNO?? DA SE NE BO ZACIKLAL
+            //var codes = Classes.BLs.HomeBL.GenerateCodes();
+            //while (codes == null)
+            //{
+
+            //    codes = Classes.BLs.HomeBL.GenerateCodes();
+            //}
             Models.Index.IndexViewModel model = new Models.Index.IndexViewModel(Classes.BLs.HomeBL.GenerateCodes());
             return View(model);
         }
@@ -27,6 +33,9 @@ namespace SPApp.Controllers
             else
             {
                 string fullName = GetFullNameFromCookie();
+                string username = GetUsernameFromCookie();
+                bool isAdmin = Classes.BLs.Common.CommonBL.IsUserAdmin(username);
+                ViewBag.IsAdmin = isAdmin;
                 Models.About.AboutViewModel model = new Models.About.AboutViewModel(fullName);
                 ViewBag.IsValidSession = true;
                 return View(model);
@@ -48,17 +57,25 @@ namespace SPApp.Controllers
 
         //[HttpPost]
         public ActionResult RegisterUser(Models.Registration.RegistrationViewModel model) {
-            var isRegisteredSuccessfully = Classes.BLs.RegistrationBL.RegisterUser(model);
-            if (isRegisteredSuccessfully)
+            Classes.BLs.RegistrationBL.RegistrationStatus status = Classes.BLs.RegistrationBL.RegisterUser(model);
+
+            switch (status)
             {
-                Models.Login.LoginViewModel loginModel = new Models.Login.LoginViewModel();
-                loginModel.SuccessMsg = Classes.Consts.Registration.Success;
-                return View("Login", loginModel);
-            }
-            else
-            {
-                model.ErrorMsg = Classes.Consts.Registration.Failed;
-                return View("Registration", model);
+                case Classes.BLs.RegistrationBL.RegistrationStatus.UserExists:
+                    model.ErrorMsg = Classes.Consts.Registration.UserExists;
+                    return View("Registration", model);
+                case Classes.BLs.RegistrationBL.RegistrationStatus.InvalidPassword:
+                    model.ErrorMsg = Classes.Consts.Registration.InvalidPassword;
+                    return View("Registration", model);
+                case Classes.BLs.RegistrationBL.RegistrationStatus.InvalidEmail:
+                    model.ErrorMsg = Classes.Consts.Registration.InvalidEmail;
+                    return View("Registration", model);
+                case Classes.BLs.RegistrationBL.RegistrationStatus.Success:
+                    Models.Login.LoginViewModel loginModel = new Models.Login.LoginViewModel();
+                    loginModel.SuccessMsg = Classes.Consts.Registration.Success;
+                    return View("Login", loginModel);
+                default:
+                    throw new NotImplementedException("Login exception");
             }
         }
 
@@ -186,12 +203,6 @@ namespace SPApp.Controllers
                 model = new Models.AddItem.AddItemViewModel(fullName);
                 return View(model);
             }
-            else if (command == "AddNewLink")
-            {
-                model.Item.Links.Add(new Models.AddItem.Link());
-                return View(model);
-            }
-
             else
             {
                 throw new NotImplementedException();
@@ -210,6 +221,8 @@ namespace SPApp.Controllers
             {
                 string fullName = GetFullNameFromCookie();
                 string username = GetUsernameFromCookie();
+                bool isAdmin = Classes.BLs.Common.CommonBL.IsUserAdmin(username);
+                ViewBag.IsAdmin = isAdmin;
                 //morjo bit vsaj 3 v bazi!, username zato, ker je enoličen in lahko preko njega dobim rente za userja
                 Models.Home.HomeViewModel model = new Models.Home.HomeViewModel(fullName, username, Classes.BLs.HomeBL.GenerateCodes());
                 return View(model);
@@ -228,6 +241,9 @@ namespace SPApp.Controllers
             else
             {
                 string fullName = GetFullNameFromCookie();
+                string username = GetUsernameFromCookie();
+                bool isAdmin = Classes.BLs.Common.CommonBL.IsUserAdmin(username);
+                ViewBag.IsAdmin = isAdmin;
                 Models.Search.SearchViewModel model = new Models.Search.SearchViewModel(fullName);
                 ViewBag.IsValidSession = true;
                 return View(model);
@@ -245,6 +261,9 @@ namespace SPApp.Controllers
             else
             {
                 string fullName = GetFullNameFromCookie();
+                string username = GetUsernameFromCookie();
+                bool isAdmin = Classes.BLs.Common.CommonBL.IsUserAdmin(username);
+                ViewBag.IsAdmin = isAdmin;
                 Models.Statistics.StatisticsViewModel model = new Models.Statistics.StatisticsViewModel(fullName);
                 return View(model);
             }

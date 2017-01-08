@@ -23,8 +23,8 @@ namespace SPApp.Models
         public int rent_id { get; set; }
         public System.DateTime rent_start { get; set; }
         public System.DateTime rent_end { get; set; }
-        public int user_account_id { get; set; }
         public bool isActive { get; set; }
+        public int user_account_id { get; set; }
     
         public virtual user_account user_account { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

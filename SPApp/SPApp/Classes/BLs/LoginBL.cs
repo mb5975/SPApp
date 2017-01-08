@@ -22,7 +22,7 @@ namespace SPApp.Classes.BLs
                 try
                 {
                     var user = context.user_account.Where(u => u.username == model.Username).FirstOrDefault();
-                    if (user == null) { //poglej če je to default value!!!
+                    if (user == null) {
                         return LoginStatus.InvalidUsername;
                     }
                     //validate password
@@ -35,7 +35,9 @@ namespace SPApp.Classes.BLs
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    var sw = new System.IO.StreamWriter(Classes.Consts.ErrorFilePathAndName, true);
+                    sw.WriteLine(DateTime.Now.ToString() + " " + ex.Message + " " + ex.InnerException);
+                    sw.Close();
                     throw ex;
                 }
             }

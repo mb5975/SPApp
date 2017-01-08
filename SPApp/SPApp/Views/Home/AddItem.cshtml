@@ -11,7 +11,7 @@
 
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/site.js"></script>
-
+    <script src="~/Scripts/ItemDetails.js"></script>
 
 </head>
 <body>
@@ -46,7 +46,7 @@
                     <a href='@Url.Action("Statistics")'>Statistika</a>
                 </li>
                 <li>
-                    <a href='@Url.Action("Recommend")'>Predlagaj nakup</a>
+                    <a href='@Url.Action("AddItem")'>Dodaj izdelek</a>
                 </li>
             </ul>
         </nav>
@@ -68,11 +68,13 @@
                     <img alt="Davincijeva šifra" src="~/Content/Images/da-vincijeva-sifra.jpg" />
                 </div>*@
 
-                <div id="main-info">
-                    <span>Avtor: @Html.TextBoxFor(model => model.Item.Author, new { required = "required", type = "text" })</span><br />
-                    <span>Leto izdaje: @Html.TextBoxFor(model => model.Item.Year, new { required = "required", type = "number" })</span><br />
-                    <span>Opis: @Html.TextAreaFor(model => model.Item.Description, new { required = "required", type = "text" })</span><br />
-                    <span>Tip: @Html.TextBoxFor(model => model.Item.Type, new { required = "required", type = "text" })</span><br />
+                <div id="main-info" class="text-align-center centered">
+                    <span>@Html.TextBoxFor(model => model.Item.Author, new { required = "required", type = "text", placeholder="Avtor" })</span><br />
+                    <span>Leto izdaje:</span>
+                    <br />
+                    <span>@Html.TextBoxFor(model => model.Item.Year, new { required = "required", type = "number" })</span><br />
+                    <span>@Html.TextAreaFor(model => model.Item.Description, new { required = "required", type = "text", placeholder="Opis" })</span><br />
+                    <span>@Html.TextBoxFor(model => model.Item.Type, new { required = "required", type = "text", placeholder="Tip" })</span><br />
 
                     @*<span>Status: @Html.TextBoxFor(model => model.Item.IsAvailable)</span>*@
                 </div>
@@ -94,7 +96,7 @@
                     }
                 </ul>
 
-                <input type="submit" name="command" value="AddNewLink">
+                <input type="button" id="add-new-link" value="Dodaj povezavo" />
             </div>
         </section>
 

@@ -37,6 +37,7 @@ namespace SPApp.Models
             this.password = password;
         }
 
+
         public int user_account_id { get; set; }
         public string username { get; set; }
         public string email { get; set; }

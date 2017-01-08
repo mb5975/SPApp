@@ -45,9 +45,18 @@
                 <li>
                     <a href='@Url.Action("Statistics")'>Statistika</a>
                 </li>
-                <li>
-                    <a href='@Url.Action("Recommend")'>Predlagaj nakup</a>
-                </li>
+                @if (ViewBag.IsAdmin)
+                {
+                    <li>
+                        <a href='@Url.Action("AddItem")'>Dodaj izdelek</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href='@Url.Action("Recommend")'>Predlagaj nakup</a>
+                    </li>
+                }
             </ul>
         </nav>
     }

@@ -25,7 +25,9 @@ namespace SPApp.Classes.BLs
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    var sw = new System.IO.StreamWriter(Classes.Consts.ErrorFilePathAndName, true);
+                    sw.WriteLine(DateTime.Now.ToString() + " " + ex.Message + " " + ex.InnerException);
+                    sw.Close();
                     throw ex;
                 }
             }
@@ -54,7 +56,9 @@ namespace SPApp.Classes.BLs
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    var sw = new System.IO.StreamWriter(Classes.Consts.ErrorFilePathAndName, true);
+                    sw.WriteLine(DateTime.Now.ToString() + " " + ex.Message + " " + ex.InnerException);
+                    sw.Close();
                     throw ex;
                 }
             }
@@ -66,13 +70,16 @@ namespace SPApp.Classes.BLs
             {
                 try
                 {
-                    var itemList = context.item.Select(i => i.identificationCode).OrderBy(x => Guid.NewGuid()).Take(1).ToList(); //TODO 3
+                    var itemList = context.item.Select(i => i.identificationCode).OrderBy(x => Guid.NewGuid()).Take(2).ToList(); //TODO 3
                     return itemList;
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
-                    throw ex;
+                    var sw = new System.IO.StreamWriter(Classes.Consts.ErrorFilePathAndName, true);
+                    sw.WriteLine(DateTime.Now.ToString() + " (GENERATE CODES) " + ex.Message + " " + ex.InnerException);
+                    sw.Close();
+                    return null;
+                    throw ex; //ponavadi: Provider failed to open.
                 }
             }
         }

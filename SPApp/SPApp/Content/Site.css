@@ -385,7 +385,7 @@ img.user-icon {
 }
 
 
-input[type="button"] {
+input[type="button"], input[type="submit"] {
     background-color: rgb(205, 137, 20);
     border-radius: 50px;
     border: 2px;
@@ -394,12 +394,12 @@ input[type="button"] {
     text-decoration: none;
 
 }
-input[type="button"]:hover {
+input[type="button"]:hover, input[type="submit"]:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     color: white;
 } 
 
-input[type="button"]:active {
+input[type="button"]:active, input[type="submit"]:active {
     box-shadow: none;
 }
 
@@ -528,7 +528,7 @@ input[type="button"]:active {
         box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     }
 
-    input[type="button"] {
+    input[type="button"], input[type="submit"] {
         box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     }
 

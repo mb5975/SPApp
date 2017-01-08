@@ -27,7 +27,9 @@ namespace SPApp.Classes.BLs
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    var sw = new System.IO.StreamWriter(Classes.Consts.ErrorFilePathAndName, true);
+                    sw.WriteLine(DateTime.Now.ToString() + " " + ex.Message + " " + ex.InnerException);
+                    sw.Close();
                     throw ex;
                 }
             }

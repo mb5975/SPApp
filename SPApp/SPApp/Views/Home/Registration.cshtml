@@ -48,7 +48,7 @@
                 <br />
                 @Html.TextBoxFor(model => model.Username, new { type = "text", placeholder = "Uporabniško ime", oninvalid = "this.setCustomValidity('Polje ne sme biti prazno.')", oninput = "setCustomValidity('')", required = "required" })
                 <br />
-                @Html.TextBoxFor(model => model.Password, new { id = "password", type = "password", placeholder = "Geslo", oninvalid = "this.setCustomValidity('Polje ne sme biti prazno.')", oninput = "setCustomValidity('')", required = "required" })
+                @Html.TextBoxFor(model => model.Password, new { id = "password", type = "password", placeholder = "Geslo (vsaj 8 znakov)", oninvalid = "this.setCustomValidity('Polje ne sme biti prazno.')", oninput = "setCustomValidity('')", required = "required" })
                 @*<input id="password" type="password" placeholder="Geslo" value="@Model.Password" required oninvalid="this.setCustomValidity('Polje ne sme biti prazno.')" oninput="setCustomValidity('')"/>*@
                 <br />
                 @Html.TextBoxFor(model => model.ConfirmPassword, new { id = "confirm-password", type = "password", placeholder = "Ponovite geslo", oninvalid = "this.setCustomValidity('Polje ne sme biti prazno.')", oninput = "validatePassword()", required = "required" })

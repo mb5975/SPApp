@@ -41,9 +41,18 @@
             <li>
                 <a href='@Url.Action("Statistics")'>Statistika</a>
             </li>
-            <li>
-                <a href='@Url.Action("Recommend")'>Predlagaj nakup</a>
-            </li>
+            @if (ViewBag.IsAdmin)
+            {
+                <li>
+                    <a href='@Url.Action("AddItem")'>Dodaj izdelek</a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href='@Url.Action("Recommend")'>Predlagaj nakup</a>
+                </li>
+            }
         </ul>
     </nav>
 
@@ -51,12 +60,14 @@
 
     <section>
         <div id="rent-history-for-user" class="text-align-center">
-            <h3 class="title">Trenutno izposojene knjige</h3>
+            <h3 class="title">Trenutno izposojeni izdelki</h3>
             @*<br />*@
             <div id="table-container"> <!--(najprej za sredino), zdaj za responsive oz overflow-x-->
+            @if (Model.RentedItems.Count > 0)
+            {
                 <table>
                     <tr>
-                        <th>Knjiga</th>
+                        <th>Naziv</th>
                         @*<th>Datum izposoje</th>*@
                         <th>Datum vrnitve</th>
                         <th>Možnost podaljšanja</th>
@@ -66,7 +77,7 @@
                         <tr>
                             <td><a href='@Url.Action("ItemDetails", new { code = rentedItem.IdentificationCode})'>@rentedItem.Name</a></td>
                             @*<td>10.10.2016</td>*@
-                            <td>@rentedItem.RentedUntil</td>
+                            <td>@rentedItem.RentedUntil.ToShortDateString()</td>
                             <td>
                                 @if (!rentedItem.IsReserved)
                                 {
@@ -76,11 +87,17 @@
                         </tr>
                     }
                 </table>
+            }
+            else
+            {
+                <span>Ni izposojenih izdelkov</span>
+            }
+
             </div>
         </div>
     </section>
 
-    <section>
+    <section style="min-height: 600px;">
         <div id="new-in-section">
             <hr class="inline-with-text" />
             <h3 id="new-block-title" class="title">NOVO V NAŠI KNJIŽNICI</h3>
@@ -92,7 +109,7 @@
             <div class="animateblock centerright">
                 <div class="colored">
                     <figure>
-                        <img class="new-item-image" src="../Content/Images/da-vincijeva-sifra.jpg" alt=@item.Name />
+                        @*<img class="new-item-image" src="../Content/Images/da-vincijeva-sifra.jpg" alt=@item.Name />*@
                         <figcaption class="new-item-description">
                             @item.Name
                             <br />

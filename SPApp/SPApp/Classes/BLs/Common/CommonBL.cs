@@ -10,21 +10,20 @@ namespace SPApp.Classes.BLs.Common
     {
         public static string GetUserFullNameFromUsername(string username)
         {
-            //TODO preverjanje če že obstaja email tudi oz username
             using (var context = new Models.databaseEntities())
             {
                 try
                 {
                     var user = context.user_account.Where(u => u.username == username).FirstOrDefault();
                     if (user == null)
-                    { //poglej če je to default value!!!
+                    {
                         return null;
                     }
                     return user.first_name + " " + user.last_name;
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    LogError(ex.Message + " " + ex.InnerException);
                     throw ex;
                 }
             }
@@ -45,7 +44,7 @@ namespace SPApp.Classes.BLs.Common
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    LogError(ex.Message + " " + ex.InnerException);
                     throw ex;
                 }
             }
@@ -55,24 +54,19 @@ namespace SPApp.Classes.BLs.Common
 
         public static Models.ItemDetails.Item GetItem(string code)
         {
-            //TODO preverjanje če že obstaja email tudi oz username
             using (var context = new Models.databaseEntities())
             {
                 try
                 {
                     var item = context.item.Where(i => i.identificationCode == code)
                                            .Include(i => i.link)
-                                           .FirstOrDefault();
-                    if (item == null)
-                    { //poglej če je to default value!!!
-                        throw new Exception();
-                        //return null;
-                    }
+                                           .Single();
+
                     return new Models.ItemDetails.Item(item);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    LogError(ex.Message + " " + ex.InnerException);
                     throw ex;
                 }
             }
@@ -107,12 +101,13 @@ namespace SPApp.Classes.BLs.Common
                     item.year = model.Year;
                     context.item.Add(item);
                     context.SaveChanges();
+                    Log("Shranjevanja izdelka s kodo " + model.IdentificationCode + " je bilo uspešno.");
                     return true;
 
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    LogError(ex.Message + " " + ex.InnerException);
                     throw ex;
                 }
             }
@@ -129,8 +124,7 @@ namespace SPApp.Classes.BLs.Common
                     item.author = model.Author;
                     item.description = model.Description;
                     item.identificationCode = model.IdentificationCode;
-                    //item.isAvailable = true; //TODO ni nujno da je prosto...
-                    //item.item_image //TODO
+                    item.isAvailable = true;
                     List<int> linksToRemove = new List<int>(item.link.Select(l => l.link_id));
                     foreach (var link in model.Links)
                     {
@@ -162,12 +156,13 @@ namespace SPApp.Classes.BLs.Common
                     item.type = model.Type;
                     item.year = model.Year;
                     context.SaveChanges();
+                    Log(" Izdelek s kodo " + model.IdentificationCode + " je bil posodobljen.");
                     return true;
 
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    LogError(ex.Message + " " + ex.InnerException);
                     throw ex;
                 }
             }
@@ -210,7 +205,7 @@ namespace SPApp.Classes.BLs.Common
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    LogError(ex.Message + " " + ex.InnerException);
                     throw ex;
                 }
             }
@@ -226,34 +221,34 @@ namespace SPApp.Classes.BLs.Common
                 {
                     //po code najdi item
                     var item = context.item.Where(i => i.identificationCode == code)
-                                           //.Include(i => i.link)
+                                           //.Include(i => i.rent)
                                            .Single();
 
-                     //new Models.ItemDetails.Item(item);
-                    //poglej če je res frej in če NI rezerviran
                     if (!item.isAvailable)
                     {
                         throw new Exception("item not available");
                         
                     }
-                    //else if (item.isReserved) //TODO poglej če je rezervacija od current user in naredi tabelo rezervacij!! da sploh veš kdo je kaj rezerviral
                     //naredi nov rent
                     Models.rent newRent = new Models.rent();
                     newRent.rent_start = DateTime.Now;
-                    newRent.rent_end = DateTime.Now.AddDays(14);//TODO 14 dni zaenkrat
+                    newRent.rent_end = DateTime.Now.AddDays(item.rent_days_length);
                     var userId = context.user_account.Where(u => u.username == username).Select(u => u.user_account_id).Single();
                     newRent.user_account_id = userId;
-                    newRent.isActive = true; //Takoj aktiven?? tudi če ga še ni prevzel??
+                    newRent.isActive = true;
                     context.rent.Add(newRent);
                     //poveži rent z item-om in user_account-om
                     //dodaj record v rent_item povezovalno tabelo
+                    newRent.item.Add(item); //v obe strani dodam.. pomoje ni nujno ampak dela
                     item.rent.Add(newRent);
+                    
                     item.isAvailable = false; //po novem ni available
                     context.SaveChanges();
+                    Log("Izdelek s kodo " + code + " je bil izposojen s strani uporabnika " + username + ".");
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    LogError(ex.Message + " " + ex.InnerException);
                     throw ex;
                 }
             }
@@ -269,8 +264,8 @@ namespace SPApp.Classes.BLs.Common
                                            .Include(i => i.rent)
                                            .FirstOrDefault();
                     if (item == null)
-                    { //poglej če je to default value!!!
-                        throw new Exception();
+                    {
+                        throw new Exception("item je null");
                         //return null;
                     }
 
@@ -284,7 +279,7 @@ namespace SPApp.Classes.BLs.Common
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    LogError(ex.Message + " " + ex.InnerException);
                     throw ex;
                 }
             }
@@ -315,13 +310,28 @@ namespace SPApp.Classes.BLs.Common
                     //item postavi na available
                     item.isAvailable = true;
                     context.SaveChanges();
+                    Log("Izdelek s kodo " + code + " je bil vrnjen s strani uporabnika " + username + ".");
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    LogError(ex.Message + " " + ex.InnerException);
                     throw ex;
                 }
             }
+        }
+
+        public static void Log(string message)
+        {
+            var sw = new System.IO.StreamWriter(Classes.Consts.LogFilePathAndName, true);
+            sw.WriteLine(DateTime.Now.ToString() + " " + message);
+            sw.Close();
+        }
+
+        public static void LogError(string message)
+        {
+            var sw = new System.IO.StreamWriter(Classes.Consts.ErrorFilePathAndName, true);
+            sw.WriteLine(DateTime.Now.ToString() + " " + message);
+            sw.Close();
         }
     }
 }
