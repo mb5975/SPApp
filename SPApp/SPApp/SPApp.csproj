@@ -319,6 +319,7 @@
       <DependentUpon>Entities.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\home.js" />
     <Content Include="Scripts\index.js" />
     <Content Include="Scripts\ItemDetails.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

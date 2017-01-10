@@ -18,7 +18,7 @@ namespace SPApp.Models.Home
             RentedItems = new List<RentedItem>();
         }
 
-        public HomeViewModel(string fullName, string username, List<string> codes)
+        public HomeViewModel(string fullName, string username, List<string> codes, bool isAdmin)
         {
             FullName = fullName;
             Items = new List<Item>();
@@ -26,7 +26,7 @@ namespace SPApp.Models.Home
             {
                 Items.Add(Classes.BLs.HomeBL.GetItem(code));
             });
-            RentedItems = Classes.BLs.HomeBL.GetRentedItems(username);
+            RentedItems = Classes.BLs.HomeBL.GetRentedItems(username, isAdmin);
 
         }
     }

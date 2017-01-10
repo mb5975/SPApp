@@ -33,25 +33,41 @@ namespace SPApp.Classes.BLs
             }
         }
 
-        public static List<Models.Home.RentedItem> GetRentedItems(string username)
+        public static List<Models.Home.RentedItem> GetRentedItems(string username, bool isAdmin)
         {
-            //TODO preverjanje če že obstaja email tudi oz username
             using (var context = new Models.databaseEntities())
             {
                 try
                 {
-                    var user = context.user_account.Where(u => u.username == username).Single();
-                    List<Models.rent> usersActiveRents = user.rent.Where(r => r.isActive).ToList();
-                    //en rent ma lahko več itemov, lahko je več rentov aktivnih naenkrat
                     List<Models.Home.RentedItem> rentedItems = new List<Models.Home.RentedItem>();
-                    foreach (var rent in usersActiveRents)
+                    //TODO PREVERI ČE JE ADMIN IN DEJ DRUGE PODATKE NOTER :)
+                    if (isAdmin)
                     {
-                        foreach (var item in rent.item)
+                        List<Models.rent> activeRents = context.rent.Where(r => r.isActive).ToList();
+                        foreach (var rent in activeRents)
                         {
-                            rentedItems.Add(new Models.Home.RentedItem(item));
+                            foreach (var item in rent.item)
+                            {
+                                rentedItems.Add(new Models.Home.RentedItem(item));
+                            }
                         }
                     }
-                    //rented items ima vse aktivne iteme, ki si jih je user izposodil
+                    else
+                    {
+                        var user = context.user_account.Where(u => u.username == username).Single();
+                        List<Models.rent> usersActiveRents = user.rent.Where(r => r.isActive).ToList();
+                        //en rent ma lahko več itemov, lahko je več rentov aktivnih naenkrat
+
+                        foreach (var rent in usersActiveRents)
+                        {
+                            foreach (var item in rent.item)
+                            {
+                                rentedItems.Add(new Models.Home.RentedItem(item));
+                            }
+                        }
+                        //rented items ima vse aktivne iteme, ki si jih je user izposodil
+                    }
+
                     return rentedItems;
                 }
                 catch (Exception ex)

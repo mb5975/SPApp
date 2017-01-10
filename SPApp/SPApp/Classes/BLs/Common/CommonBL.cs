@@ -287,13 +287,12 @@ namespace SPApp.Classes.BLs.Common
         }
 
 
-        public static void ReturnItem(string code, string username)
+        public static void ReturnItem(string code, string username) //username je admin, ker samo on lahko vrne
         {
             using (var context = new Models.databaseEntities())
             {
                 try
                 {
-                    //po code najdi item
                     var item = context.item.Where(i => i.identificationCode == code)
                                            //.Include(i => i.link)
                                            .Single();
@@ -304,14 +303,14 @@ namespace SPApp.Classes.BLs.Common
                         throw new Exception("item available");
 
                     }
-                    //spremeni rentEnd če je treba, ITEM IMA LAHKO SAMO EN AKTIVEN RENT NAENKRAT
                     var activeRent = item.rent.Where(r => r.isActive).Single();
                     activeRent.isActive = false;
                     activeRent.rent_end = DateTime.Now;
+                    var user = activeRent.user_account; //tisti ki je imel dejansko izdelek
                     //item postavi na available
                     item.isAvailable = true;
                     context.SaveChanges();
-                    Log("Izdelek s kodo " + code + " je bil vrnjen s strani uporabnika " + username + ".");
+                    Log("Izdelek s kodo " + code + " je bil vrnjen s strani uporabnika " + user.username + ".");
                 }
                 catch (Exception ex)
                 {

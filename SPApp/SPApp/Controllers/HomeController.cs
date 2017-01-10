@@ -224,7 +224,7 @@ namespace SPApp.Controllers
                 bool isAdmin = Classes.BLs.Common.CommonBL.IsUserAdmin(username);
                 ViewBag.IsAdmin = isAdmin;
                 //morjo bit vsaj 3 v bazi!, username zato, ker je enoličen in lahko preko njega dobim rente za userja
-                Models.Home.HomeViewModel model = new Models.Home.HomeViewModel(fullName, username, Classes.BLs.HomeBL.GenerateCodes());
+                Models.Home.HomeViewModel model = new Models.Home.HomeViewModel(fullName, username, Classes.BLs.HomeBL.GenerateCodes(), isAdmin);
                 return View(model);
             }
         }
@@ -252,7 +252,6 @@ namespace SPApp.Controllers
 
         public JsonResult SearchItems(string searchQuery, string category)
         {
-            //cookiessss
             var listOfItems = Classes.BLs.Common.CommonBL.GetItemsByCategory(category, searchQuery);
             var json = new JsonResult();
             foreach (var item in listOfItems)
@@ -308,7 +307,7 @@ namespace SPApp.Controllers
             {
                 Classes.BLs.Common.CommonBL.ReturnItem(code, username);
                 var json = new JsonResult();
-                json.Data = new { redirectTo = Url.Action("ItemDetails", "Home", new { code = code }) }; //ostale dva parametrta sta null, tretiraš kot prvi dostop
+                json.Data = new { redirectTo = Url.Action("Home", "Home", new { code = code }) }; //ostale dva parametrta sta null, tretiraš kot prvi dostop
                 return json;
             }
             else

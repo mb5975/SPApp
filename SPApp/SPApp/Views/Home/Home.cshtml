@@ -11,6 +11,8 @@
 
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/site.js"></script>
+    <script src="~/Scripts/home.js"></script>
+
 </head>
 <body>
     <header id="default-header">
@@ -57,45 +59,88 @@
     </nav>
 
     
-
-    <section>
-        <div id="rent-history-for-user" class="text-align-center">
-            <h3 class="title">Trenutno izposojeni izdelki</h3>
-            @*<br />*@
-            <div id="table-container"> <!--(najprej za sredino), zdaj za responsive oz overflow-x-->
-            @if (Model.RentedItems.Count > 0)
-            {
-                <table>
-                    <tr>
-                        <th>Naziv</th>
-                        @*<th>Datum izposoje</th>*@
-                        <th>Datum vrnitve</th>
-                        <th>Možnost podaljšanja</th>
-                    </tr>
-                    @foreach (var rentedItem in Model.RentedItems)
+    @if (ViewBag.IsAdmin)
+    {
+        <section>
+            <div id="rent-history-for-user" class="text-align-center">
+                <h3 class="title">Trenutno izposojeni izdelki</h3>
+                @*<br />*@
+                <div id="table-container">
+                    <!--(najprej za sredino), zdaj za responsive oz overflow-x-->
+                    @if (Model.RentedItems.Count > 0)
                     {
-                        <tr>
-                            <td><a href='@Url.Action("ItemDetails", new { code = rentedItem.IdentificationCode})'>@rentedItem.Name</a></td>
-                            @*<td>10.10.2016</td>*@
-                            <td>@rentedItem.RentedUntil.ToShortDateString()</td>
-                            <td>
-                                @if (!rentedItem.IsReserved)
-                                {
-                                    <input type="button" value="Podaljšaj" />
-                                }
-                            </td>
-                        </tr>
+                        <table>
+                            <tr>
+                                <th>Naziv</th>
+                                <th>Uporabniško ime</th>
+                                <th>Datum vrnitve</th>
+                                <th>Potrdi vrnitev</th>
+                            </tr>
+                            @foreach (var rentedItem in Model.RentedItems)
+                    {
+                                <tr>
+                                    <td><a href='@Url.Action("ItemDetails", new { code = rentedItem.IdentificationCode})'>@rentedItem.Name</a></td>
+                                    <td>@rentedItem.Username</td>
+                                    <td>@rentedItem.RentedUntil.ToShortDateString()</td>
+                                    <td>
+                                        <input type="button" value="Potrdi" class="return-item-btn" data-code="@rentedItem.IdentificationCode" />
+                                    </td>
+                                </tr>
+                            }
+                        </table>
                     }
-                </table>
-            }
-            else
-            {
-                <span>Ni izposojenih izdelkov</span>
-            }
+                    else
+                    {
+                        <span>Ni izposojenih izdelkov</span>
+                    }
 
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    }
+    else
+    {
+        <section>
+            <div id="rent-history-for-user" class="text-align-center">
+                <h3 class="title">Trenutno izposojeni izdelki</h3>
+                @*<br />*@
+                <div id="table-container">
+                    <!--(najprej za sredino), zdaj za responsive oz overflow-x-->
+                    @if (Model.RentedItems.Count > 0)
+                    {
+                        <table>
+                            <tr>
+                                <th>Naziv</th>
+                                @*<th>Datum izposoje</th>*@
+                                <th>Datum vrnitve</th>
+                                <th>Možnost podaljšanja</th>
+                            </tr>
+                            @foreach (var rentedItem in Model.RentedItems)
+                    {
+                                <tr>
+                                    <td><a href='@Url.Action("ItemDetails", new { code = rentedItem.IdentificationCode})'>@rentedItem.Name</a></td>
+                                    @*<td>10.10.2016</td>*@
+                                    <td>@rentedItem.RentedUntil.ToShortDateString()</td>
+                                    <td>
+                                        @if (!rentedItem.IsReserved)
+                                        {
+                                            <input type="button" value="Podaljšaj" />
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    }
+                    else
+                    {
+                        <span>Ni izposojenih izdelkov</span>
+                    }
+
+                </div>
+            </div>
+        </section>
+    }
+    
 
     <section style="min-height: 600px;">
         <div id="new-in-section">
