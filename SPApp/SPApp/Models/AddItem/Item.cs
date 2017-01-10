@@ -15,6 +15,7 @@ namespace SPApp.Models.AddItem
         public bool IsAvailable { get; set; }
         public string Author { get; set; }
         public List<Link> Links { get; set; }
+        public int RentLengthDays { get; set; }
 
         public Item()
         {
@@ -22,16 +23,17 @@ namespace SPApp.Models.AddItem
             Links = new List<Link>();
         }
 
-        public Item(string code, string name, string description, string type, int year, string author, List<Link> links)
-        {
-            IdentificationCode = code;
-            Name = name;
-            Description = description;
-            Type = type;
-            Year = year;
-            IsAvailable = true; //default, when creating new item
-            Author = author;
-            Links = links;
-        }
+        //public Item(string code, string name, string description, string type, int year, string author, List<Link> links)
+        //{
+        //    IdentificationCode = code;
+        //    Name = name;
+        //    Description = description;
+        //    Type = type;
+        //    Year = year;
+        //    IsAvailable = true; //default, when creating new item
+        //    Author = author;
+        //    Links = links;
+        //    RentLengthDays = 
+        //}
     }
 }

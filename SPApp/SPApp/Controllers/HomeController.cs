@@ -250,6 +250,19 @@ namespace SPApp.Controllers
             }
         }
 
+        public JsonResult SearchItems(string searchQuery, string category)
+        {
+            //cookiessss
+            var listOfItems = Classes.BLs.Common.CommonBL.GetItemsByCategory(category, searchQuery);
+            var json = new JsonResult();
+            foreach (var item in listOfItems)
+            {
+                item.Url = Url.Action("ItemDetails", new { code = item.Code, command = "" });
+            }
+            json.Data = new { list = listOfItems };
+            return json;
+        }
+
         public ActionResult Statistics()
         {
             var valid = IsSessionValid();

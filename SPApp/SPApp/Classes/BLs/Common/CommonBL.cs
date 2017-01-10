@@ -99,6 +99,7 @@ namespace SPApp.Classes.BLs.Common
                     item.name = model.Name;
                     item.type = model.Type;
                     item.year = model.Year;
+                    item.rent_days_length = model.RentLengthDays;
                     context.item.Add(item);
                     context.SaveChanges();
                     Log("Shranjevanja izdelka s kodo " + model.IdentificationCode + " je bilo uspešno.");
@@ -333,5 +334,41 @@ namespace SPApp.Classes.BLs.Common
             sw.WriteLine(DateTime.Now.ToString() + " " + message);
             sw.Close();
         }
+
+
+
+        //search
+        public static List<Models.Search.Item> GetItemsByCategory(string category, string searchQuery)
+        {
+            using (var context = new Models.databaseEntities())
+            {
+                try
+                {
+                    List<Models.item> listOfItemsDB;
+                    if (String.IsNullOrEmpty(searchQuery))
+                    {
+                        listOfItemsDB = context.item.Where(i => i.type == category).ToList();
+                    }
+                    else
+                    {
+                        listOfItemsDB = context.item.Where(i => i.type == category && i.name.Contains(searchQuery)).ToList();
+                    }
+                    
+                    List<Models.Search.Item> results = new List<Models.Search.Item>();
+                    foreach (var item in listOfItemsDB)
+                    {
+                        results.Add(new Models.Search.Item(item));
+                    }
+                    return results;
+                }
+
+                catch (Exception ex)
+                {
+                    LogError(ex.Message + " " + ex.InnerException);
+                    throw ex;
+                }
+            }
+        }
+
     }
 }

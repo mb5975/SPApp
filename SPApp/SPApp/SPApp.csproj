@@ -255,6 +255,7 @@
     <Compile Include="Models\rent.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Search\Item.cs" />
     <Compile Include="Models\Search\SearchViewModel.cs" />
     <Compile Include="Models\Statistics\StatisticsViewModel.cs" />
     <Compile Include="Models\sysdiagrams.cs">

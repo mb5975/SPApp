@@ -82,10 +82,10 @@
             <form>
                 <select>
                     <option disabled selected value="disabled"> -- izberite kategorijo -- </option>
-                    <option value="books">Knjige</option>
-                    <option value="lps">LP plošče</option>
-                    <option value="cds">CDji</option>
-                    <option value="films">Filmi</option>
+                    <option value="knjiga">Knjige</option>
+                    @*<option value="lps">LP plošče</option>*@
+                    <option value="CD">CDji</option>
+                    @*<option value="films">Filmi</option>*@
 
                 </select>
 
@@ -95,33 +95,7 @@
                 <button type="submit" onclick="submit_search(); return false;">Išči</button>
             </form>
         </div>
-        <div id="result-container">
-            <div id="table-container">
-                <!--(najprej za sredino), zdaj za responsive oz overflow-x-->
-                <table>
-                    <tr>
-                        <th>Naziv</th>
-                        <th>Čas izposoje</th>
-                        <th>Status</th>
-                    </tr>
-                    <tr>
-                        <td><a href='@Url.Action("ItemDetails")'>Da Vincijeva šifra</a></td>
-                        <td>25 dni</td>
-                        <td>Izposojeno</td>
-                    </tr>
-                    <tr>
-                        <td><a href='@Url.Action("ItemDetails")'>Z idejo do bogastva</a></td>
-                        <td>25 dni</td>
-                        <td>Izposojeno</td>
-                    </tr>
-                    <tr>
-                        <td><a href='@Url.Action("ItemDetails")'>Programming the World Wide Web</a></td>
-                        <td>25 dni</td>
-                        <td>Prosto</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+        <div id="result-container" class="text-align-center"></div>
     </section>
 </body>
 </html>
