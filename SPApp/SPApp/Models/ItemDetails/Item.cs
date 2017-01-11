@@ -23,19 +23,6 @@ namespace SPApp.Models.ItemDetails
             Links = new List<Link>();
         }
 
-        //public Item(string code, string name, string description, string type, int year, string author, List<Link> links)
-        //{
-        //    Id..
-        //    IdentificationCode = code;
-        //    Name = name;
-        //    Description = description;
-        //    Type = type;
-        //    Year = year;
-        //    IsAvailable = true; //default, when creating new item
-        //    Author = author;
-        //    Links = links;
-        //}
-
         public Item(Models.item item)
         {
             //Id = item.item_id;
@@ -44,7 +31,7 @@ namespace SPApp.Models.ItemDetails
             Description = item.description;
             Type = item.type;
             Year = item.year;
-            IsAvailable = item.isAvailable; //default, when creating new item ?? ali vzamem it item-a
+            IsAvailable = item.isAvailable; //default, when creating new item
             Author = item.author;
             //LINKS
             List<Link> links = new List<Link>();

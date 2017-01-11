@@ -30,7 +30,7 @@ namespace SPApp.Classes.BLs
                     {
                         return RegistrationStatus.InvalidPassword;
                     }
-                    //check email address with regex
+                    //check email address with regex VALIDACIJA
                     Regex r = new Regex(Consts.emailRegexPattern, RegexOptions.IgnoreCase);
                     Match m = r.Match(model.Email);
                     if (!m.Success) {

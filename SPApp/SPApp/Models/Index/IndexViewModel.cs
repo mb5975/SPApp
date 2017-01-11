@@ -21,8 +21,6 @@ namespace SPApp.Models.Index
             {
                 Items.Add(Classes.BLs.IndexBL.GetItem(code));
             });
-            //Items = new List<Item>();
-
         }
     }
 }

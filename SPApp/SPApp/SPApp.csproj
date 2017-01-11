@@ -203,14 +203,11 @@
     <Compile Include="Classes\BLs\LoginBL.cs" />
     <Compile Include="Classes\BLs\RegistrationBL.cs" />
     <Compile Include="Classes\Consts.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\About\AboutViewModel.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddItem\AddItemViewModel.cs" />
     <Compile Include="Models\AddItem\Item.cs" />
     <Compile Include="Models\AddItem\Link.cs" />
@@ -246,7 +243,6 @@
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Login\LoginViewModel.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\recommendation.cs">
       <DependentUpon>Entities.tt</DependentUpon>
     </Compile>

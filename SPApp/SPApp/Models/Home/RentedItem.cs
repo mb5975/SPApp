@@ -13,7 +13,7 @@ namespace SPApp.Models.Home
         public bool IsReserved { get; set; }
         public string Username { get; set; }
 
-        public RentedItem(Models.item item) //RENTE MORM INCLUDAT!!!
+        public RentedItem(Models.item item)
         {
             IdentificationCode = item.identificationCode;
             Name = item.name;

@@ -16,12 +16,6 @@ namespace SPApp.Models.ItemDetails
             //Empty constructor
         }
 
-        //public Link(string name, string link)
-        //{
-        //    Name = name;
-        //    Link1 = link;
-        //}
-
         public Link(Models.link link)
         {
             Id = link.link_id;
